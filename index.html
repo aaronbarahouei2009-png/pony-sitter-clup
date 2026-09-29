@@ -212,8 +212,8 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 .btn,button{transition:transform .18s,box-shadow .18s,filter .18s}
 .btn:hover,button:hover{transform:translateY(-4px) scale(1.03);filter:saturate(1.12)}
 .btn:active,button:active{transform:translateY(1px) scale(.98)}
-.card,.stat,.step,.member-box,.horse-photo,.fun-card,.progress-card,.vote-panel,.mystery,.celebrate,.member-hub{transition:transform .3s ease,box-shadow .3s ease}
-.card:hover,.stat:hover,.step:hover,.member-box:hover,.horse-photo:hover,.fun-card:hover{transform:translateY(-7px);box-shadow:0 22px 42px #0002}
+.card,.stat,.step,.member-box,.fun-card,.progress-card,.vote-panel,.mystery,.celebrate,.member-hub{transition:transform .3s ease,box-shadow .3s ease}
+.card:hover,.stat:hover,.step:hover,.member-box:hover,.fun-card:hover{transform:translateY(-7px);box-shadow:0 22px 42px #0002}
 .progress-card{animation:pulseCard 5s ease-in-out infinite}
 @keyframes pulseCard{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:0 20px 46px #2f80ed28}}
 .fill{background-size:220% 100%;animation:progressFlow 3s linear infinite}
@@ -347,12 +347,7 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 
 <section id="buckskins">
   <div class="section-title"><h2>🤎 Buckskin Horses</h2><p>Golden coats + dark manes</p></div>
-  <div class="horse-photo-grid">
-
-
-</div>
-
-  <div class="detail-band" style="margin-top:20px">
+<div class="detail-band" style="margin-top:20px">
     <h3>🐴 Buckskin Horse Facts</h3>
     <div class="how-grid">
       <div class="step"><span class="step-num">1</span><h3>🤎 Golden coat</h3><p>Buckskin horses usually have a tan or golden body with a darker mane and tail.</p></div>
@@ -720,7 +715,7 @@ document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐
 
   const revealTargets=[
     ...document.querySelectorAll("section"),
-    ...document.querySelectorAll(".card-grid .card,.stats .stat,.how-grid .step,.member-box,.fun-card,.horse-photo,.vote-panel")
+    ...document.querySelectorAll(".card-grid .card,.stats .stat,.how-grid .step,.member-box,.fun-card,.vote-panel")
   ];
   revealTargets.forEach(el=>el.classList.add("reveal"));
   const io=new IntersectionObserver(entries=>{
