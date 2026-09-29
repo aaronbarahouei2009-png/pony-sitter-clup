@@ -23,6 +23,20 @@ input{flex:1;min-width:220px;padding:11px 14px;border:2px solid #cfdbeb;border-r
 .more{display:block;margin:14px auto;background:#ff7a1a;color:#fff}
 .back{display:inline-block;margin-top:8px;text-decoration:none;color:#fff;font-weight:900}
 .empty{text-align:center;padding:20px;background:#fff;border-radius:16px;font-weight:900}
+
+/* extra motion */
+body{background-size:140% 140%;animation:bgDrift 16s ease-in-out infinite alternate}
+@keyframes bgDrift{from{background-position:0% 0%}to{background-position:100% 100%}}
+header{position:relative;overflow:hidden}
+header:after{content:"";position:absolute;left:-20%;top:0;width:28%;height:100%;background:linear-gradient(100deg,transparent,#ffffff3a,transparent);transform:skewX(-18deg);animation:headerSweep 5s ease-in-out infinite}
+@keyframes headerSweep{0%,55%{left:-30%}100%{left:125%}}
+.card,.mini{animation:cardIn .65s ease both}
+.card:nth-child(2n),.mini:nth-child(2n){animation-delay:.08s}.card:nth-child(3n),.mini:nth-child(3n){animation-delay:.16s}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+button{transition:transform .18s,filter .18s,box-shadow .18s}
+button:hover{transform:translateY(-4px) scale(1.03);filter:saturate(1.12);box-shadow:0 9px 18px #0002}
+button:active{transform:translateY(1px) scale(.98)}
+
 </style>
 </head>
 <body>
@@ -166,6 +180,20 @@ document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{document.qu
 search.oninput=()=>{visible=24;render()};
 more.onclick=()=>{visible+=24;render()};
 render();
+
+(function(){
+  const bits=["✨","⭐","🐴","💜","💙"];
+  bits.forEach(function(ch,i){
+    const x=document.createElement("span");
+    x.textContent=ch;
+    x.style.cssText="position:fixed;left:"+(10+i*18)+"vw;top:"+(9+(i%3)*27)+"vh;font-size:24px;opacity:.16;pointer-events:none;z-index:0;animation:floatFact 6s ease-in-out "+(i*.5)+"s infinite alternate";
+    document.body.appendChild(x);
+  });
+  const style=document.createElement("style");
+  style.textContent="@keyframes floatFact{from{transform:translateY(8px) rotate(-8deg)}to{transform:translateY(-18px) rotate(8deg)}}";
+  document.head.appendChild(style);
+})();
+
 </script>
 </body>
 </html>
