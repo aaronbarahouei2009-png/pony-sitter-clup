@@ -481,7 +481,7 @@ function renderMoreGames(){
   const active=document.querySelector(".more-filter.active")?.dataset.cat||"All";
   const list=miniGames.filter(g=>(active==="All"||g.cat===active)&&(!q||(g.name+" "+g.desc+" "+g.cat).toLowerCase().includes(q)));
   document.getElementById("moreCount").textContent=list.length+" of 200 games shown";
-  document.getElementById("moreGrid").innerHTML=list.length?list.map(g=>'<article class="mini"><span class="tag">'+g.cat+'</span><h3>'+g.id+". "+g.name+" 🎮</h3><p>"+g.desc+"</p><button class="play" onclick="openMiniGame("+g.id+")">PLAY GAME</button></article>").join(""):'<div class="empty">No games found. 🐴</div>';
+  document.getElementById("moreGrid").innerHTML=list.length?list.map(g=>'<article class="mini"><span class="tag">'+g.cat+'</span><h3>'+g.id+". "+g.name+" 🎮</h3><p>"+g.desc+"</p><button class='play' onclick="openMiniGame("+g.id+")">PLAY GAME</button></article>").join(""):'<div class="empty">No games found. 🐴</div>';
 }
 document.querySelectorAll(".more-filter").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll(".more-filter").forEach(x=>x.classList.remove("active"));
