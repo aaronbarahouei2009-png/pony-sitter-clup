@@ -240,7 +240,7 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 .reveal.visible{opacity:1;transform:none;filter:none}
 .scroll-progress{position:fixed;left:0;top:0;height:5px;width:0;z-index:1000;background:linear-gradient(90deg,#9edfff,#7b4dcc,#ff7a1a);box-shadow:0 2px 12px #7b4dcc66}
 .horse-dash{position:fixed;left:-130px;bottom:22px;z-index:65;font-size:58px;pointer-events:none;filter:drop-shadow(0 9px 6px #0003);animation:dashAcross 11s cubic-bezier(.2,.65,.25,1) infinite}
-@keyframes dashAcross{0%{left:-130px;transform:translateY(0) rotate(-3deg) scaleX(-1)}10%{transform:translateY(-10px) rotate(2deg) scaleX(-1)}48%{transform:translateY(4px) rotate(-2deg) scaleX(-1)}78%{transform:translateY(-8px) rotate(2deg) scaleX(-1)}100%{left:110vw;transform:translateY(0) rotate(-3deg) scaleX(-1)}}
+@keyframes dashAcross{0%{right:-130px;transform:translateY(0) rotate(-3deg)}10%{transform:translateY(-10px) rotate(2deg)}48%{transform:translateY(4px) rotate(-2deg)}78%{transform:translateY(-8px) rotate(2deg)}100%{right:110vw;transform:translateY(0) rotate(-3deg)}}
 .spark-trail{position:fixed;pointer-events:none;z-index:1100;font-size:18px;animation:trailFade .7s ease-out forwards}
 @keyframes trailFade{0%{opacity:1;transform:scale(1) translateY(0) rotate(0)}100%{opacity:0;transform:scale(.15) translateY(-25px) rotate(90deg)}}
 .float-bit{position:fixed;pointer-events:none;z-index:0;font-size:28px;opacity:.18;animation:floatBit 8s ease-in-out infinite}
