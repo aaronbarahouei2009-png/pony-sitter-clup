@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Horse Games 🐴</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#30252a;background:linear-gradient(180deg,#eef9ff,#f4ecff,#fff1e4)}
+header{background:linear-gradient(135deg,#1557b0,#6c35b8,#d94f00);color:#fff;text-align:center;padding:28px 16px}
+h1{font-size:clamp(34px,7vw,58px);margin:0}.subtitle{font-weight:900;margin:8px 0 14px}
+.back{color:#fff;text-decoration:none;font-weight:900}
+main{max-width:980px;margin:auto;padding:20px 14px 50px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.game{background:#fff;border:2px solid #cfdbeb;border-radius:24px;padding:18px;box-shadow:0 10px 24px #0001}
+.game h2{margin:0 0 8px}.game p{line-height:1.45;color:#625365}
+button{border:0;border-radius:999px;padding:11px 15px;font:inherit;font-weight:900;cursor:pointer;background:#7b4dcc;color:#fff}
+button:hover{transform:translateY(-2px)}.score{font-weight:1000;margin-top:10px}
+#appleGame{position:relative;height:190px;background:linear-gradient(#9edfff,#dff5ff 60%,#8bcf76 60%);border-radius:18px;overflow:hidden;margin-top:12px}
+.pony{position:absolute;left:18px;bottom:28px;font-size:50px;transition:bottom .18s}
+.apple{position:absolute;font-size:29px;cursor:pointer;user-select:none}
+.jump-game{height:190px;position:relative;overflow:hidden;background:linear-gradient(#b9e9ff 0 62%,#8ac76d 62%);border-radius:18px;margin-top:12px}
+.runner{position:absolute;left:30px;bottom:26px;font-size:48px}
+.fence{position:absolute;right:-50px;bottom:26px;font-size:40px;animation:none}
+.fence.run{animation:moveFence 2.3s linear infinite}
+@keyframes moveFence{from{right:-50px}to{right:100%}}
+.jump{animation:jump .55s ease}
+@keyframes jump{50%{bottom:100px}100%{bottom:26px}}
+#jumpMsg{font-weight:900;min-height:24px;margin-top:8px}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.quiz-options button{background:#eef2ff;color:#4d2496}.quiz-options button.correct{background:#b8f0c4;color:#185b2a}.quiz-options button.wrong{background:#ffd1d1;color:#7a2020}
+.small{font-size:13px;color:#6b5d68}
+</style>
+</head>
+<body>
+<header><h1>🐴 Horse Games</h1><div class="subtitle">Three tiny games for horse fans!</div><a class="back" href="index.html">← Back to Pony Sitters Club</a></header>
+<main>
+<div class="games">
+<section class="game">
+<h2>🍎 Apple Catch</h2>
+<p>Click the apples before they disappear. How many can you catch?</p>
+<div id="appleGame"><div class="pony">🐴</div></div>
+<div class="score">Score: <span id="appleScore">0</span></div>
+<button id="appleStart" style="margin-top:10px">Start game</button>
+</section>
+
+<section class="game">
+<h2>🏇 Pony Jump</h2>
+<p>Press the button to help the pony jump over the fence.</p>
+<div class="jump-game"><div id="runner" class="runner">🐎</div><div id="fence" class="fence">🚧</div></div>
+<div id="jumpMsg">Press Start!</div>
+<button id="jumpStart">Start game</button>
+<button id="jumpBtn" style="margin-left:6px" disabled>JUMP!</button>
+</section>
+
+<section class="game">
+<h2>🧠 Guess the Coat</h2>
+<p>What coat color is usually tan or golden with darker mane and tail?</p>
+<div class="quiz-options">
+<button data-answer="wrong">Chestnut 🤎</button>
+<button data-answer="correct">Buckskin 🐴</button>
+<button data-answer="wrong">Black 🖤</button>
+<button data-answer="wrong">Gray 🩶</button>
+</div>
+<div id="quizMsg" class="score">Choose an answer!</div>
+<button id="quizAgain" style="margin-top:10px">New question</button>
+</section>
+</div>
+</main>
+
+<script>
+let appleTimer=null,appleScore=0;
+const appleGame=document.getElementById("appleGame");
+function spawnApple(){
+ const a=document.createElement("span");a.className="apple";a.textContent=["🍎","🍏"][Math.floor(Math.random()*2)];
+ a.style.left=(Math.random()*82+8)+"%";a.style.top=(Math.random()*62+8)+"%";
+ a.onclick=()=>{appleScore++;document.getElementById("appleScore").textContent=appleScore;a.remove()};
+ appleGame.appendChild(a);setTimeout(()=>a.remove(),1100);
+}
+document.getElementById("appleStart").onclick=()=>{
+ clearInterval(appleTimer);appleGame.querySelectorAll(".apple").forEach(x=>x.remove());appleScore=0;document.getElementById("appleScore").textContent=0;
+ for(let i=0;i<10;i++)setTimeout(spawnApple,i*600);
+};
+
+let jumping=false,playing=false;
+const runner=document.getElementById("runner"),fence=document.getElementById("fence"),jumpBtn=document.getElementById("jumpBtn"),jumpMsg=document.getElementById("jumpMsg");
+document.getElementById("jumpStart").onclick=()=>{
+ playing=true;jumpBtn.disabled=false;fence.classList.add("run");jumpMsg.textContent="Go! Jump over the fence!";
+};
+jumpBtn.onclick=()=>{
+ if(!playing||jumping)return;jumping=true;runner.classList.add("jump");setTimeout(()=>{runner.classList.remove("jump");jumping=false},550);
+};
+document.addEventListener("keydown",e=>{if(e.code==="Space"){e.preventDefault();jumpBtn.click()}});
+
+function quiz(){
+ const q=[
+ ["What color is often golden-tan with dark points?",["Buckskin","Gray","Black","Chestnut"],0],
+ ["Which horse is usually reddish or copper-colored?",["Black","Chestnut","Gray","Buckskin"],1],
+ ["Which coat can lighten as the horse gets older?",["Gray","Black","Chestnut","Bay"],0]
+ ];
+ const x=q[Math.floor(Math.random()*q.length)];
+ document.querySelector(".game:last-child p").textContent=x[0];
+ document.querySelectorAll(".quiz-options button").forEach((b,i)=>{b.textContent=x[1][i];b.dataset.answer=i===x[2]?"correct":"wrong";b.className="";});
+ document.getElementById("quizMsg").textContent="Choose an answer!";
+}
+document.querySelectorAll(".quiz-options button").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(".quiz-options button").forEach(x=>x.className="");
+ b.classList.add(b.dataset.answer);
+ document.getElementById("quizMsg").textContent=b.dataset.answer==="correct"?"🎉 Correct!":"❌ Not quite!";
+});
+document.getElementById("quizAgain").onclick=quiz;
+</script>
+</body></html>
