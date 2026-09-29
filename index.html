@@ -141,6 +141,19 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 .switch.on{background:var(--purple2)}
 .switch.on:after{left:30px}
 .member-note{font-size:13px;color:var(--muted);line-height:1.5;margin-top:12px}
+
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.step{background:#fff;border:2px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow);position:relative}
+.step-num{display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;font-weight:1000;font-size:20px}
+.step h3{margin:12px 0 8px;font-size:22px}.step p{margin:0;color:#625365;line-height:1.55}
+.detail-band{margin-top:18px;background:linear-gradient(135deg,#fff,#e9f8ff,#f2eaff);border:2px solid var(--line);border-radius:24px;padding:20px}
+.detail-band h3{margin:0 0 8px}.detail-band p{margin:6px 0;color:#625365;line-height:1.55}
+.mission-list{display:grid;gap:10px;margin-top:14px}
+.mission{display:flex;align-items:center;gap:11px;background:#f8fbff;border:2px solid #dce7f2;border-radius:16px;padding:12px}
+.mission input{width:20px;height:20px;accent-color:#7b4dcc}
+.mission.done{background:#effbf2;border-color:#9ed6ae}
+.mission span{font-weight:900}
+.mission-count{font-weight:1000;color:var(--purple2);margin-top:10px}
 </style></head>
 <body>
 <header>
@@ -153,7 +166,7 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 <div class="announce">🚨 CLUB NEWS: Every craft, event and vote gets us closer to our mystery goal! 🚨</div>
 
 <nav>
-<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a>
+<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a><a href="#how">How it works</a>
 <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
@@ -224,6 +237,21 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
   </div>
 </section>
 
+
+<section id="how">
+  <div class="section-title"><h2>🛠️ How the Club Works</h2><p>Simple, safe and fun</p></div>
+  <div class="how-grid">
+    <div class="step"><span class="step-num">1</span><h3>🎨 Make something</h3><p>We create crafts, plan activities and get our club events ready.</p></div>
+    <div class="step"><span class="step-num">2</span><h3>📣 Share the fun</h3><p>Friends and supporters can visit the website, join an event or check out our crafts.</p></div>
+    <div class="step"><span class="step-num">3</span><h3>📝 Save a request</h3><p>Use the craft form to save an idea. It stays on the device until an adult helper helps arrange the real order.</p></div>
+    <div class="step"><span class="step-num">4</span><h3>👨‍👩‍👧 Adult help</h3><p>A parent or guardian handles payments, public contact and any final arrangements.</p></div>
+  </div>
+  <div class="detail-band">
+    <h3>💡 Ways to support the club</h3>
+    <p>Join an event, vote in the Halloween zone, visit the craft stall, share the website with a friend, or cheer us on as the progress bar grows.</p>
+  </div>
+</section>
+
 <section id="halloween">
   <div class="section-title"><h2>🎃 Halloween Zone</h2><p>Pick your favourite!</p></div>
   <div class="vote-panel">
@@ -287,6 +315,17 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
       <div id="reminderStatus" class="reminder-status">Reminders are off.</div>
       <div class="member-note">No email, phone number, address or account is needed. Browser notifications must be allowed. Daily reminders can only run while this website is open in this version.</div>
     </div>
+
+    <div class="member-box" style="margin-top:15px">
+      <strong style="font-size:20px;color:var(--purple2)">✅ Member missions</strong>
+      <div class="mission-list">
+        <label class="mission"><input type="checkbox" data-mission="craft"><span>Work on a craft</span></label>
+        <label class="mission"><input type="checkbox" data-mission="event"><span>Help with an event idea</span></label>
+        <label class="mission"><input type="checkbox" data-mission="share"><span>Tell a friend about the club</span></label>
+        <label class="mission"><input type="checkbox" data-mission="halloween"><span>Get ready for Halloween</span></label>
+      </div>
+      <div id="missionCount" class="mission-count">0 of 4 missions complete</div>
+    </div>
   </div>
 </section>
 
@@ -316,7 +355,7 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 <section id="friends">
   <div class="section-title"><h2>💙 Best Friends</h2><p>What friendship means to us</p></div>
   <div class="card" style="background:linear-gradient(135deg,#e9f8ff,#f1eaff,#fff0e5);">
-    <h3>### Best Friends</h3>
+    <h3>Best Friends</h3>
     <p>Having a best friend can make every day more fun. A good friend is someone who listens to you, makes you laugh, and stays by your side when things get difficult.</p>
     <p>At school, friends can play games together, share jokes, and help each other with their work. Sometimes friends disagree, but they can talk about their problems and say sorry. Being a good friend means being kind, including others, and treating people with respect.</p>
     <p>The best thing about friendship is that you don't have to be exactly the same. Friends can have different interests and still enjoy spending time together. What matters most is caring about each other and making happy memories together.</p>
@@ -366,6 +405,29 @@ function updateProgress(){
 renderProgress();
 
 function orders(){return JSON.parse(localStorage.getItem("psc_orders")||"[]")}
+
+function setupMissions(){
+  const saved=JSON.parse(localStorage.getItem("psc_missions")||"{}");
+  const boxes=[...document.querySelectorAll("[data-mission]")];
+  boxes.forEach(box=>{
+    box.checked=!!saved[box.dataset.mission];
+    box.closest(".mission").classList.toggle("done",box.checked);
+    box.addEventListener("change",()=>{
+      saved[box.dataset.mission]=box.checked;
+      localStorage.setItem("psc_missions",JSON.stringify(saved));
+      box.closest(".mission").classList.toggle("done",box.checked);
+      renderMissions();
+    });
+  });
+  renderMissions();
+}
+function renderMissions(){
+  const done=[...document.querySelectorAll("[data-mission]")].filter(x=>x.checked).length;
+  const el=document.getElementById("missionCount");
+  if(el) el.textContent=done+" of 4 missions complete"+(done===4?" — amazing work! 🎉":"");
+}
+setupMissions();
+
 function updateStats(){
   document.getElementById("statOrders").textContent=orders().length;
   const v=JSON.parse(localStorage.getItem("psc_votes")||"{}");
