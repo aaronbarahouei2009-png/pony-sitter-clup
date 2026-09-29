@@ -233,6 +233,40 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 @keyframes heroPop{0%{opacity:0;transform:scale(.7) rotate(-5deg)}70%{opacity:1;transform:scale(1.05) rotate(1deg)}100%{transform:scale(1) rotate(0)}}
 @keyframes heroRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
+
+/* --- CLUB ARCADE LOOK --- */
+.club-ticker{overflow:hidden;background:#17111f;color:#fff;border-bottom:2px solid #2d2140;white-space:nowrap}
+.ticker-track{display:inline-flex;gap:36px;padding:10px 0;min-width:max-content;font-weight:1000;letter-spacing:1px;animation:tickerMove 22s linear infinite}
+.club-ticker span{display:inline-flex;align-items:center;gap:6px}
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-45%)}}
+.hero{position:relative;isolation:isolate;overflow:hidden;border:2px solid #d3e2f1;box-shadow:0 20px 55px #2f80ed1a}
+.hero:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-110px;top:-90px;background:radial-gradient(circle,#9edfff90 0,#9edfff20 38%,transparent 70%);animation:heroBlob 7s ease-in-out infinite alternate;z-index:-1}
+.hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;left:-100px;bottom:-130px;background:radial-gradient(circle,#b18cff70 0,#b18cff15 42%,transparent 72%);animation:heroBlob 9s ease-in-out infinite alternate-reverse;z-index:-1}
+@keyframes heroBlob{from{transform:translate(0,0) scale(1)}to{transform:translate(28px,-22px) scale(1.15)}}
+.hero-stage{display:grid;grid-template-columns:minmax(240px,1fr) 230px;gap:18px;max-width:760px;margin:24px auto 0;text-align:left;align-items:center}
+.status-panel{background:#17111f;color:#fff;border-radius:24px;padding:18px;border:2px solid #ffffff18;box-shadow:0 15px 34px #17111f33;position:relative;overflow:hidden}
+.status-panel:after{content:"";position:absolute;inset:-40% -10%;background:linear-gradient(100deg,transparent,#ffffff14,transparent);transform:translateX(-80%) rotate(8deg);animation:panelSweep 4.5s ease-in-out infinite}
+@keyframes panelSweep{0%,58%{transform:translateX(-80%) rotate(8deg)}100%{transform:translateX(95%) rotate(8deg)}}
+.status-kicker{font-size:12px;font-weight:1000;color:#9edfff;letter-spacing:1.5px}
+.status-title{font-size:25px;font-weight:1000;margin:5px 0 12px}
+.status-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid #ffffff16;font-weight:900;position:relative;z-index:1}
+.status-row b{font-size:11px;color:#ffcb74}
+.status-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#59d68b;box-shadow:0 0 0 0 #59d68b80;animation:dotPulse 1.7s infinite}
+.status-dot.orange{background:#ff8a35;box-shadow:0 0 0 0 #ff8a3580}.status-dot.purple{background:#a989ff;box-shadow:0 0 0 0 #a989ff80}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 #ffffff00}50%{box-shadow:0 0 0 6px #ffffff00}}
+.pulse-orb{height:210px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle,#fff 0 12%,#eaf8ff 13% 26%,#c8b7ff 27% 38%,#ffffff 39% 42%,#f4e8ff 43% 100%);box-shadow:0 15px 40px #7b4dcc28;animation:orbFloat 4s ease-in-out infinite}
+.pulse-ring{position:absolute;inset:16px;border:2px solid #7b4dcc55;border-radius:50%;animation:ringPulse 2.4s ease-out infinite}
+.pulse-core{font-size:54px;z-index:2;animation:coreBounce 2s ease-in-out infinite}
+.pulse-orb span{font-size:12px;font-weight:1000;color:#4d2496;letter-spacing:2px;z-index:2}
+@keyframes ringPulse{0%{transform:scale(.78);opacity:.2}65%{transform:scale(1.08);opacity:.8}100%{transform:scale(1.16);opacity:0}}
+@keyframes coreBounce{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.12) rotate(3deg)}}
+@keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.star-meter{animation:scoreGlow 3.2s ease-in-out infinite}
+@keyframes scoreGlow{0%,100%{box-shadow:0 0 0 #7b4dcc00}50%{box-shadow:0 0 28px #7b4dcc3d}}
+.sticker{transition:transform .25s ease,box-shadow .25s ease}
+.sticker:hover{transform:translateY(-8px) rotate(0deg) scale(1.04);box-shadow:0 15px 30px #0002}
+@media(max-width:700px){.hero-stage{grid-template-columns:1fr}.pulse-orb{width:185px;height:185px;margin:auto}.ticker-track{gap:24px;font-size:13px}}
+
 </style></head>
 <body>
 
@@ -262,9 +296,10 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
   </div>
 <div style="height:8px;background:linear-gradient(90deg,#2f80ed 0 25%,#8b5cf6 25% 50%,#ff7a1a 50% 75%,#4a2c20 75% 100%)"></div></header>
 <div class="announce">🚨 CLUB NEWS: Every craft, event and vote gets us closer to our mystery goal! 🚨</div>
+<div class="club-ticker"><div class="ticker-track"><span>🧶 CRAFTS</span><span>🎃 HALLOWEEN</span><span>🎮 GAMES</span><span>🤫 MYSTERY</span><span>⭐ CLUB HQ</span><span>🎉 EVENTS</span><span>🧶 CRAFTS</span><span>🎃 HALLOWEEN</span><span>🎮 GAMES</span><span>🤫 MYSTERY</span></div></div>
 
 <nav>
-<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="games.html">🎮 Horse Games</a><a href="#fun">🎮 Fun</a><a href="#crafts">Crafts</a><a href="#horses">🐴 Horses</a><a href="#buckskins">🤎 Buckskins</a><a href="facts.html">📚 99 Facts</a><a href="#how">How it works</a>
+<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="games.html">🎮 Horse Games</a><a href="#fun">🎮 Fun</a><a href="#crafts">Crafts</a><a href="#buckskins">🐴 Buckskin facts</a><a href="#buckskins">🤎 Buckskins</a><a href="facts.html">📚 99 Facts</a><a href="#how">How it works</a>
 <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
@@ -275,6 +310,16 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
   <p>We’re a group of Year 4 friends making crafts, running events and raising money for something VERY special.</p>
   <p><b>We’re keeping the reason a secret for now.</b> You’ll have to follow our progress to discover the surprise! 👀</p>
   <div class="hero-actions"><a class="btn" href="#crafts">🧶 Explore crafts</a><a class="btn purple" href="#halloween">🎃 Halloween zone</a><button class="btn yellow" onclick="celebrate()">🎉 Celebrate!</button></div>
+  <div class="hero-stage">
+    <div class="status-panel">
+      <div class="status-kicker">✨ CLUB LIVE</div>
+      <div class="status-title">Pony Sitters HQ</div>
+      <div class="status-row"><span><i class="status-dot"></i> Craft mode</span><b>ON</b></div>
+      <div class="status-row"><span><i class="status-dot orange"></i> Halloween mode</span><b>ON</b></div>
+      <div class="status-row"><span><i class="status-dot purple"></i> Secret mission</span><b>LOCKED</b></div>
+    </div>
+    <div class="pulse-orb"><div class="pulse-ring"></div><div class="pulse-core">🤫</div><span>TOP SECRET</span></div>
+  </div>
   <div class="stats">
     <div class="stat"><strong id="statOrders">0</strong><span>Order requests</span></div>
     <div class="stat"><strong id="statVotes">0</strong><span>Votes cast here</span></div>
