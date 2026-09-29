@@ -6,34 +6,275 @@
 <title>Pony Sitters Club</title>
 <meta name="description" content="Pony Sitters Club — crafts, events and a BIG secret.">
 <style>
-:root{--p:#f28c28;--u:#7b61ff;--d:#4a2c20;--bg:#fff9df;--line:#ead7a5}*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--d)}header{background:linear-gradient(135deg,#2f80ed,#7b61ff,#f28c28);color:#fff;padding:30px 18px 42px;text-align:center}.logo{font-size:clamp(34px,7vw,58px);font-weight:900}.tag{margin-top:8px}nav{position:sticky;top:0;z-index:5;background:#fff;padding:10px;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;box-shadow:0 3px 15px #0001}nav a{padding:9px 13px;border-radius:999px;font-weight:800;color:#51356f}nav a:hover{background:#fff0a8}section{max-width:1050px;margin:auto;padding:44px 18px}.hero{text-align:center}.hero h1{font-size:clamp(32px,6vw,50px)}.hero p{font-size:19px;line-height:1.5}.btn{display:inline-block;border:0;cursor:pointer;background:#f28c28;color:#fff;font-weight:900;border-radius:999px;padding:13px 19px;margin:5px}.btn.u{background:var(--u)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:18px}.card,.progress{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 28px #5a3b201f}.emoji{font-size:52px}.price{font-size:21px;font-weight:900;color:#e87518}.bar{height:42px;background:#eadfb8;border-radius:99px;overflow:hidden;margin:18px 0}.fill{height:100%;width:37%;background:linear-gradient(90deg,#2f80ed,#7b61ff,#f28c28);border-radius:99px;transition:.6s}.meta{display:flex;justify-content:space-between;flex-wrap:wrap;font-weight:900}.secret{background:linear-gradient(135deg,#4a2c20,#5a3b7a);color:#fff;border-radius:28px;padding:30px;text-align:center}.secret h2{color:#ffd84d}.panel{display:none;margin-top:18px}.panel.show{display:block}label{display:block;font-weight:800;margin:10px 0 5px}input,select,textarea{width:100%;padding:12px;border:1px solid #d9c9dc;border-radius:12px;font:inherit}textarea{min-height:90px}form{max-width:600px;margin:auto}.vote{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px;border:1px solid var(--line);border-radius:15px;background:#fff;margin:9px 0}.note{font-size:14px;color:#6b503d;line-height:1.5}.secret .note{color:#f6e9bf}.msg{padding:10px;border-radius:12px;background:#fff1bf;margin-top:10px;display:none}.msg.show{display:block}footer{background:var(--d);color:#fff;text-align:center;padding:28px}
+:root{
+  --blue:#2f80ed;--yellow:#ffd84d;--brown:#4a2c20;--purple:#7b61ff;--orange:#f28c28;
+  --cream:#fff9df;--white:#fff;--line:#ead7a5;--text:#3d2a25;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--text)}
+header{background:linear-gradient(135deg,var(--blue),var(--purple),var(--orange));color:#fff;text-align:center;padding:28px 18px 40px}
+.logo{font-size:clamp(34px,7vw,58px);font-weight:900}
+.tag{font-size:17px;margin-top:8px}
+.announce{background:var(--yellow);color:var(--brown);padding:11px 15px;text-align:center;font-weight:900}
+nav{position:sticky;top:0;z-index:20;background:var(--white);display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:10px;box-shadow:0 3px 15px #0001}
+nav a{color:#51356f;text-decoration:none;font-weight:900;padding:9px 13px;border-radius:999px}
+nav a:hover{background:#fff0a8}
+section{max-width:1080px;margin:auto;padding:42px 18px}
+.hero{text-align:center}.hero h1{font-size:clamp(32px,6vw,52px);margin:0 0 12px}.hero p{font-size:19px;line-height:1.55}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--orange);color:#fff;font-weight:900;border-radius:999px;padding:13px 19px;margin:5px;font-size:15px}
+.btn.purple{background:var(--purple)}.btn.blue{background:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card,.progress,.timer{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 28px #5a3b201f}
+.emoji{font-size:52px}.price{font-size:20px;font-weight:900;color:#e87518}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:25px}
+.stat{text-align:center;background:#fff;border:2px solid var(--line);border-radius:18px;padding:15px;font-weight:900}
+.stat strong{display:block;font-size:28px;color:var(--blue)}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-weight:900}
+.bar{height:42px;background:#eadfb8;border-radius:99px;overflow:hidden;margin:18px 0}
+.fill{height:100%;width:37%;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));border-radius:99px;transition:.7s}
+.timer{text-align:center;margin-top:22px}
+.timer-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+.timebox{background:var(--brown);color:#fff;min-width:76px;border-radius:15px;padding:11px 10px}.timebox b{display:block;font-size:28px;color:var(--yellow)}
+.secret{background:linear-gradient(135deg,var(--brown),#5a3b7a);color:#fff;border-radius:28px;padding:30px;text-align:center}
+.secret h2{color:var(--yellow)}
+.panel{display:none;margin-top:18px}.panel.show{display:block}
+label{display:block;font-weight:900;margin:10px 0 5px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d9c9dc;border-radius:12px;font:inherit}textarea{min-height:90px}
+form{max-width:620px;margin:auto}
+.vote{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px;border:1px solid var(--line);border-radius:15px;background:#fff;margin:9px 0}
+.msg{padding:11px;border-radius:12px;background:#fff1bf;margin-top:10px;display:none}.msg.show{display:block}
+.milestone{border-left:8px solid var(--blue)}.milestone:nth-child(2){border-color:var(--yellow)}.milestone:nth-child(3){border-color:var(--orange)}.milestone:nth-child(4){border-color:var(--purple)}
+.faq button{width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px;margin:6px 0;font:inherit;font-weight:900;color:var(--text);cursor:pointer}
+.answer{display:none;padding:0 15px 12px;line-height:1.5}.faq button.open+.answer{display:block}
+.celebrate{background:linear-gradient(135deg,var(--blue),var(--purple),var(--orange));color:#fff;border-radius:26px;padding:26px;text-align:center}
+.note{font-size:14px;color:#6b503d;line-height:1.5}
+.secret .note{color:#f6e9bf}
+footer{background:var(--brown);color:#fff;text-align:center;padding:30px 18px;line-height:1.6}
+.top{position:fixed;right:18px;bottom:18px;display:none;width:48px;height:48px;border:0;border-radius:50%;background:var(--purple);color:#fff;font-size:22px;cursor:pointer;z-index:30}
+@media(max-width:560px){.meta{font-size:15px}.vote{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
-<header><div class="logo">🐴✨ Pony Sitters Club</div><div class="tag">Year 4 friends • Crafts • Events • A BIG secret 🤫</div></header>
-<nav><a href="#home">Home</a><a href="#goal">Our Goal</a><a href="#crafts">Crafts</a><a href="#halloween">🎃 Halloween</a><a href="#events">Events</a></nav>
 
-<section id="home" class="hero"><h1>Welcome to Pony Sitters Club! 💕</h1><p>We’re a group of Year 4 friends raising money for something very special.</p><p><b>We can't tell you what it is yet… 🤫</b><br>Every craft sale and event helps us get closer!</p><a class="btn" href="#crafts">Shop our crafts</a><a class="btn u" href="#halloween">See Halloween</a></section>
+<header>
+  <div class="logo">✨ Pony Sitters Club</div>
+  <div class="tag">Year 4 friends • Crafts • Events • A BIG secret 🤫</div>
+</header>
+<div class="announce">📣 Every little bit helps us get closer to our secret goal!</div>
 
-<section id="goal"><h2>🚀 Our Giant Progress Bar</h2><div class="progress"><div class="meta"><span id="pct">37% of our secret goal!</span><span id="amt">$370 / $1,000</span></div><div class="bar"><div class="fill" id="fill"></div></div><p id="pm">We’re getting closer! 🎉</p><button class="btn" onclick="updateProgress()">Update progress</button><p class="note">Club members or an adult helper can update the progress on this device.</p></div></section>
+<nav>
+  <a href="#home">Home</a><a href="#goal">Our Goal</a><a href="#crafts">Crafts</a>
+  <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#faq">FAQ</a>
+</nav>
 
-<section id="crafts"><h2>🧶 Our Crafts</h2><div class="grid">
-<article class="card"><div class="emoji">🧶</div><h3>Crochet Creations</h3><p>Handmade crochet goodies made by our club.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Crochet Creation')">Ask to order</button></article>
-<article class="card"><div class="emoji">⭐</div><h3>Little Handmade Gifts</h3><p>Fun handmade items for friends and family.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Little Handmade Gift')">Ask to order</button></article>
-<article class="card"><div class="emoji">🎀</div><h3>Custom Crafts</h3><p>Ask what we can make at our next craft stall.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Custom Craft')">Ask to order</button></article>
-</div>
-<div id="order" class="card panel"><h3>📝 Craft order request</h3><form id="form"><input id="type" type="hidden"><label>What would you like?</label><input id="item" required placeholder="Example: pink crochet flower"><label>How many?</label><select id="qty"><option>1</option><option>2</option><option>3</option><option>4</option></select><label>Anything else?</label><textarea id="extra" placeholder="Colour or small details"></textarea><p class="note">For safety, no address, phone number, school or payment details are collected here. An adult helper can arrange the in-person order.</p><button class="btn" type="submit">Save request</button><button class="btn u" type="button" onclick="closeOrder()">Close</button><div id="om" class="msg"></div></form></div></section>
+<section id="home" class="hero">
+  <h1>Welcome to Pony Sitters Club! 💛</h1>
+  <p>We’re a group of Year 4 friends raising money for something very special.</p>
+  <p><b>We can't tell you what it is yet… 🤫</b><br>Every craft sale and event helps us get closer!</p>
+  <a class="btn" href="#crafts">🧶 See our crafts</a>
+  <a class="btn purple" href="#halloween">🎃 Halloween</a>
 
-<section id="halloween"><div class="secret"><h2>🎃 Halloween Costume Photo Voting</h2><p>Show off a Halloween costume and vote for your favourite entry!</p><button class="btn" onclick="toggleVotes()">Open voting</button><div id="votes" class="panel"><div id="entries"></div><div id="vm" class="msg"></div><p class="note">Use first names or nicknames only. Photos and entries should be shared with parent/guardian permission.</p></div></div></section>
+  <div class="quick">
+    <div class="stat"><strong>🧶</strong>Handmade crafts</div>
+    <div class="stat"><strong>🎃</strong>Halloween fun</div>
+    <div class="stat"><strong>🎉</strong>Club events</div>
+    <div class="stat"><strong>🤫</strong>One big secret</div>
+  </div>
 
-<section id="events"><h2>🎉 Upcoming Events</h2><div class="grid"><article class="card"><b>October 2026</b><h3>🎃 Halloween Event</h3><p>Costumes, voting, a raffle and lots of fun.</p></article><article class="card"><b>Next craft stall</b><h3>🧶 Craft Stall</h3><p>See our handmade creations and place an in-person order.</p></article><article class="card"><b>Coming soon</b><h3>✨ More events</h3><p>Keep checking back for new club activities.</p></article></div></section>
+  <div class="timer">
+    <h2>⏰ Halloween Countdown</h2>
+    <div class="timer-row">
+      <div class="timebox"><b id="days">00</b>days</div>
+      <div class="timebox"><b id="hours">00</b>hours</div>
+      <div class="timebox"><b id="mins">00</b>mins</div>
+      <div class="timebox"><b id="secs">00</b>secs</div>
+    </div>
+    <p id="countText">Counting down to the Halloween event! 🎃</p>
+  </div>
+  <button class="btn blue" onclick="shareSite()">📤 Share the website</button>
+</section>
 
-<section><div class="secret"><h2>🤫 The Secret</h2><p>We’re keeping the reason for our fundraiser a complete secret for now.</p><p><b>You’ll have to wait for the big reveal! 👀</b></p></div></section>
-<footer><b>Pony Sitters Club</b><br>Made by Year 4 friends 💕<br><span class="note" style="color:#eadcf0">An adult can help manage orders, money and event arrangements.</span></footer>
+<section id="goal">
+  <h2>🚀 Our Giant Progress Bar</h2>
+  <div class="progress">
+    <div class="meta"><span id="pct">37% of our secret goal!</span><span id="amt">$370 / $1,000</span></div>
+    <div class="bar"><div class="fill" id="fill"></div></div>
+    <p id="pm">We’re getting closer! 🎉</p>
+    <button class="btn" onclick="updateProgress()">Update progress</button>
+    <p class="note">Club members or an adult helper can update the progress on this device.</p>
+  </div>
+</section>
+
+<section>
+  <h2>🏆 Fundraising Milestones</h2>
+  <div class="grid">
+    <div class="card milestone"><h3>🌟 25%</h3><p>First big milestone!</p></div>
+    <div class="card milestone"><h3>🎈 50%</h3><p>Halfway there!</p></div>
+    <div class="card milestone"><h3>🔥 75%</h3><p>The finish line is close!</p></div>
+    <div class="card milestone"><h3>🎉 100%</h3><p>The secret goal is complete!</p></div>
+  </div>
+</section>
+
+<section id="crafts">
+  <h2>🧶 Our Crafts</h2>
+  <div class="grid">
+    <article class="card"><div class="emoji">🧶</div><h3>Crochet Creations</h3><p>Handmade crochet goodies made by our club.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Crochet Creation')">Ask to order</button></article>
+    <article class="card"><div class="emoji">⭐</div><h3>Little Handmade Gifts</h3><p>Fun handmade items for friends and family.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Little Handmade Gift')">Ask to order</button></article>
+    <article class="card"><div class="emoji">🎀</div><h3>Custom Crafts</h3><p>Ask what we can make at our next craft stall.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Custom Craft')">Ask to order</button></article>
+    <article class="card"><div class="emoji">🌈</div><h3>Colourful Creations</h3><p>Bright handmade surprises from the club.</p><div class="price">In-person orders</div><button class="btn" onclick="openOrder('Colourful Creation')">Ask to order</button></article>
+    <article class="card"><div class="emoji">🪄</div><h3>Special Requests</h3><p>Tell us your idea and we’ll see what we can make.</p><div class="price">Ask at a stall</div><button class="btn" onclick="openOrder('Special Request')">Ask to order</button></article>
+  </div>
+
+  <div id="order" class="card panel">
+    <h3>📝 Craft order request</h3>
+    <form id="form">
+      <input id="type" type="hidden">
+      <label for="item">What would you like?</label>
+      <input id="item" required placeholder="Example: pink crochet flower">
+      <label for="qty">How many?</label>
+      <select id="qty"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      <label for="extra">Anything else?</label>
+      <textarea id="extra" placeholder="Colour or small details"></textarea>
+      <p class="note">For safety, this form does not ask for addresses, phone numbers, school details, or payment information. An adult helper can arrange the in-person order.</p>
+      <button class="btn" type="submit">Save request</button>
+      <button class="btn purple" type="button" onclick="closeOrder()">Close</button>
+      <div id="om" class="msg"></div>
+    </form>
+  </div>
+</section>
+
+<section id="halloween">
+  <div class="secret">
+    <h2>🎃 Halloween Costume Photo Voting</h2>
+    <p>Show off a Halloween costume and vote for your favourite entry!</p>
+    <button class="btn" onclick="toggleVotes()">Open voting</button>
+    <div id="votes" class="panel">
+      <div id="entries"></div>
+      <div id="vm" class="msg"></div>
+      <p class="note">Use first names or nicknames only. Photos and entries should be shared with parent/guardian permission.</p>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <h2>🎉 Upcoming Events</h2>
+  <div class="grid">
+    <article class="card"><b>October 2026</b><h3>🎃 Halloween Event</h3><p>Costumes, voting, a raffle and lots of fun.</p></article>
+    <article class="card"><b>Next craft stall</b><h3>🧶 Craft Stall</h3><p>See our handmade creations and place an in-person order.</p></article>
+    <article class="card"><b>Coming soon</b><h3>✨ More events</h3><p>Keep checking back for new club activities.</p></article>
+  </div>
+</section>
+
+<section>
+  <div class="celebrate"><h2>💛 Thank You, Supporters!</h2><p>Every order, visit, vote and kind message helps our Year 4 club keep going.</p><p><b>You’re part of the adventure!</b> ✨</p></div>
+</section>
+
+<section id="faq">
+  <h2>❓ Frequently Asked Questions</h2>
+  <div class="faq">
+    <button onclick="faq(this)">What is Pony Sitters Club? ⌄</button><div class="answer">We’re a group of Year 4 friends running crafts and events to raise money for a special secret cause.</div>
+    <button onclick="faq(this)">How do I order a craft? ⌄</button><div class="answer">Use an order button in the Crafts section, then show the saved request to a parent/guardian or adult club helper. Orders and payment are handled in person.</div>
+    <button onclick="faq(this)">Can I vote more than once? ⌄</button><div class="answer">The website allows one vote per browser/device. The club can use its event rules to decide how the final result is counted.</div>
+    <button onclick="faq(this)">What is the secret? ⌄</button><div class="answer">🤫 That’s the big mystery! We’re saving the reveal for later.</div>
+    <button onclick="faq(this)">How can I help? ⌄</button><div class="answer">Come to an event, check out the crafts, vote in the Halloween activity, or tell a friend about the fundraiser.</div>
+  </div>
+</section>
+
+<section>
+  <div class="secret"><h2>🤫 The Secret</h2><p>We’re keeping the reason for our fundraiser a complete secret for now.</p><p><b>You’ll have to wait for the big reveal! 👀</b></p></div>
+</section>
+
+<footer><b>Pony Sitters Club</b><br>Made by Year 4 friends 💛<br><span class="note" style="color:#f6e9bf">An adult can help manage orders, money and event arrangements.</span></footer>
+<button id="top" class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
-let progress=Number(localStorage.getItem('psc_progress')||37);function render(){progress=Math.max(0,Math.min(100,progress));fill.style.width=progress+'%';pct.textContent=progress+'% of our secret goal!';amt.textContent='$'+progress*10+' / $1,000';pm.textContent=progress>=100?'🎉 We reached the goal! 🎉':progress>=75?'So close!! 🥳':progress>=50?'We’re more than halfway! 🌟':'We’re getting closer! 🎉'}function updateProgress(){let v=prompt('Enter progress percentage (0–100):',progress);if(v===null)return;let n=Number(v);if(Number.isFinite(n)&&n>=0&&n<=100){progress=Math.round(n);localStorage.setItem('psc_progress',progress);render()}else alert('Please enter a number from 0 to 100.')}render();
-function openOrder(t){type.value=t;order.classList.add('show');order.scrollIntoView({behavior:'smooth',block:'center'})}function closeOrder(){order.classList.remove('show')}form.addEventListener('submit',e=>{e.preventDefault();let r=JSON.parse(localStorage.getItem('psc_orders')||'[]');r.push({craft:type.value,item:item.value,qty:qty.value,extra:extra.value});localStorage.setItem('psc_orders',JSON.stringify(r));om.textContent='Request saved! Show it to an adult helper to arrange the in-person order. ✅';om.classList.add('show');form.reset()});
-const data=[['a','Pumpkin Wizard','🧙🎃'],['b','Spooky Cat','🐈‍⬛🎃'],['c','Superhero','🦸🎃']];function getVotes(){return JSON.parse(localStorage.getItem('psc_votes')||'{}')}function draw(){let v=getVotes();entries.innerHTML=data.map(x=>'<div class="vote"><span style="font-size:30px">'+x[2]+' <b>'+x[1]+'</b> ('+(v[x[0]]||0)+')</span><button class="btn" onclick="vote(\''+x[0]+'\')">Vote</button></div>').join('')}function toggleVotes(){votes.classList.toggle('show');if(votes.classList.contains('show'))draw()}function vote(id){if(localStorage.getItem('psc_voted')){vm.textContent='You’ve already voted on this device.';vm.classList.add('show');return}let v=getVotes();v[id]=(v[id]||0)+1;localStorage.setItem('psc_votes',JSON.stringify(v));localStorage.setItem('psc_voted','yes');draw();vm.textContent='Vote saved! 🎉';vm.classList.add('show')}
+let progress=Number(localStorage.getItem("psc_progress")||37);
+function render(){
+  progress=Math.max(0,Math.min(100,progress));
+  document.getElementById("fill").style.width=progress+"%";
+  document.getElementById("pct").textContent=progress+"% of our secret goal!";
+  document.getElementById("amt").textContent="$"+(progress*10)+" / $1,000";
+  document.getElementById("pm").textContent=progress>=100?"🎉 We reached the goal! 🎉":progress>=75?"So close!! 🥳":progress>=50?"We’re more than halfway! 🌟":"We’re getting closer! 🎉";
+}
+function updateProgress(){
+  const v=prompt("Enter progress percentage (0–100):",progress);
+  if(v===null)return;
+  const n=Number(v);
+  if(Number.isFinite(n)&&n>=0&&n<=100){progress=Math.round(n);localStorage.setItem("psc_progress",progress);render();}
+  else alert("Please enter a number from 0 to 100.");
+}
+render();
+
+function openOrder(t){
+  document.getElementById("type").value=t;
+  document.getElementById("order").classList.add("show");
+  document.getElementById("order").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function closeOrder(){document.getElementById("order").classList.remove("show")}
+document.getElementById("form").addEventListener("submit",function(e){
+  e.preventDefault();
+  const saved=JSON.parse(localStorage.getItem("psc_orders")||"[]");
+  saved.push({
+    craft:document.getElementById("type").value,
+    item:document.getElementById("item").value.trim(),
+    qty:document.getElementById("qty").value,
+    extra:document.getElementById("extra").value.trim(),
+    savedAt:new Date().toISOString()
+  });
+  localStorage.setItem("psc_orders",JSON.stringify(saved));
+  document.getElementById("om").textContent="Request saved! Show it to an adult helper to arrange the in-person order. ✅";
+  document.getElementById("om").classList.add("show");
+  this.reset();
+});
+
+const data=[["a","Pumpkin Wizard","🧙🎃"],["b","Spooky Cat","🐈‍⬛🎃"],["c","Superhero","🦸🎃"]];
+function getVotes(){return JSON.parse(localStorage.getItem("psc_votes")||"{}")}
+function draw(){
+  const v=getVotes();
+  document.getElementById("entries").innerHTML=data.map(x =>
+    '<div class="vote"><span style="font-size:30px">'+x[2]+' <b>'+x[1]+'</b> ('+(v[x[0]]||0)+')</span><button class="btn" onclick="vote(&quot;'+x[0]+'&quot;)">Vote</button></div>'
+  ).join("");
+}
+function toggleVotes(){
+  const p=document.getElementById("votes");
+  p.classList.toggle("show");
+  if(p.classList.contains("show"))draw();
+}
+function vote(id){
+  if(localStorage.getItem("psc_voted")){
+    document.getElementById("vm").textContent="You’ve already voted on this device.";
+    document.getElementById("vm").classList.add("show");return;
+  }
+  const v=getVotes();v[id]=(v[id]||0)+1;
+  localStorage.setItem("psc_votes",JSON.stringify(v));
+  localStorage.setItem("psc_voted","yes");
+  draw();
+  document.getElementById("vm").textContent="Vote saved! 🎉";
+  document.getElementById("vm").classList.add("show");
+}
+
+function faq(btn){btn.classList.toggle("open")}
+function shareSite(){
+  if(navigator.share)navigator.share({title:"Pony Sitters Club",text:"Check out Pony Sitters Club! 🎉",url:location.href}).catch(()=>{});
+  else if(navigator.clipboard){navigator.clipboard.writeText(location.href);alert("Website link copied! 📋")}
+  else alert(location.href);
+}
+
+const halloween=new Date("2026-10-31T18:00:00");
+function countdown(){
+  const diff=halloween-new Date();
+  if(diff<=0){
+    document.getElementById("countText").textContent="🎃 It’s Halloween time! Have fun!";
+    ["days","hours","mins","secs"].forEach(id=>document.getElementById(id).textContent="00");
+    return;
+  }
+  document.getElementById("days").textContent=String(Math.floor(diff/86400000)).padStart(2,"0");
+  document.getElementById("hours").textContent=String(Math.floor(diff/3600000)%24).padStart(2,"0");
+  document.getElementById("mins").textContent=String(Math.floor(diff/60000)%60).padStart(2,"0");
+  document.getElementById("secs").textContent=String(Math.floor(diff/1000)%60).padStart(2,"0");
+}
+countdown();setInterval(countdown,1000);
+window.addEventListener("scroll",()=>{document.getElementById("top").style.display=scrollY>500?"block":"none"});
 </script>
-</body></html>
+</body>
+</html>
