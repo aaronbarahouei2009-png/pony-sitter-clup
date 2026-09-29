@@ -184,20 +184,16 @@ linear-gradient(160deg,#0b2f6b,#3c1f73 52%,#7d3519)}
 .intro-ribbon.left{left:13%;transform:rotate(9deg);animation:ribbonSwingL 1.7s .1s ease-in-out forwards}
 .intro-ribbon.right{right:13%;transform:rotate(-9deg);animation:ribbonSwingR 1.7s .18s ease-in-out forwards}
 .intro-ribbon:after{content:"✦";position:absolute;bottom:28px;left:0;right:0;text-align:center;color:#fff;font-size:32px}
-.intro-horse{position:absolute;left:-110px;bottom:10%;font-size:82px;filter:drop-shadow(0 11px 6px #0006);animation:horseRun 2.4s 1.45s cubic-bezier(.25,.7,.2,1) forwards}
-.intro-spark{position:absolute;font-size:28px;opacity:0;animation:sparkPop 1.3s ease-out forwards}
-.intro-spark.s1{left:12%;top:32%;animation-delay:1.6s}.intro-spark.s2{right:16%;top:34%;animation-delay:1.85s}.intro-spark.s3{left:23%;bottom:20%;animation-delay:2.1s}.intro-spark.s4{right:23%;bottom:22%;animation-delay:2.35s}
-@keyframes introCardDrop{0%{transform:translate(-50%,-50%) translateY(-80px) rotate(-6deg) scale(.72);opacity:0}70%{transform:translate(-50%,-50%) translateY(8px) rotate(2deg) scale(1.03);opacity:1}100%{transform:translate(-50%,-50%) rotate(-1deg) scale(1);opacity:1}}
+.intro-horse{position:absolute;left:-110px;bottom:10%;font-size:82px;filter:drop-shadow(0 11px 6px #0006);animation:horseRun 2.4s 1.45s cubic-bezier(.25,.7,.2,1) forwards}@keyframes introCardDrop{0%{transform:translate(-50%,-50%) translateY(-80px) rotate(-6deg) scale(.72);opacity:0}70%{transform:translate(-50%,-50%) translateY(8px) rotate(2deg) scale(1.03);opacity:1}100%{transform:translate(-50%,-50%) rotate(-1deg) scale(1);opacity:1}}
 @keyframes riseIn{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
 @keyframes logoSmash{0%{transform:scale(.15) rotate(-10deg);filter:blur(12px);opacity:0}65%{transform:scale(1.08) rotate(2deg);filter:blur(0);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
 @keyframes badgeIn{from{opacity:0}to{opacity:1;transform:translateX(0) translateY(0) rotate(0)}}
 @keyframes ribbonSwingL{0%,100%{transform:rotate(9deg)}50%{transform:rotate(-4deg)}}
 @keyframes ribbonSwingR{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(4deg)}}
 @keyframes sweep{0%{width:10px;height:10px;opacity:1;box-shadow:0 0 0 0 #fff8}100%{width:110vw;height:110vw;opacity:0;box-shadow:0 0 0 120px #ffffff00}}
-@keyframes horseRun{0%{transform:translateX(0) translateY(15px) rotate(-3deg);opacity:0}12%{opacity:1}45%{transform:translateX(45vw) translateY(-10px) rotate(2deg)}78%{transform:translateX(90vw) translateY(4px) rotate(-2deg)}100%{transform:translateX(120vw) translateY(-6px) rotate(1deg);opacity:0}}
-@keyframes sparkPop{0%{transform:scale(.2) rotate(-80deg);opacity:0}25%{opacity:1}100%{transform:translateY(-35px) scale(1.35) rotate(100deg);opacity:0}}
+@keyframes horseRun{0%{transform:translateX(0) translateY(15px) rotate(-3deg);opacity:0}12%{opacity:1}45%{transform:translateX(45vw) translateY(-10px) rotate(2deg)}78%{transform:translateX(90vw) translateY(4px) rotate(-2deg)}100%{transform:translateX(120vw) translateY(-6px) rotate(1deg);opacity:0}}25%{opacity:1}100%{transform:translateY(-35px) scale(1.35) rotate(100deg);opacity:0}}
 @keyframes introExit{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
-@media(prefers-reduced-motion:reduce){#introAnimation{animation:introExit .2s ease 1.1s forwards}.intro-card,.intro-kicker,.intro-logo,.intro-sub,.intro-badge,.intro-sweep,.intro-ribbon,.intro-horse,.intro-spark{animation:none!important}.intro-kicker,.intro-logo,.intro-sub,.intro-badge{opacity:1}}
+@media(prefers-reduced-motion:reduce){#introAnimation{animation:introExit .2s ease 1.1s forwards}.intro-card,.intro-kicker,.intro-logo,.intro-sub,.intro-badge,.intro-sweep,.intro-ribbon,.intro-horse,.intro-kicker,.intro-logo,.intro-sub,.intro-badge{opacity:1}}
 .fun-zone{background:linear-gradient(135deg,#fff,#e9f8ff 35%,#efe7ff 68%,#fff0df);border:3px solid #d5e5f5;border-radius:34px;padding:26px;box-shadow:0 18px 40px #0002;position:relative;overflow:hidden}
 .fun-zone:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-100px;background:#ff7a1a18}
 .fun-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;position:relative}
@@ -253,10 +249,7 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
   <div class="intro-sky"></div>
   <div class="intro-floor"></div>
   <div class="intro-frame"></div>
-  <div class="intro-ribbon left"></div><div class="intro-ribbon right"></div>
-  <span class="intro-spark s1">✨</span><span class="intro-spark s2">⭐</span>
-  <span class="intro-spark s3">💜</span><span class="intro-spark s4">🧡</span>
-  <div class="intro-card">
+  <div class="intro-ribbon left"></div><div class="intro-ribbon right"></div><div class="intro-card">
     <div class="intro-kicker">🎬 GET READY...</div>
     <div class="intro-logo">PONY<br>SITTERS CLUB</div>
     <div class="intro-sub">🐴 The adventure is loading...</div>
@@ -284,9 +277,7 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
-<section id="home" class="hero">
-  <div class="hero-orbit"><span class="orbit-dot d1">✨</span><span class="orbit-dot d2">⭐</span><span class="orbit-dot d3">💜</span><span class="orbit-dot d4">🧡</span></div>
-  <div class="sticker-row">
+<section id="home" class="hero"><div class="sticker-row">
     <div class="sticker">⭐ Year 4 Club</div><div class="sticker">🧶 Made by us</div><div class="sticker">🤫 Top Secret</div><div class="sticker">🎉 Lots of fun</div>
   </div>
   <h1>Welcome to <span>Pony Sitters Club!</span> 💛</h1>
@@ -804,16 +795,7 @@ document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐
   updateScroll();
 
 
-  document.querySelectorAll(".card,.fun-card,.stat,.step,.member-box").forEach(card=>{
-    card.addEventListener("pointermove",e=>{
-      if(innerWidth<850)return;
-      const r=card.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5;
-      const y=(e.clientY-r.top)/r.height-.5;
-      card.style.transform="perspective(800px) rotateX("+(-y*4)+"deg) rotateY("+(x*5)+"deg) translateY(-6px)";
-    });
-    card.addEventListener("pointerleave",()=>{card.style.transform="";});
-  });
+
 
   addEventListener("scroll",()=>{
     const n=document.querySelector("nav");
