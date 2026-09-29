@@ -154,6 +154,12 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 .mission.done{background:#effbf2;border-color:#9ed6ae}
 .mission span{font-weight:900}
 .mission-count{font-weight:1000;color:var(--purple2);margin-top:10px}
+
+.horse-photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.horse-photo{background:#fff;border:2px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
+.horse-photo img{display:block;width:100%;height:230px;object-fit:cover}
+.horse-photo figcaption{padding:14px 16px;font-weight:900;color:var(--brown)}
+.horse-credit{font-size:11px;font-weight:700;color:var(--muted);margin-top:5px}
 </style></head>
 <body>
 <header>
@@ -166,7 +172,7 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 <div class="announce">🚨 CLUB NEWS: Every craft, event and vote gets us closer to our mystery goal! 🚨</div>
 
 <nav>
-<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a><a href="#how">How it works</a>
+<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a><a href="#horses">🐴 Horses</a><a href="#how">How it works</a>
 <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
@@ -210,6 +216,25 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
     <div class="tile yellow"><div class="big-emoji">⭐</div><h3>Milestone moments</h3><p>We celebrate every step.</p></div>
     <div class="tile brown"><div class="big-emoji">🎀</div><h3>Handmade goodies</h3><p>Small crafts, big smiles.</p></div>
     <div class="tile purple"><div class="big-emoji">🎉</div><h3>Club events</h3><p>There’s always something happening.</p></div>
+  </div>
+</section>
+
+
+<section id="horses">
+  <div class="section-title"><h2>🐴 Horse Photo Gallery</h2><p>Beautiful horse pictures</p></div>
+  <div class="horse-photo-grid">
+    <figure class="horse-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Friendly_Horse.jpg?width=1000" alt="A friendly horse standing in a field" loading="lazy">
+      <figcaption>🌿 A friendly horse in the field<div class="horse-credit">Photo: Kris Haamer • CC BY 2.0 • Wikimedia Commons</div></figcaption>
+    </figure>
+    <figure class="horse-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_beautiful_picture_of_a_horse.jpg?width=1000" alt="A horse photographed outdoors" loading="lazy">
+      <figcaption>✨ A beautiful horse outdoors<div class="horse-credit">Photo: Gosego Nkwadzile • CC BY-SA 4.0 • Wikimedia Commons</div></figcaption>
+    </figure>
+    <figure class="horse-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Close_up_of_horse.jpg?width=1000" alt="Close-up portrait of a horse" loading="lazy">
+      <figcaption>💙 Horse close-up<div class="horse-credit">Photo: Teacherjourney • CC BY-SA 3.0 • Wikimedia Commons</div></figcaption>
+    </figure>
   </div>
 </section>
 
