@@ -29,6 +29,19 @@ button:hover{transform:translateY(-2px)}.score{font-weight:1000;margin-top:10px}
 .quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .quiz-options button{background:#eef2ff;color:#4d2496}.quiz-options button.correct{background:#b8f0c4;color:#185b2a}.quiz-options button.wrong{background:#ffd1d1;color:#7a2020}
 .small{font-size:13px;color:#6b5d68}
+
+.more-games{margin-top:22px}
+.more-games-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.more-games-tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.more-games-tools button{background:#eef2ff;color:#4d2496}
+.more-games-tools button.active{background:#4d2496;color:#fff}
+.more-search{flex:1;min-width:220px;padding:11px 14px;border:2px solid #cfdbeb;border-radius:999px;background:#fff}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:11px;max-height:900px;overflow:auto;padding-right:4px}
+.mini{background:#fff;border:2px solid #cfdbeb;border-radius:18px;padding:13px;box-shadow:0 7px 16px #0001}
+.mini h3{margin:0 0 5px;font-size:17px}.mini p{margin:0;color:#625365;font-size:13px;line-height:1.35;min-height:35px}
+.mini .play{width:100%;margin-top:9px;background:#ff7a1a;color:#fff}
+.mini-result{margin-top:8px;padding:8px 10px;border-radius:11px;background:#f3f7ff;font-size:13px;font-weight:900;min-height:34px}
+.more-count{font-weight:900;color:#6b5d68;margin:8px 0}
 </style>
 </head>
 <body>
@@ -64,7 +77,24 @@ button:hover{transform:translateY(-2px)}.score{font-weight:1000;margin-top:10px}
 <div id="quizMsg" class="score">Choose an answer!</div>
 <button id="quizAgain" style="margin-top:10px">New question</button>
 </section>
-</div>
+
+<section class="game more-games" style="grid-column:1/-1">
+  <div class="more-games-head"><h2>🎮 200 More Horse Games</h2><span class="small">Tiny games • pick any one!</span></div>
+  <div class="more-games-tools">
+    <button class="more-filter active" data-cat="All">All</button>
+    <button class="more-filter" data-cat="Race">Race</button>
+    <button class="more-filter" data-cat="Quiz">Quiz</button>
+    <button class="more-filter" data-cat="Puzzle">Puzzle</button>
+    <button class="more-filter" data-cat="Care">Care</button>
+    <button class="more-filter" data-cat="Creative">Creative</button>
+    <input id="moreSearch" class="more-search" placeholder="🔎 Search the 200 games">
+  </div>
+  <div id="moreCount" class="more-count">200 games</div>
+  <div id="moreGrid" class="more-grid"></div>
+</section>
+
+
+\n</div>
 </main>
 
 <script>
@@ -108,5 +138,62 @@ document.querySelectorAll(".quiz-options button").forEach(b=>b.onclick=()=>{
  document.getElementById("quizMsg").textContent=b.dataset.answer==="correct"?"🎉 Correct!":"❌ Not quite!";
 });
 document.getElementById("quizAgain").onclick=quiz;
+
+const gameFamilies=[
+["Race",["Gallop","Canter","Trot","Trail","Meadow","Arena","Sunset","Rainbow","Mountain","Beach"]],
+["Quiz",["Horse","Buckskin","Pony","Mane","Hoof","Saddle","Foal","Stable","Color","Wild"]],
+["Puzzle",["Hoof","Mane","Tail","Saddle","Stable","Pasture","Trail","Tack","Feed","Rosette"]],
+["Care",["Groom","Brush","Water","Hay","Hoof","Mane","Tail","Stable","Feed","Blanket"]],
+["Creative",["Design","Decorate","Name","Style","Paint","Build","Imagine","Create","Choose","Dream"]]
+];
+const miniPrompts={
+Race:["Beat the clock!","Pick the fastest route.","Choose your finish move.","Race to the finish!"],
+Quiz:["Answer a quick horse question.","Test your horse knowledge.","Pick the right answer.","Can you get it right?"],
+Puzzle:["Solve a tiny horse puzzle.","Find the best match.","Pick the missing piece.","Crack the mini puzzle!"],
+Care:["Choose a good care step.","Pick what the horse needs.","Make the care choice.","Help with today's care task."],
+Creative:["Make a fun club choice.","Create something imaginary.","Pick your creative idea.","Design your own horse world."]
+};
+const miniResponses={
+Race:["🏆 You charged across the finish!","💨 Lightning-fast gallop!","🌟 Perfect pace!","🥇 You reached the finish!"],
+Quiz:["🎉 Correct choice!","🧠 Great horse knowledge!","🐴 Nice answer!","⭐ You know your horses!"],
+Puzzle:["🧩 Puzzle solved!","✨ Clever match!","🎯 You cracked it!","💡 Great thinking!"],
+Care:["💚 Great care choice!","🧼 Fresh and tidy!","💧 Good horse-care pick!","🌿 Healthy choice!"],
+Creative:["🎨 Awesome idea!","✨ Super creative!","💜 That's a cool design!","🌈 Brilliant imagination!"]
+};
+const allMiniGames=[];
+let miniId=1;
+for(const family of gameFamilies){
+  const cat=family[0], words=family[1];
+  for(let i=0;i<words.length;i++){
+    for(let v=1;v<=4;v++){
+      allMiniGames.push({
+        id:miniId++,
+        cat,
+        name:words[i]+" "+cat+" #"+v,
+        prompt:miniPrompts[cat][(i+v)%miniPrompts[cat].length]
+      });
+    }
+  }
+}
+function renderMoreGames(){
+  const q=(document.getElementById("moreSearch").value||"").toLowerCase().trim();
+  const active=document.querySelector(".more-filter.active")?.dataset.cat||"All";
+  const list=allMiniGames.filter(g=>(active==="All"||g.cat===active)&&(!q||(g.name+" "+g.prompt+" "+g.cat).toLowerCase().includes(q)));
+  document.getElementById("moreCount").textContent=list.length+" of 200 games shown";
+  document.getElementById("moreGrid").innerHTML=list.length?list.map(g=>'<article class="mini"><h3>'+g.id+'. '+g.name+' 🎮</h3><p>'+g.prompt+'</p><button class="play" onclick="playMini('+g.id+')">PLAY</button><div class="mini-result" id="mini-'+g.id+'">Ready!</div></article>').join(""):'<div class="empty">No games found. 🐴</div>';
+}
+function playMini(id){
+  const g=allMiniGames.find(x=>x.id===id); if(!g)return;
+  const responses=miniResponses[g.cat];
+  const el=document.getElementById("mini-"+id);
+  el.textContent=responses[Math.floor(Math.random()*responses.length)];
+}
+document.querySelectorAll(".more-filter").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".more-filter").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");renderMoreGames();
+}));
+document.getElementById("moreSearch").addEventListener("input",renderMoreGames);
+renderMoreGames();
+
 </script>
 </body></html>
