@@ -126,6 +126,21 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 .confetti{position:fixed;pointer-events:none;font-size:24px;animation:fall 1.8s linear forwards;z-index:100}
 @keyframes fall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(500deg);opacity:0}}
 @media(max-width:600px){section{padding:38px 14px}.hero{padding-top:30px}.hero p{font-size:17px}.stats{grid-template-columns:1fr 1fr}.time{min-width:68px}}
+
+.member-hub{
+  background:linear-gradient(135deg,#eaf8ff,#eee8ff,#fff0e4);
+  border:2px solid #a9c6e8;border-radius:32px;padding:28px;box-shadow:var(--shadow)
+}
+.member-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.member-box{background:#fff;border:2px solid var(--line);border-radius:20px;padding:18px}
+.member-box strong{display:block;font-size:27px;color:var(--blue2);margin-bottom:5px}
+.reminder-status{font-weight:900;margin-top:10px}
+.switch-row{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.switch{width:58px;height:32px;background:#c8d4e4;border:0;border-radius:999px;cursor:pointer;position:relative;padding:0}
+.switch:after{content:"";width:24px;height:24px;position:absolute;top:4px;left:4px;border-radius:50%;background:#fff;transition:.25s;box-shadow:0 2px 5px #0003}
+.switch.on{background:var(--purple2)}
+.switch.on:after{left:30px}
+.member-note{font-size:13px;color:var(--muted);line-height:1.5;margin-top:12px}
 </style></head>
 <body>
 <header>
@@ -139,7 +154,7 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 
 <nav>
 <a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a>
-<a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
+<a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
 <section id="home" class="hero">
@@ -253,6 +268,27 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
   <div class="celebrate"><h2>💛 Thank You, Supporters!</h2><p>Every order, vote, event visit and kind message helps our little club keep going.</p><p><b>You’re part of the adventure!</b> ✨</p><button class="btn yellow" onclick="celebrate()">🎉 Send some confetti</button></div>
 </section>
 
+
+
+<section id="members">
+  <div class="section-title"><h2>⭐ Member Hub</h2><p>Fun daily club updates</p></div>
+  <div class="member-hub">
+    <div class="member-grid">
+      <div class="member-box"><strong id="memberCountdown">--</strong><span>days until Halloween 🎃</span></div>
+      <div class="member-box"><strong id="memberProgress">37%</strong><span>of our goal reached 🚀</span></div>
+      <div class="member-box"><strong id="memberEvents">3</strong><span>event ideas on the board 🎉</span></div>
+    </div>
+    <div class="member-box" style="margin-top:15px">
+      <div class="switch-row">
+        <div><strong style="font-size:20px;color:var(--purple2)">🔔 Daily Halloween reminders</strong>
+        <div>Get a reminder once each day on this device.</div></div>
+        <button id="reminderSwitch" class="switch" type="button" onclick="toggleReminders()" aria-label="Toggle daily reminders"></button>
+      </div>
+      <div id="reminderStatus" class="reminder-status">Reminders are off.</div>
+      <div class="member-note">No email, phone number, address or account is needed. Browser notifications must be allowed. Daily reminders can only run while this website is open in this version.</div>
+    </div>
+  </div>
+</section>
 
 <section id="about">
   <div class="section-title"><h2>📍 About Our Club</h2><p>Where we’re based</p></div>
@@ -398,6 +434,47 @@ function countdown(){
 }
 countdown();setInterval(countdown,1000);updateStats();
 window.addEventListener("scroll",()=>document.getElementById("top").style.display=scrollY>500?"block":"none");
+
+let reminders=localStorage.getItem("psc_daily_reminders")==="yes";
+function updateMemberHub(){
+  const diff=halloween-new Date();
+  const d=Math.max(0,Math.ceil(diff/86400000));
+  document.getElementById("memberCountdown").textContent=d;
+  document.getElementById("memberProgress").textContent=progress+"%";
+  document.getElementById("reminderSwitch").classList.toggle("on",reminders);
+  document.getElementById("reminderStatus").textContent=reminders?"Daily reminders are ON 🔔":"Reminders are off.";
+}
+async function toggleReminders(){
+  if(!("Notification" in window)){
+    document.getElementById("reminderStatus").textContent="This browser does not support notifications.";
+    return;
+  }
+  if(!reminders){
+    const permission=await Notification.requestPermission();
+    if(permission!=="granted"){
+      document.getElementById("reminderStatus").textContent="Notifications were not allowed.";
+      return;
+    }
+    reminders=true;localStorage.setItem("psc_daily_reminders","yes");
+    sendDailyReminder(true);
+  }else{
+    reminders=false;localStorage.setItem("psc_daily_reminders","no");
+  }
+  updateMemberHub();
+}
+function sendDailyReminder(first=false){
+  if(!reminders || !("Notification" in window) || Notification.permission!=="granted")return;
+  const today=new Date().toISOString().slice(0,10);
+  const last=localStorage.getItem("psc_last_reminder");
+  if(first || last!==today){
+    const days=Math.max(0,Math.ceil((halloween-new Date())/86400000));
+    new Notification("Pony Sitters Club 🎃",{body:days+" days until Halloween! Keep following the secret goal. 🤫"});
+    localStorage.setItem("psc_last_reminder",today);
+  }
+}
+updateMemberHub();
+sendDailyReminder(false);
+
 </script>
 </body>
 </html>
