@@ -238,9 +238,7 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 @keyframes emojiBob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-9px)}}
 .reveal{opacity:0;transform:translateY(32px) scale(.985);filter:blur(4px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),filter .7s ease}
 .reveal.visible{opacity:1;transform:none;filter:none}
-.scroll-progress{position:fixed;left:0;top:0;height:5px;width:0;z-index:1000;background:linear-gradient(90deg,#9edfff,#7b4dcc,#ff7a1a);box-shadow:0 2px 12px #7b4dcc66}10%{transform:translateY(-10px) rotate(2deg)}48%{transform:translateY(4px) rotate(-2deg)}78%{transform:translateY(-8px) rotate(2deg)}100%{right:110vw;transform:translateY(0) rotate(-3deg)}}100%{opacity:0;transform:scale(.15) translateY(-25px) rotate(90deg)}}
-.float-bit{position:fixed;pointer-events:none;z-index:0;font-size:28px;opacity:.18;animation:floatBit 8s ease-in-out infinite}
-@keyframes floatBit{0%,100%{transform:translateY(20px) rotate(-8deg)}50%{transform:translateY(-30px) rotate(8deg)}}
+.scroll-progress{position:fixed;left:0;top:0;height:5px;width:0;z-index:1000;background:linear-gradient(90deg,#9edfff,#7b4dcc,#ff7a1a);box-shadow:0 2px 12px #7b4dcc66}10%{transform:translateY(-10px) rotate(2deg)}48%{transform:translateY(4px) rotate(-2deg)}78%{transform:translateY(-8px) rotate(2deg)}100%{right:110vw;transform:translateY(0) rotate(-3deg)}}100%{opacity:0;transform:scale(.15) translateY(-25px) rotate(90deg)}}50%{transform:translateY(-30px) rotate(8deg)}}
 .hero h1{animation:heroPop .9s cubic-bezier(.15,1.3,.25,1) both}
 .hero p{animation:heroRise .8s .12s ease both}
 .hero-actions{animation:heroRise .8s .22s ease both}
@@ -782,18 +780,6 @@ document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐
   progress.className="scroll-progress";
   document.body.appendChild(progress);
 
-
-  const floating=["✨","⭐","🧶","🎃","💜","💙","🧡","🐴"];
-  for(let i=0;i<11;i++){
-    const f=document.createElement("div");
-    f.className="float-bit";
-    f.textContent=floating[i%floating.length];
-    f.style.left=(5+Math.random()*90)+"vw";
-    f.style.top=(8+Math.random()*82)+"vh";
-    f.style.animationDelay=(Math.random()*6)+"s";
-    f.style.animationDuration=(6+Math.random()*7)+"s";
-    document.body.appendChild(f);
-  }
 
   const revealTargets=[
     ...document.querySelectorAll("section"),
