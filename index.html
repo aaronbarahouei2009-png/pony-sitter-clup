@@ -168,341 +168,13 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 .fact-filter.active,.fact-filter:hover{background:#fff;color:#312e81}
 .fact-search{flex:1;min-width:210px;background:#fff!important;color:#30252a!important;border:0!important}
 .facts-count{text-align:right;font-weight:1000;color:#e0f2fe;margin-bottom:12px}
-.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
-.fact-card{background:#fff;color:#30252a;border-radius:22px;padding:17px;border:3px solid #dbeafe;box-shadow:0 10px 24px #0002;min-height:155px}
-.fact-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
-.fact-num{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2f80ed,#7b4dcc);color:#fff;font-weight:1000}
-.fact-tag{font-size:11px;background:#eef2ff;color:#4d2496;border-radius:999px;padding:6px 8px;font-weight:1000}
-.fact-card h3{font-size:18px;margin:6px 0 0}.fact-card p{line-height:1.5;margin:8px 0 0;color:#625365}
-.fact-empty{grid-column:1/-1;background:#fff;color:#30252a;border-radius:20px;padding:22px;text-align:center;font-weight:1000}
-</style></head>
-<body>
-<header>
-  <div class="logo">✨ Pony Sitters Club</div>
-  <div class="tag">Year 4 friends • Crafts • Events • One BIG secret 🤫</div>
-  <div class="header-badges">
-    <div class="badge">🧶 Handmade</div><div class="badge">🎃 Halloween</div><div class="badge">🎉 Events</div><div class="badge">💛 Fundraiser</div>
-  </div>
-<div style="height:8px;background:linear-gradient(90deg,#2f80ed 0 25%,#8b5cf6 25% 50%,#ff7a1a 50% 75%,#4a2c20 75% 100%)"></div></header>
-<div class="announce">🚨 CLUB NEWS: Every craft, event and vote gets us closer to our mystery goal! 🚨</div>
-
-<nav>
-<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a><a href="#horses">🐴 Horses</a><a href="#buckskins">🤎 Buckskins</a><a href="#facts99">📚 99 Facts</a><a href="#how">How it works</a>
-<a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
-</nav>
-
-<section id="home" class="hero">
-  <div class="sticker-row">
-    <div class="sticker">⭐ Year 4 Club</div><div class="sticker">🧶 Made by us</div><div class="sticker">🤫 Top Secret</div><div class="sticker">🎉 Lots of fun</div>
-  </div>
-  <h1>Welcome to <span>Pony Sitters Club!</span> 💛</h1>
-  <p>We’re a group of Year 4 friends making crafts, running events and raising money for something VERY special.</p>
-  <p><b>We’re keeping the reason a secret for now.</b> You’ll have to follow our progress to discover the surprise! 👀</p>
-  <div class="hero-actions"><a class="btn" href="#crafts">🧶 Explore crafts</a><a class="btn purple" href="#halloween">🎃 Halloween zone</a><button class="btn yellow" onclick="celebrate()">🎉 Celebrate!</button></div>
-  <div class="stats">
-    <div class="stat"><strong id="statOrders">0</strong><span>Order requests</span></div>
-    <div class="stat"><strong id="statVotes">0</strong><span>Votes cast here</span></div>
-    <div class="stat"><strong>5+</strong><span>Craft ideas</span></div>
-    <div class="stat"><strong>1</strong><span>BIG secret 🤫</span></div>
-  </div>
-</section>
-
-<section id="goal">
-  <div class="section-title"><h2>🚀 Our Giant Goal</h2><p>Watch the bar grow!</p></div>
-  <div class="progress-card">
-    <div class="progress-top"><span id="pct">37% of our secret goal!</span><span id="amt">$370 / $1,000</span></div>
-    <div class="bar"><div class="fill" id="fill"></div></div>
-    <div class="progress-message" id="pm">We’re getting closer! 🎉</div>
-    <div style="text-align:center;margin-top:15px"><button class="btn blue" onclick="updateProgress()">Update progress</button></div>
-    <p class="note">For club members or an adult helper. The amount is stored only in this browser.</p>
-  </div>
-  <div class="countdown">
-    <h3>🎃 Halloween Countdown</h3>
-    <div class="timer"><div class="time"><b id="days">00</b><span>DAYS</span></div><div class="time"><b id="hours">00</b><span>HOURS</span></div><div class="time"><b id="mins">00</b><span>MINUTES</span></div><div class="time"><b id="secs">00</b><span>SECONDS</span></div></div>
-    <p id="countText">Counting down to Halloween! 👻</p>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="section-title"><h2>🎨 Club Gallery</h2><p>A little look at our world</p></div>
-  <div class="gallery">
-    <div class="tile big"><div class="big-emoji">🧶✨</div><h3>Made with imagination</h3><p>Every creation starts with an idea!</p></div>
-    <div class="tile orange"><div class="big-emoji">🎃</div><h3>Halloween mode</h3><p>Costumes + voting + fun.</p></div>
-    <div class="tile yellow"><div class="big-emoji">⭐</div><h3>Milestone moments</h3><p>We celebrate every step.</p></div>
-    <div class="tile brown"><div class="big-emoji">🎀</div><h3>Handmade goodies</h3><p>Small crafts, big smiles.</p></div>
-    <div class="tile purple"><div class="big-emoji">🎉</div><h3>Club events</h3><p>There’s always something happening.</p></div>
-  </div>
-</section>
-
-
-<section id="horses">
-  <div class="section-title"><h2>🐴 Horse Photo Gallery</h2><p>Beautiful horse pictures</p></div>
-  <div class="horse-photo-grid">
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Friendly_Horse.jpg?width=1000" alt="A friendly horse standing in a field" loading="lazy">
-      <figcaption>🌿 A friendly horse in the field<div class="horse-credit">Photo: Kris Haamer • CC BY 2.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_beautiful_picture_of_a_horse.jpg?width=1000" alt="A horse photographed outdoors" loading="lazy">
-      <figcaption>✨ A beautiful horse outdoors<div class="horse-credit">Photo: Gosego Nkwadzile • CC BY-SA 4.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Close_up_of_horse.jpg?width=1000" alt="Close-up portrait of a horse" loading="lazy">
-      <figcaption>💙 Horse close-up<div class="horse-credit">Photo: Teacherjourney • CC BY-SA 3.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-  </div>
-
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horse_pic.jpg?width=1000" alt="A chestnut horse outdoors" loading="lazy">
-      <figcaption>🤎 Chestnut horse<div class="horse-credit">Photo: Egzi321099 • CC BY-SA 4.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horse_in_a_pen.jpg?width=1000" alt="A horse in a grassy field" loading="lazy">
-      <figcaption>🌱 Horse in a grassy field<div class="horse-credit">Photo: Jojovavasasa • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horse_in_stable.jpg?width=800" alt="A horse in a stable" loading="lazy">
-      <figcaption>🏠 Horse in a stable<div class="horse-credit">Photo: Asterion • Public domain • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horse_.jpg?width=1000" alt="A horse photographed outdoors" loading="lazy">
-      <figcaption>✨ Horse outdoors<div class="horse-credit">Photo: Hanynile • CC BY-SA 3.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horse_1.jpg?width=1000" alt="A horse in the outdoors" loading="lazy">
-      <figcaption>💫 Another horse photo<div class="horse-credit">Photo: VasiLiki.PapPa • Wikimedia Commons</div></figcaption>
-    </figure>
-</section>
-<section id="buckskins">
-  <div class="section-title"><h2>🤎 Buckskin Horses</h2><p>Golden coats + dark manes</p></div>
-  <div class="horse-photo-grid">
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Buckskin_Horse_(2590398035).jpg?width=1000" alt="Buckskin horse with a golden tan coat" loading="lazy">
-      <figcaption>🤎 Buckskin Horse<div class="horse-credit">Photo: Rennett Stowe • CC BY 2.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Buckskin_mare_left_flank.jpg?width=1000" alt="Buckskin mare showing her golden coat" loading="lazy">
-      <figcaption>✨ Buckskin Mare<div class="horse-credit">Photo: Derrick Coetzee • CC0 • Wikimedia Commons</div></figcaption>
-    </figure>
-    <figure class="horse-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Buckskin_horse_at_Vermo_Pony_Show.jpg?width=1000" alt="Buckskin horse at a pony show" loading="lazy">
-      <figcaption>🏆 Buckskin at a Pony Show<div class="horse-credit">Photo: Pitke • CC BY-SA 3.0 • Wikimedia Commons</div></figcaption>
-    </figure>
-  </div>
-
-  <div class="detail-band" style="margin-top:20px">
-    <h3>🐴 Buckskin Horse Facts</h3>
-    <div class="how-grid">
-      <div class="step"><span class="step-num">1</span><h3>🤎 Golden coat</h3><p>Buckskin horses usually have a tan or golden body with a darker mane and tail.</p></div>
-      <div class="step"><span class="step-num">2</span><h3>🧬 A color, not a breed</h3><p>Buckskin describes a horse’s coat color. Horses of many different breeds can be buckskin.</p></div>
-      <div class="step"><span class="step-num">3</span><h3>🖤 Dark points</h3><p>The darker mane, tail and lower legs are called the horse’s “points.”</p></div>
-      <div class="step"><span class="step-num">4</span><h3>☀️ Not the same as dun</h3><p>Buckskin and dun can look similar, but they are different coat-color types.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="crafts">
-  <div class="section-title"><h2>🧶 Craft Shop</h2><p>Orders are arranged in person</p></div>
-  <div class="card-grid">
-    <article class="card pop"><span class="emoji">🧶</span><h3>Crochet Creations</h3><p>Handmade crochet goodies made by our club.</p><div class="price">Ask to order</div><button class="btn" onclick="openOrder('Crochet Creation')">Order request</button></article>
-    <article class="card pop"><span class="emoji">🌈</span><h3>Colourful Creations</h3><p>Bright little handmade surprises in fun colours.</p><div class="price">Ask to order</div><button class="btn orange" onclick="openOrder('Colourful Creation')">Order request</button></article>
-    <article class="card pop"><span class="emoji">🎀</span><h3>Custom Crafts</h3><p>Tell us your idea and we’ll see what we can make.</p><div class="price">Ask to order</div><button class="btn purple" onclick="openOrder('Custom Craft')">Order request</button></article>
-    <article class="card pop"><span class="emoji">⭐</span><h3>Little Gifts</h3><p>Fun handmade things for friends and family.</p><div class="price">Ask to order</div><button class="btn blue" onclick="openOrder('Little Handmade Gift')">Order request</button></article>
-    <article class="card pop"><span class="emoji">🪄</span><h3>Special Requests</h3><p>Have a creative idea? Bring it to our next stall!</p><div class="price">In person</div><button class="btn yellow" onclick="openOrder('Special Request')">Save idea</button></article>
-  </div>
-
-  <div id="order" class="card order-panel panel">
-    <h3>📝 Craft order request</h3>
-    <form id="form">
-      <input id="type" type="hidden">
-      <label for="item">What would you like?</label><input id="item" required placeholder="Example: blue crochet flower">
-      <label for="qty">How many?</label><select id="qty"><option>1</option><option>2</option><option>3</option><option>4</option></select>
-      <label for="extra">Anything else?</label><textarea id="extra" placeholder="Colour or small details"></textarea>
-      <p class="note">No address, phone number, school details or payment information is collected here. An adult helper arranges the real order in person.</p>
-      <button class="btn" type="submit">Save request ✅</button><button class="btn purple" type="button" onclick="closeOrder()">Close</button>
-      <div id="om" class="msg"></div>
-    </form>
-  </div>
-</section>
-
-
-
-<section id="facts99">
-  <div class="section-title"><h2>📚 99 Horse Facts</h2><p>How many did you know?</p></div>
-  <div class="facts99">
-    <div class="facts-intro"><b>🐴 Welcome to the 99-fact wall!</b><br>Explore facts about horse bodies, behavior, colors, breeds, care and history. Use the buttons or search box to find a fact.</div>
-    <div class="facts-toolbar">
-      <button class="fact-filter active" data-fact-filter="All">All</button>
-      <button class="fact-filter" data-fact-filter="Body">Body</button>
-      <button class="fact-filter" data-fact-filter="Behavior">Behavior</button>
-      <button class="fact-filter" data-fact-filter="Colors">Colors</button>
-      <button class="fact-filter" data-fact-filter="Breeds">Breeds</button>
-      <button class="fact-filter" data-fact-filter="Care">Care</button>
-      <button class="fact-filter" data-fact-filter="History">History</button>
-      <input id="factSearch" class="fact-search" type="search" placeholder="🔎 Search the 99 facts...">
-    </div>
-    <div id="factsCount" class="facts-count">99 facts</div>
-    <div id="factsGrid" class="facts-grid"></div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="section-title"><h2>🛠️ How the Club Works</h2><p>Simple, safe and fun</p></div>
-  <div class="how-grid">
-    <div class="step"><span class="step-num">1</span><h3>🎨 Make something</h3><p>We create crafts, plan activities and get our club events ready.</p></div>
-    <div class="step"><span class="step-num">2</span><h3>📣 Share the fun</h3><p>Friends and supporters can visit the website, join an event or check out our crafts.</p></div>
-    <div class="step"><span class="step-num">3</span><h3>📝 Save a request</h3><p>Use the craft form to save an idea. It stays on the device until an adult helper helps arrange the real order.</p></div>
-    <div class="step"><span class="step-num">4</span><h3>👨‍👩‍👧 Adult help</h3><p>A parent or guardian handles payments, public contact and any final arrangements.</p></div>
-  </div>
-  <div class="detail-band">
-    <h3>💡 Ways to support the club</h3>
-    <p>Join an event, vote in the Halloween zone, visit the craft stall, share the website with a friend, or cheer us on as the progress bar grows.</p>
-  </div>
-</section>
-
-<section id="halloween">
-  <div class="section-title"><h2>🎃 Halloween Zone</h2><p>Pick your favourite!</p></div>
-  <div class="vote-panel">
-    <h3>🏆 Costume Voting</h3>
-    <p>Vote for the costume idea you like best. This demo keeps votes on the device being used.</p>
-    <div id="entries"></div>
-    <div id="vm" class="msg"></div>
-    <p class="note">Use first names or nicknames only. Photos and entries should have parent/guardian permission.</p>
-  </div>
-</section>
-
-<section id="events">
-  <div class="section-title"><h2>🎉 Events Board</h2><p>More coming soon!</p></div>
-  <div class="card-grid">
-    <article class="card event"><div class="event-top"><span class="date">OCT 2026</span><span>🎃</span></div><h3>Halloween Costume Event</h3><p>Costumes, voting, a raffle and lots of spooky fun.</p><button class="btn" onclick="eventInfo('Halloween Costume Event')">Event info</button></article>
-    <article class="card event"><div class="event-top"><span class="date">NEXT STALL</span><span>🧶</span></div><h3>Craft Stall</h3><p>See our handmade creations and make an in-person request.</p><p><strong>📍 Location: Bligh Park</strong></p><button class="btn blue" onclick="eventInfo('Craft Stall — Bligh Park')">Event info</button></article>
-    <article class="card event"><div class="event-top"><span class="date">COMING SOON</span><span>✨</span></div><h3>Mystery Event</h3><p>Something new is being planned behind the scenes…</p><button class="btn purple" onclick="eventInfo('Mystery Event')">Event info</button></article>
-  </div>
-</section>
-
-<section class="milestones">
-  <div class="section-title"><h2>🏆 Milestone Wall</h2><p>Unlock the next celebration!</p></div>
-  <div class="card-grid">
-    <div class="card"><h3>🌟 25%</h3><p>Our first big milestone. Keep going!</p></div>
-    <div class="card"><h3>🎈 50%</h3><p>Halfway to the mystery goal!</p></div>
-    <div class="card"><h3>🔥 75%</h3><p>The finish line is getting close.</p></div>
-    <div class="card"><h3>🎉 100%</h3><p>TIME FOR THE BIG REVEAL!</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="mystery">
-    <h2>🤫 Mystery Zone</h2>
-    <p>There is one very special reason we’re doing all this… but the club is keeping it secret.</p>
-    <p>Could you guess? There are lots of clues around the site, but <b>nothing here gives away the answer.</b> 👀</p>
-    <button class="btn yellow secret-btn" onclick="revealMessage()">🔐 Open the secret box</button>
-    <div class="secret-box" id="secretBox">Nice try! 😂 The secret is still locked. Keep watching the progress bar for the big reveal!</div>
-  </div>
-</section>
-
-<section>
-  <div class="celebrate"><h2>💛 Thank You, Supporters!</h2><p>Every order, vote, event visit and kind message helps our little club keep going.</p><p><b>You’re part of the adventure!</b> ✨</p><button class="btn yellow" onclick="celebrate()">🎉 Send some confetti</button></div>
-</section>
-
-
-
-<section id="members">
-  <div class="section-title"><h2>⭐ Member Hub</h2><p>Fun daily club updates</p></div>
-  <div class="member-hub">
-    <div class="member-grid">
-      <div class="member-box"><strong id="memberCountdown">--</strong><span>days until Halloween 🎃</span></div>
-      <div class="member-box"><strong id="memberProgress">37%</strong><span>of our goal reached 🚀</span></div>
-      <div class="member-box"><strong id="memberEvents">3</strong><span>event ideas on the board 🎉</span></div>
-    </div>
-    <div class="member-box" style="margin-top:15px">
-      <div class="switch-row">
-        <div><strong style="font-size:20px;color:var(--purple2)">🔔 Daily Halloween reminders</strong>
-        <div>Get a reminder once each day on this device.</div></div>
-        <button id="reminderSwitch" class="switch" type="button" onclick="toggleReminders()" aria-label="Toggle daily reminders"></button>
-      </div>
-      <div id="reminderStatus" class="reminder-status">Reminders are off.</div>
-      <div class="member-note">No email, phone number, address or account is needed. Browser notifications must be allowed. Daily reminders can only run while this website is open in this version.</div>
-    </div>
-
-    <div class="member-box" style="margin-top:15px">
-      <strong style="font-size:20px;color:var(--purple2)">✅ Member missions</strong>
-      <div class="mission-list">
-        <label class="mission"><input type="checkbox" data-mission="craft"><span>Work on a craft</span></label>
-        <label class="mission"><input type="checkbox" data-mission="event"><span>Help with an event idea</span></label>
-        <label class="mission"><input type="checkbox" data-mission="share"><span>Tell a friend about the club</span></label>
-        <label class="mission"><input type="checkbox" data-mission="halloween"><span>Get ready for Halloween</span></label>
-      </div>
-      <div id="missionCount" class="mission-count">0 of 4 missions complete</div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="section-title"><h2>📍 About Our Club</h2><p>Where we’re based</p></div>
-  <div class="card-grid">
-    <div class="card">
-      <span class="emoji">📍</span>
-      <h3>Based in Bligh Park</h3>
-      <p><strong>Bligh Park, NSW 2756</strong></p>
-      <p>We’re a local group of Year 4 friends making crafts and running fun fundraising events.</p>
-    </div>
-    <div class="card">
-      <span class="emoji">💛</span>
-      <h3>How to support us</h3>
-      <p>Visit our craft stall, join an event, take part in Halloween voting, or share our website.</p>
-    </div>
-    <div class="card">
-      <span class="emoji">👨‍👩‍👧‍👦</span>
-      <h3>Adult helper</h3>
-      <p>A parent or guardian helps with orders, money, event arrangements and public contact.</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="friends">
-  <div class="section-title"><h2>💙 Best Friends</h2><p>What friendship means to us</p></div>
-  <div class="card" style="background:linear-gradient(135deg,#e9f8ff,#f1eaff,#fff0e5);">
-    <h3>Best Friends</h3>
-    <p>Having a best friend can make every day more fun. A good friend is someone who listens to you, makes you laugh, and stays by your side when things get difficult.</p>
-    <p>At school, friends can play games together, share jokes, and help each other with their work. Sometimes friends disagree, but they can talk about their problems and say sorry. Being a good friend means being kind, including others, and treating people with respect.</p>
-    <p>The best thing about friendship is that you don't have to be exactly the same. Friends can have different interests and still enjoy spending time together. What matters most is caring about each other and making happy memories together.</p>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="section-title"><h2>❓ FAQ</h2><p>Good questions!</p></div>
-  <div class="faq">
-    <button onclick="faq(this)">What is Pony Sitters Club? ⌄</button><div class="answer">We’re a group of Year 4 friends making crafts and running events to raise money for a special secret cause.</div>
-    <button onclick="faq(this)">How do I order something? ⌄</button><div class="answer">Choose an item, save an order request, and show it to a parent/guardian or adult club helper. Payment and the final order are handled in person.</div>
-    <button onclick="faq(this)">Is the secret written anywhere on the website? ⌄</button><div class="answer">Nope! 🤫 The public website is designed not to reveal the reason for the fundraiser.</div>
-    <button onclick="faq(this)">Can I vote more than once? ⌄</button><div class="answer">This demo allows one vote per browser/device. The club can decide the final event rules.</div>
-    <button onclick="faq(this)">How can I support the club? ⌄</button><div class="answer">Visit an event, check out the crafts, take part in Halloween activities, or share the website with a friend.</div>
-  </div>
-</section>
-
-<footer>
-  <div class="stars">✨ ⭐ ✨</div>
-  <b style="font-size:24px">Pony Sitters Club</b><br>
-  Made by Year 4 friends 💛<br>
-  <span style="color:#f6e9bf">An adult can help manage orders, money and event arrangements.</span>
-</footer>
-
-<button class="top" id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<script>
-let progress=Number(localStorage.getItem("psc_progress")||37);
-function renderProgress(){
-  progress=Math.max(0,Math.min(100,progress));
-  document.getElementById("fill").style.width=progress+"%";
-  document.getElementById("pct").textContent=progress+"% of our secret goal!";
-  document.getElementById("amt").textContent="$"+(progress*10)+" / $1,000";
-  document.getElementById("pm").textContent=
-    progress>=100?"🎉 WE DID IT! TIME FOR THE REVEAL! 🎉":
-    progress>=75?"🔥 So close!! Keep it going!":
-    progress>=50?"🌟 We’re more than halfway!":
-    "🎉 We’re getting closer!";
-}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;max-height:720px;overflow:auto;padding-right:4px}
+.fact-card{background:#fff;color:#30252a;border-radius:16px;padding:12px 14px;border:2px solid #dbeafe;box-shadow:0 6px 14px #0001}
+.fact-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.fact-num{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2f80ed,#7b4dcc);color:#fff;font-weight:1000;font-size:13px}
+.fact-tag{font-size:10px;background:#eef2ff;color:#4d2496;border-radius:999px;padding:4px 7px;font-weight:1000}
+.fact-card h3{font-size:16px;margin:4px 0 0}.fact-card p{line-height:1.35;margin:5px 0 0;color:#625365;font-size:14px}
+.fact-empty{grid-column:1/-1;background:#fff;color:#30252a;border-radius:16px;padding:18px;text-align:center;font-weight:1000}
 function updateProgress(){
   const v=prompt("Enter progress percentage (0–100):",progress);
   if(v===null)return;
@@ -748,6 +420,7 @@ const horseFacts99=[
 ["History","An adult horse has 36 to 44 teeth.","The exact number can vary with sex and individual tooth development."]
 ];
 
+let factsVisible=24;
 function renderHorseFacts99(){
   const grid=document.getElementById("factsGrid");
   const count=document.getElementById("factsCount");
@@ -755,18 +428,23 @@ function renderHorseFacts99(){
   const active=document.querySelector(".fact-filter.active")?.dataset.factFilter||"All";
   const filtered=horseFacts99.map((x,i)=>({category:x[0],title:x[1],text:x[2],num:i+1}))
     .filter(x=>(active==="All"||x.category===active) && (!query || (x.title+" "+x.text+" "+x.category).toLowerCase().includes(query)));
-  count.textContent=filtered.length+" fact"+(filtered.length===1?"":"s")+" shown";
-  grid.innerHTML=filtered.length?filtered.map(x=>'<article class="fact-card"><div class="fact-top"><span class="fact-num">'+x.num+'</span><span class="fact-tag">'+x.category+'</span></div><h3>'+x.title+'</h3><p>'+x.text+'</p></article>').join("")
+  const shown=filtered.slice(0,factsVisible);
+  count.textContent=filtered.length+" fact"+(filtered.length===1?"":"s")+" found • showing "+shown.length;
+  grid.innerHTML=shown.length?shown.map(x=>'<article class="fact-card"><div class="fact-top"><span class="fact-num">'+x.num+'</span><span class="fact-tag">'+x.category+'</span></div><h3>'+x.title+'</h3><p>'+x.text+'</p></article>').join("")
   :'<div class="fact-empty">No facts matched that search. 🐴</div>';
+  const more=document.getElementById("factsShowMore");
+  more.style.display=shown.length<filtered.length?"inline-block":"none";
+  more.textContent="Show more facts ("+(filtered.length-shown.length)+")";
 }
+document.getElementById("factsShowMore").addEventListener("click",()=>{factsVisible+=24;renderHorseFacts99();});
 document.querySelectorAll(".fact-filter").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".fact-filter").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
-    renderHorseFacts99();
+    factsVisible=24;renderHorseFacts99();
   });
 });
-document.getElementById("factSearch").addEventListener("input",renderHorseFacts99);
+document.getElementById("factSearch").addEventListener("input",()=>{factsVisible=24;renderHorseFacts99();});
 renderHorseFacts99();
 
 </script>
