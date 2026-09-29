@@ -238,11 +238,7 @@ nav a:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 16px #0001}
 @keyframes emojiBob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-9px)}}
 .reveal{opacity:0;transform:translateY(32px) scale(.985);filter:blur(4px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),filter .7s ease}
 .reveal.visible{opacity:1;transform:none;filter:none}
-.scroll-progress{position:fixed;left:0;top:0;height:5px;width:0;z-index:1000;background:linear-gradient(90deg,#9edfff,#7b4dcc,#ff7a1a);box-shadow:0 2px 12px #7b4dcc66}
-.horse-dash{position:fixed;left:-130px;bottom:22px;z-index:65;font-size:58px;pointer-events:none;filter:drop-shadow(0 9px 6px #0003);animation:dashAcross 11s cubic-bezier(.2,.65,.25,1) infinite}
-@keyframes dashAcross{0%{right:-130px;transform:translateY(0) rotate(-3deg)}10%{transform:translateY(-10px) rotate(2deg)}48%{transform:translateY(4px) rotate(-2deg)}78%{transform:translateY(-8px) rotate(2deg)}100%{right:110vw;transform:translateY(0) rotate(-3deg)}}
-.spark-trail{position:fixed;pointer-events:none;z-index:1100;font-size:18px;animation:trailFade .7s ease-out forwards}
-@keyframes trailFade{0%{opacity:1;transform:scale(1) translateY(0) rotate(0)}100%{opacity:0;transform:scale(.15) translateY(-25px) rotate(90deg)}}
+.scroll-progress{position:fixed;left:0;top:0;height:5px;width:0;z-index:1000;background:linear-gradient(90deg,#9edfff,#7b4dcc,#ff7a1a);box-shadow:0 2px 12px #7b4dcc66}10%{transform:translateY(-10px) rotate(2deg)}48%{transform:translateY(4px) rotate(-2deg)}78%{transform:translateY(-8px) rotate(2deg)}100%{right:110vw;transform:translateY(0) rotate(-3deg)}}100%{opacity:0;transform:scale(.15) translateY(-25px) rotate(90deg)}}
 .float-bit{position:fixed;pointer-events:none;z-index:0;font-size:28px;opacity:.18;animation:floatBit 8s ease-in-out infinite}
 @keyframes floatBit{0%,100%{transform:translateY(20px) rotate(-8deg)}50%{transform:translateY(-30px) rotate(8deg)}}
 .hero h1{animation:heroPop .9s cubic-bezier(.15,1.3,.25,1) both}
@@ -786,10 +782,6 @@ document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐
   progress.className="scroll-progress";
   document.body.appendChild(progress);
 
-  const horse=document.createElement("div");
-  horse.className="horse-dash";
-  horse.textContent="🐎";
-  document.body.appendChild(horse);
 
   const floating=["✨","⭐","🧶","🎃","💜","💙","🧡","🐴"];
   for(let i=0;i<11;i++){
@@ -825,20 +817,6 @@ document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐
   addEventListener("scroll",updateScroll,{passive:true});
   updateScroll();
 
-  let lastTrail=0;
-  addEventListener("pointermove",e=>{
-    if(innerWidth<700)return;
-    const now=performance.now();
-    if(now-lastTrail<55)return;
-    lastTrail=now;
-    const s=document.createElement("span");
-    s.className="spark-trail";
-    s.textContent=floating[Math.floor(Math.random()*floating.length)];
-    s.style.left=e.clientX+"px";
-    s.style.top=e.clientY+"px";
-    document.body.appendChild(s);
-    setTimeout(()=>s.remove(),750);
-  },{passive:true});
 
   document.querySelectorAll(".card,.fun-card,.stat,.step,.member-box").forEach(card=>{
     card.addEventListener("pointermove",e=>{
