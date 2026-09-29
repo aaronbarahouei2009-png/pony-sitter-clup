@@ -161,8 +161,31 @@ footer{background:linear-gradient(135deg,#4a2c20,#29183c,#113a5a);color:#fff;tex
 .horse-photo figcaption{padding:14px 16px;font-weight:900;color:var(--brown)}
 .horse-credit{font-size:11px;font-weight:700;color:var(--muted);margin-top:5px}
 
+
+#introAnimation{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(135deg,#1557b0 0%,#6c35b8 50%,#d94f00 100%);overflow:hidden;animation:introOut .8s ease 2.5s forwards;pointer-events:none}
+.intro-content{position:relative;text-align:center;color:#fff;animation:introPop 1s cubic-bezier(.2,1.4,.4,1) both}
+.intro-logo{font-size:clamp(40px,9vw,76px);font-weight:1000;letter-spacing:-2px;text-shadow:0 7px 0 #0002}
+.intro-sub{font-size:18px;font-weight:900;margin-top:8px;opacity:.95}
+.intro-star{position:absolute;font-size:34px;animation:starFly 1.8s ease-out infinite}
+.intro-star.s1{left:-110px;top:-50px}.intro-star.s2{right:-100px;top:10px;animation-delay:.25s}.intro-star.s3{left:-75px;bottom:-65px;animation-delay:.5s}.intro-star.s4{right:-80px;bottom:-55px;animation-delay:.75s}
+@keyframes introPop{0%{transform:scale(.55) translateY(25px);opacity:0}70%{transform:scale(1.08) translateY(0);opacity:1}100%{transform:scale(1)}}
+@keyframes starFly{0%{transform:scale(.4) rotate(0);opacity:0}25%{opacity:1}100%{transform:scale(1.25) rotate(180deg);opacity:0}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){#introAnimation{animation:introOut .3s ease 1.2s forwards}.intro-content,.intro-star{animation:none}}
 </style></head>
 <body>
+
+<div id="introAnimation" aria-hidden="true">
+  <div class="intro-content">
+    <span class="intro-star s1">✨</span>
+    <span class="intro-star s2">⭐</span>
+    <span class="intro-star s3">💜</span>
+    <span class="intro-star s4">🧡</span>
+    <div class="intro-logo">✨ Pony Sitters Club</div>
+    <div class="intro-sub">🐴 Welcome to the club!</div>
+  </div>
+</div>
+
 <header>
   <div class="logo">✨ Pony Sitters Club</div>
   <div class="tag">Year 4 friends • Crafts • Events • One BIG secret 🤫</div>
