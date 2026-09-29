@@ -197,7 +197,24 @@ linear-gradient(160deg,#0b2f6b,#3c1f73 52%,#7d3519)}
 @keyframes horseRun{0%{transform:translateX(0) translateY(15px) rotate(-3deg);opacity:0}12%{opacity:1}45%{transform:translateX(45vw) translateY(-10px) rotate(2deg)}78%{transform:translateX(90vw) translateY(4px) rotate(-2deg)}100%{transform:translateX(120vw) translateY(-6px) rotate(1deg);opacity:0}}
 @keyframes sparkPop{0%{transform:scale(.2) rotate(-80deg);opacity:0}25%{opacity:1}100%{transform:translateY(-35px) scale(1.35) rotate(100deg);opacity:0}}
 @keyframes introExit{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
-@media(prefers-reduced-motion:reduce){#introAnimation{animation:introExit .2s ease 1.1s forwards}.intro-card,.intro-kicker,.intro-logo,.intro-sub,.intro-badge,.intro-sweep,.intro-ribbon,.intro-horse,.intro-spark{animation:none!important}.intro-kicker,.intro-logo,.intro-sub,.intro-badge{opacity:1}}</style></head>
+@media(prefers-reduced-motion:reduce){#introAnimation{animation:introExit .2s ease 1.1s forwards}.intro-card,.intro-kicker,.intro-logo,.intro-sub,.intro-badge,.intro-sweep,.intro-ribbon,.intro-horse,.intro-spark{animation:none!important}.intro-kicker,.intro-logo,.intro-sub,.intro-badge{opacity:1}}
+.fun-zone{background:linear-gradient(135deg,#fff,#e9f8ff 35%,#efe7ff 68%,#fff0df);border:3px solid #d5e5f5;border-radius:34px;padding:26px;box-shadow:0 18px 40px #0002;position:relative;overflow:hidden}
+.fun-zone:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-100px;background:#ff7a1a18}
+.fun-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;position:relative}
+.fun-card{background:#fff;border:2px solid var(--line);border-radius:23px;padding:18px;box-shadow:0 9px 20px #0001;transition:.2s;min-height:190px}
+.fun-card:hover{transform:translateY(-7px) rotate(-.5deg);box-shadow:0 18px 28px #0002}
+.fun-icon{font-size:48px;display:block;margin-bottom:5px}.fun-card h3{margin:5px 0 7px;font-size:21px}.fun-card p{margin:0;color:#625365;line-height:1.45}
+.fun-btn{margin-top:13px!important;width:100%}
+.fun-result{margin-top:12px;padding:11px;border-radius:14px;background:#f2f7ff;font-weight:900;min-height:44px}
+.star-meter{display:flex;justify-content:space-between;align-items:center;gap:10px;background:linear-gradient(90deg,#1557b0,#7b4dcc);color:#fff;border-radius:18px;padding:13px 15px;margin-top:15px;font-weight:1000}
+.star-meter b{font-size:24px}
+.hero-orbit{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:34px}
+.orbit-dot{position:absolute;font-size:24px;animation:floatAround 7s linear infinite}
+.orbit-dot.d1{left:6%;top:25%}.orbit-dot.d2{right:7%;top:18%;animation-delay:1.2s}.orbit-dot.d3{left:10%;bottom:18%;animation-delay:2.1s}.orbit-dot.d4{right:12%;bottom:23%;animation-delay:3s}
+@keyframes floatAround{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(12px,-14px) rotate(12deg)}50%{transform:translate(-6px,-22px) rotate(-10deg)}75%{transform:translate(-14px,-5px) rotate(8deg)}100%{transform:translate(0,0) rotate(0)}}
+.reveal-pop{animation:revealPop .45s cubic-bezier(.2,1.4,.3,1)}
+@keyframes revealPop{0%{transform:scale(.75);opacity:.2}100%{transform:scale(1);opacity:1}}
+</style></head>
 <body>
 
 <div id="introAnimation" aria-hidden="true">
@@ -231,11 +248,12 @@ linear-gradient(160deg,#0b2f6b,#3c1f73 52%,#7d3519)}
 <div class="announce">🚨 CLUB NEWS: Every craft, event and vote gets us closer to our mystery goal! 🚨</div>
 
 <nav>
-<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#crafts">Crafts</a><a href="#horses">🐴 Horses</a><a href="#buckskins">🤎 Buckskins</a><a href="facts.html">📚 99 Facts</a><a href="#how">How it works</a>
+<a href="#home">Home</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="#fun">🎮 Fun</a><a href="#crafts">Crafts</a><a href="#horses">🐴 Horses</a><a href="#buckskins">🤎 Buckskins</a><a href="facts.html">📚 99 Facts</a><a href="#how">How it works</a>
 <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
 <section id="home" class="hero">
+  <div class="hero-orbit"><span class="orbit-dot d1">✨</span><span class="orbit-dot d2">⭐</span><span class="orbit-dot d3">💜</span><span class="orbit-dot d4">🧡</span></div>
   <div class="sticker-row">
     <div class="sticker">⭐ Year 4 Club</div><div class="sticker">🧶 Made by us</div><div class="sticker">🤫 Top Secret</div><div class="sticker">🎉 Lots of fun</div>
   </div>
@@ -248,6 +266,40 @@ linear-gradient(160deg,#0b2f6b,#3c1f73 52%,#7d3519)}
     <div class="stat"><strong id="statVotes">0</strong><span>Votes cast here</span></div>
     <div class="stat"><strong>5+</strong><span>Craft ideas</span></div>
     <div class="stat"><strong>1</strong><span>BIG secret 🤫</span></div>
+  </div>
+</section>
+
+
+<section id="fun">
+  <div class="section-title"><h2>🎮 Club HQ</h2><p>Tap around and have some fun!</p></div>
+  <div class="fun-zone">
+    <div class="fun-grid">
+      <div class="fun-card">
+        <span class="fun-icon">🎯</span><h3>Daily Challenge</h3>
+        <p>Get a random little club challenge.</p>
+        <button class="btn purple fun-btn" onclick="dailyChallenge()">Pick one!</button>
+        <div id="challengeResult" class="fun-result">Your challenge is waiting… 👀</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">🎁</span><h3>Lucky Pick</h3>
+        <p>What should the club focus on next?</p>
+        <button class="btn blue fun-btn" onclick="luckyPick()">Surprise me!</button>
+        <div id="luckyResult" class="fun-result">Tap the button to find out.</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">⭐</span><h3>Collect Stars</h3>
+        <p>Click to collect stars for your club score.</p>
+        <button class="btn fun-btn" onclick="collectStar()">⭐ Collect a star</button>
+        <div id="starResult" class="fun-result">Your stars: 0</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">🎨</span><h3>Club Vibe</h3>
+        <p>Pick today's club vibe.</p>
+        <button class="btn baby fun-btn" onclick="clubVibe()">Choose a vibe</button>
+        <div id="vibeResult" class="fun-result">🌈 Waiting for a vibe…</div>
+      </div>
+    </div>
+    <div class="star-meter"><span>🏆 Your local club score</span><b id="starMeter">0 ⭐</b></div>
   </div>
 </section>
 
@@ -673,6 +725,21 @@ updateMemberHub();
 sendDailyReminder(false);
 
 
+
+
+const challengeList=["Make a tiny craft idea","Think of a new event idea","Help tidy the craft supplies","Draw a new club logo idea","Find a fun Halloween activity","Write one nice message for a friend"];
+const luckyList=["Crafts 🧶","Halloween 🎃","Events 🎉","Horse facts 🐴","Friendship 💙","Mystery 🤫"];
+const vibeList=["🌈 Super creative","🔥 Full of energy","💜 Purple power","🧡 Orange mode","💙 Calm & crafty","🎉 Party time"];
+let clubStars=Number(localStorage.getItem("psc_club_stars")||0);
+function showResult(id,text){
+  const el=document.getElementById(id);el.textContent=text;el.classList.remove("reveal-pop");void el.offsetWidth;el.classList.add("reveal-pop");
+}
+function dailyChallenge(){showResult("challengeResult","🎯 "+challengeList[Math.floor(Math.random()*challengeList.length)]+"!");}
+function luckyPick(){showResult("luckyResult","🎁 Next up: "+luckyList[Math.floor(Math.random()*luckyList.length)]+"!");}
+function collectStar(){clubStars++;localStorage.setItem("psc_club_stars",clubStars);document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐";document.getElementById("starMeter").textContent=clubStars+" ⭐";celebrate();}
+function clubVibe(){showResult("vibeResult",vibeList[Math.floor(Math.random()*vibeList.length)]+"!");}
+document.getElementById("starMeter").textContent=clubStars+" ⭐";
+document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐";
 
 </script>
 </body>
