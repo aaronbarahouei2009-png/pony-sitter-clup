@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>99 Horse Facts 🐴</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#30252a;background:linear-gradient(180deg,#f8fcff,#f3edff,#fff3e9)}
+header{color:#fff;text-align:center;padding:32px 16px;background:linear-gradient(135deg,#1557b0,#6c35b8,#d94f00)}
+h1{margin:0;font-size:clamp(34px,7vw,58px)}header p{font-weight:800;margin:10px 0 0}
+main{max-width:1100px;margin:auto;padding:24px 14px 50px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+button,input{font:inherit}button{border:0;border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer;background:#e9efff;color:#4d2496}
+button.active,button:hover{background:#4d2496;color:#fff}
+input{flex:1;min-width:220px;padding:11px 14px;border:2px solid #cfdbeb;border-radius:999px;background:#fff}
+.count{font-weight:900;color:#6b5d68;margin:8px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;max-height:760px;overflow:auto;padding-right:4px}
+.card{background:#fff;border:2px solid #cfdbeb;border-radius:16px;padding:12px;box-shadow:0 6px 14px #0001}
+.top{display:flex;justify-content:space-between;align-items:center}
+.num{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2f80ed,#7b4dcc);color:#fff;font-weight:900;font-size:13px}
+.tag{font-size:10px;background:#eef2ff;color:#4d2496;border-radius:999px;padding:4px 7px;font-weight:900}
+.card h2{font-size:16px;margin:8px 0 4px}.card p{font-size:14px;line-height:1.4;color:#625365;margin:0}
+.more{display:block;margin:14px auto;background:#ff7a1a;color:#fff}
+.back{display:inline-block;margin-top:8px;text-decoration:none;color:#fff;font-weight:900}
+.empty{text-align:center;padding:20px;background:#fff;border-radius:16px;font-weight:900}
+</style>
+</head>
+<body>
+<header>
+<h1>🐴 99 Horse Facts</h1>
+<p>Learn something new about horses!</p>
+<a class="back" href="index.html">← Back to Pony Sitters Club</a>
+</header>
+<main>
+<div class="toolbar">
+<button class="active" data-filter="All">All</button>
+<button data-filter="Body">Body</button>
+<button data-filter="Behavior">Behavior</button>
+<button data-filter="Colors">Colors</button>
+<button data-filter="Breeds">Breeds</button>
+<button data-filter="Care">Care</button>
+<button data-filter="History">History</button>
+<input id="search" type="search" placeholder="🔎 Search the facts">
+</div>
+<div id="count" class="count">99 facts</div>
+<div id="grid" class="grid"></div>
+<button id="more" class="more">Show more facts</button>
+</main>
+<script>
+const horseFacts99=[
+["Body","Horses are mammals.","A horse is a warm-blooded mammal."],
+["Body","Horses are herbivores.","Their natural diet is made mainly from plant foods."],
+["Body","A horse's hoof has one main weight-bearing toe.","The horse's foot is built around a single large central digit."],
+["Body","Hooves are made mostly of keratin.","Keratin is the tough protein also found in human hair and fingernails."],
+["Body","Horses have very strong legs.","Their leg structure helps them support their large body while moving quickly."],
+["Body","Horses have large lungs.","Large lungs help support their active, running lifestyle."],
+["Body","Horses breathe mostly through their nostrils.","They normally do not breathe through their mouths."],
+["Body","A horse's ears can move in different directions.","Each ear can turn to help locate sounds."],
+["Body","Horses have whiskers around their muzzle.","These hairs help them sense nearby objects."],
+["Body","Horses have a very wide field of view.","The position of their eyes lets them see a lot of the area around them."],
+["Body","Horse eyes are among the largest of land mammals.","Their large eyes are useful for detecting movement around them."],
+["Body","Horses can see in color.","Their color vision is not exactly the same as a human's."],
+["Body","Horses have a long neck.","The long neck helps them balance and reach food."],
+["Body","A horse's mane grows along the neck.","The mane is made of long hairs."],
+["Body","A horse's tail has long hair.","The tail can help swat flies away."],
+["Body","Horses have a digestive system suited to grazing.","Their gut works well with frequent intake of fibrous food."],
+["Body","Horses cannot vomit.","Their digestive anatomy makes vomiting very difficult or effectively impossible."],
+["Body","Horses have hypsodont teeth.","Their teeth are adapted for grinding fibrous food."],
+["Body","A horse's adult teeth can change shape as they wear.","Tooth wear is part of why dental care matters."],
+["Body","Horses have a chestnut on each leg.","A chestnut is a small, hard patch of skin on the inside of the legs."],
+["Behavior","Horses are social animals.","They usually prefer living with other horses or having safe social contact."],
+["Behavior","Horses communicate with body language.","Ears, eyes, tail, posture and movement can all give signals."],
+["Behavior","A pinned-back ear can be a warning sign.","A horse may flatten its ears when it is upset, focused or uncomfortable."],
+["Behavior","A relaxed horse may keep its ears in a neutral position.","Ear position changes with attention and mood."],
+["Behavior","Horses can neigh.","Neighs can be used to communicate across distance."],
+["Behavior","Horses also make softer sounds.","They can nicker, snort, blow and squeal."],
+["Behavior","Horses may groom one another.","Mutual grooming can help strengthen social bonds."],
+["Behavior","Horses can recognize familiar individuals.","They can learn people, horses and routines they know."],
+["Behavior","Horses can learn by repetition.","Consistent practice helps them remember responses."],
+["Behavior","Horses have good memories.","They can remember learned tasks, places and experiences."],
+["Behavior","Horses are prey animals.","Their senses and quick movement help them detect possible danger."],
+["Behavior","Horses can startle quickly.","Sudden movement or sound can trigger a fast reaction."],
+["Behavior","Horses often investigate new things carefully.","They may look, sniff or approach before deciding what to do."],
+["Behavior","Horses can rest while standing.","Their leg joints can lock into a stable resting position."],
+["Behavior","Horses can also sleep lying down.","Deeper sleep includes periods when they lie down."],
+["Behavior","Horses need some REM sleep.","REM sleep normally occurs when a horse is lying down."],
+["Behavior","Foals sleep more than adult horses.","Young horses spend more time resting and sleeping."],
+["Behavior","Horses often graze for many hours.","Frequent eating suits their digestive system."],
+["Behavior","Horses naturally move a lot.","Their natural routines include walking, grazing and social interaction."],
+["Behavior","A horse may use its tail to communicate.","Tail movement can show attention, irritation or relaxation."],
+["Colors","Buckskin is a coat color, not a breed.","Many different horse breeds can have buckskin-colored horses."],
+["Colors","Buckskin horses usually have a tan or golden body.","Their coat is often paired with darker points."],
+["Colors","A buckskin usually has dark mane and tail hair.","This dark coloring is a classic buckskin feature."],
+["Colors","Bay horses have a brown body with black points.","Black points include the mane, tail and lower legs."],
+["Colors","Chestnut horses have reddish coats.","Their mane and tail can also be reddish instead of black."],
+["Colors","Black horses have mostly black coats.","Some can show slight fading or sun bleaching."],
+["Colors","Gray horses are born a darker color.","Many gray horses lighten as they age."],
+["Colors","White and gray are not the same coat color.","A gray horse can become very light even though it started darker."],
+["Colors","Palomino horses have golden coats.","They usually have lighter or flaxen manes and tails."],
+["Colors","Dun horses are known for dilution of the body color.","Dun horses may also show primitive markings."],
+["Colors","Roan coats have a mix of white and colored hairs.","The white hairs are mixed through the coat rather than replacing it completely."],
+["Colors","Appaloosa describes a recognizable group of coat patterns.","Common examples include spots, blankets and mottling."],
+["Colors","Pinto describes a pattern of large white patches.","The base coat underneath can be many different colors."],
+["Colors","Some horse coat colors change with age.","Gray is a well-known example."],
+["Colors","Sunlight can fade some horse coats.","Dark coats can sometimes look lighter after lots of sun exposure."],
+["Colors","A horse's muzzle can be a different shade from its body.","Some horses have lighter or darker skin and hair around the face."],
+["Breeds","Arabian is one of the world's famous horse breeds.","Arabian horses are known for their endurance and distinctive head shape."],
+["Breeds","Thoroughbreds are famous racing horses.","The breed developed in England and is widely used in racing."],
+["Breeds","Quarter Horses are known for short-distance speed.","The breed is also widely used for many riding activities."],
+["Breeds","Clydesdales are draft horses.","They are large, strong horses traditionally used for pulling."],
+["Breeds","Shire horses are draft horses.","Shires are known for their large size and strength."],
+["Breeds","Friesians are usually black.","The breed is known for its long mane, tail and feathering."],
+["Breeds","Shetland Ponies are small and sturdy.","They come from the Shetland Islands."],
+["Breeds","The Falabella is a very small horse breed.","It is known for its miniature size."],
+["Breeds","Mustangs are free-roaming horses in North America.","They descend mainly from horses introduced by people."],
+["Breeds","Icelandic horses come from Iceland.","They are known for their sure-footedness and unique gaits."],
+["Breeds","Haflingers are usually chestnut or flaxen-colored.","They are a sturdy breed developed in the Alps."],
+["Breeds","Andalusian horses originated in Spain.","The breed is known for its elegant movement and history as a riding horse."],
+["Breeds","Appaloosa is also the name of a horse breed.","The breed is strongly associated with distinctive coat patterns."],
+["Breeds","Morgan horses originated in the United States.","The breed is known for versatility and a compact, strong build."],
+["Breeds","Suffolk Punch horses are a British draft breed.","They are commonly chestnut in color."],
+["Breeds","Friesians have a long history in the Netherlands.","They were developed in Friesland."],
+["Care","Fresh water is essential for horses.","Horses need regular access to clean drinking water."],
+["Care","Horses need forage in their diet.","Hay or pasture supplies important fiber."],
+["Care","Horses need regular hoof care.","Routine trimming or shoeing helps keep feet healthy."],
+["Care","Horses need dental checks.","Their teeth can wear unevenly and may need professional care."],
+["Care","Horses benefit from regular movement.","Exercise supports muscles, fitness and healthy joints."],
+["Care","Grooming can remove dirt and loose hair.","It also gives people a chance to notice changes on the skin or coat."],
+["Care","Shade can help horses stay cooler.","Good management also includes ventilation and access to water."],
+["Care","Horses need protection from extreme weather.","Shelter, shade and sensible turnout can help."],
+["Care","A horse's diet should change gradually.","Sudden feed changes can upset the digestive system."],
+["Care","Horses should be checked every day.","Daily observation can help spot changes in eating, movement or behavior."],
+["Care","Safe fencing matters around horses.","Good fences help reduce escape and injury risks."],
+["Care","Horses need parasite control.","Veterinarians and horse-care professionals can help plan appropriate programs."],
+["Care","Vaccination can protect horses from disease.","Vaccination plans depend on local risks and veterinary advice."],
+["Care","Horses should have regular veterinary care.","Routine checks help maintain health and catch problems early."],
+["Care","A horse's tack should fit correctly.","Poorly fitting equipment can cause discomfort or injury."],
+["Care","Horses should be handled calmly.","Quiet, consistent handling helps reduce unnecessary stress."],
+["History","Humans have been working with horses for thousands of years.","People have used horses for travel, farming, sport and companionship."],
+["History","Horses helped transform transportation.","Before modern engines, horses powered many journeys and vehicles."],
+["History","Horse-drawn vehicles included carriages and wagons.","Different designs were used for travel, work and hauling."],
+["History","Horses played major roles in agriculture.","They pulled plows, wagons and other farm equipment."],
+["History","The earliest known horse ancestors were much smaller.","Ancient early horses were different in size and shape from modern horses."],
+["History","Modern horses belong to the genus Equus.","Zebras and donkeys are also in the genus Equus."],
+["History","Horses and zebras can sometimes produce hybrids.","For example, a zebra and horse can produce a zorse, although such hybrids are not the same as a horse breed."],
+["History","A male horse is called a stallion when intact.","A castrated male horse is called a gelding."],
+["History","A female horse is called a mare.","A young horse is often called a foal."],
+["History","A male foal is a colt.","A female foal is a filly."],
+["History","An adult horse has 36 to 44 teeth.","The exact number can vary with sex and individual tooth development."]
+];
+
+let factsVisible=24;;
+let visible=24,active="All";
+const grid=document.getElementById("grid"),count=document.getElementById("count"),search=document.getElementById("search"),more=document.getElementById("more");
+function render(){
+ const q=search.value.toLowerCase().trim();
+ const list=horseFacts99.map((x,i)=>({category:x[0],title:x[1],text:x[2],num:i+1}))
+  .filter(x=>(active==="All"||x.category===active)&&(!q||(x.title+" "+x.text+" "+x.category).toLowerCase().includes(q)));
+ const shown=list.slice(0,visible);
+ count.textContent=list.length+" fact"+(list.length===1?"":"s")+" found • showing "+shown.length;
+ grid.innerHTML=shown.length?shown.map(x=>'<article class="card"><div class="top"><span class="num">'+x.num+'</span><span class="tag">'+x.category+'</span></div><h2>'+x.title+'</h2><p>'+x.text+'</p></article>').join(""):'<div class="empty">No facts matched that search. 🐴</div>';
+ more.style.display=shown.length<list.length?"block":"none";
+ more.textContent="Show more facts ("+(list.length-shown.length)+")";
+}
+document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-filter]").forEach(x=>x.classList.remove("active"));b.classList.add("active");active=b.dataset.filter;visible=24;render();});
+search.oninput=()=>{visible=24;render()};
+more.onclick=()=>{visible+=24;render()};
+render();
+</script>
+</body>
+</html>
