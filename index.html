@@ -485,6 +485,43 @@ footer{background:#32342f;color:#f4f1ea}
 .mochi-btn{margin-top:10px!important;width:100%;background:#373936!important;box-shadow:none!important}
 .mochi-result{margin-top:16px;padding:13px;background:#f3f0e9;border:1px solid var(--line);text-align:center;font-weight:900;color:#57554e}
 
+
+/* --- SITE-WIDE FUN ANIMATION PACK --- */
+@keyframes sitePageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes titleBounce{0%{opacity:0;transform:translateY(20px) scale(.96)}65%{opacity:1;transform:translateY(-4px) scale(1.02)}100%{opacity:1;transform:none}}
+@keyframes softBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes littleSpin{0%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}100%{transform:rotate(-2deg)}}
+@keyframes shinePass{0%,55%{transform:translateX(-130%) skewX(-18deg);opacity:0}65%{opacity:.7}100%{transform:translateX(130%) skewX(-18deg);opacity:0}}
+@keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 #ffffff00}50%{box-shadow:0 0 0 10px #ffffff18}}
+body{animation:sitePageIn .75s ease both,siteBg 18s ease-in-out infinite alternate}
+header .logo{animation:titleBounce .9s .05s cubic-bezier(.2,1.2,.3,1) both}
+header .tag{animation:sitePageIn .7s .3s ease both}
+.header-badges .badge{animation:softBob 3.2s ease-in-out infinite}
+.header-badges .badge:nth-child(2){animation-delay:.35s}
+.header-badges .badge:nth-child(3){animation-delay:.7s}
+.hero h1{animation:titleBounce .9s .15s cubic-bezier(.2,1.2,.3,1) both}
+.hero-actions .btn{animation:sitePageIn .6s ease both}
+.hero-actions .btn:nth-child(2){animation-delay:.08s}.hero-actions .btn:nth-child(3){animation-delay:.16s}.hero-actions .btn:nth-child(4){animation-delay:.24s}
+.hero-stage .status-panel{animation:softBob 5s ease-in-out infinite}
+.pulse-orb{animation:pulseRing 2.6s ease-in-out infinite}
+.sticker{animation:littleSpin 4s ease-in-out infinite}
+.sticker:nth-child(2){animation-delay:.4s}.sticker:nth-child(3){animation-delay:.8s}.sticker:nth-child(4){animation-delay:1.2s}
+.card,.stat,.step,.fun-card,.member-box{will-change:transform}
+.card:hover,.stat:hover,.step:hover,.fun-card:hover,.member-box:hover{animation:softBob .9s ease-in-out infinite}
+.progress-card,.countdown{position:relative;overflow:hidden}
+.progress-card:after,.countdown:after,.celebrate:after,.mystery:after{content:"";position:absolute;top:0;bottom:0;left:0;width:28%;background:linear-gradient(100deg,transparent,#ffffff38,transparent);transform:translateX(-150%) skewX(-18deg);animation:shinePass 6s ease-in-out infinite;pointer-events:none}
+.gallery .tile{transition:transform .25s ease,filter .25s ease}
+.gallery .tile:hover{transform:translateY(-8px) rotate(-1deg) scale(1.02);filter:saturate(1.1)}
+.countdown .time{animation:softBob 2.8s ease-in-out infinite}
+.countdown .time:nth-child(2){animation-delay:.2s}.countdown .time:nth-child(3){animation-delay:.4s}.countdown .time:nth-child(4){animation-delay:.6s}
+.event:hover{animation:littleSpin 1.2s ease-in-out infinite}
+.celebrate h2,.mystery h2{animation:softBob 3.5s ease-in-out infinite}
+footer .stars{display:inline-block;animation:softBob 2.5s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+  body{animation:none}.header-badges .badge,.hero h1,.hero-actions .btn,.hero-stage .status-panel,.pulse-orb,.sticker,.card:hover,.stat:hover,.step:hover,.fun-card:hover,.member-box:hover,.countdown .time,.event:hover,.celebrate h2,.mystery h2,footer .stars{animation:none!important}
+  .progress-card:after,.countdown:after,.celebrate:after,.mystery:after{display:none}
+}
+
 </style></head>
 <body>
 
