@@ -79,7 +79,26 @@ header h1{animation:titlePop .9s cubic-bezier(.2,1.25,.3,1) both}
  header,.grid .card,.num,.more,.empty{animation:none!important}
 }
 
-</style>
+
+/* --- MAX ENERGY ANIMATION LAYER --- */
+@keyframes auroraFacts{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes floatFacts2{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes titlePulseFacts{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+@keyframes shineFacts2{0%{transform:translateX(-160%) skewX(-18deg)}100%{transform:translateX(600%) skewX(-18deg)}}
+body{background-size:220% 220%;animation:auroraFacts 13s ease-in-out infinite alternate}
+header{background-size:240% 240%;animation:auroraFacts 10s ease-in-out infinite}
+header h1{animation:titlePop .9s cubic-bezier(.2,1.25,.3,1) both,titlePulseFacts 3.2s 1s ease-in-out infinite}
+.toolbar button.active{animation:floatFacts2 2.8s ease-in-out infinite}
+.grid .card{will-change:transform}
+.grid .card:hover{transform:translateY(-8px) rotate(-.45deg) scale(1.02);box-shadow:0 20px 34px #0002}
+.grid .card:after{animation:shineFacts2 5.5s linear infinite}
+.num{animation:floatFacts2 2.5s ease-in-out infinite}
+.tag{animation:floatFacts2 3.3s .2s ease-in-out infinite}
+.more{box-shadow:0 10px 22px #0002;transition:transform .2s,box-shadow .2s}.more:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 16px 28px #0003}
+
+
+.toolbar,.grid .card,.more{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.seen{opacity:1!important;transform:none!important}</style>
 </head>
 <body>
 <header>
@@ -236,6 +255,14 @@ render();
   document.head.appendChild(style);
 })();
 
+/* --- MAX ENERGY MOTION JS --- */
+(function(){
+  const targets=document.querySelectorAll(".toolbar,.grid .card,.more");
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("seen");io.unobserve(e.target);}});
+  },{threshold:.08});
+  targets.forEach((el,i)=>{el.style.transitionDelay=Math.min(i*18,240)+"ms";io.observe(el);});
+})();
 </script>
 </body>
 </html>
