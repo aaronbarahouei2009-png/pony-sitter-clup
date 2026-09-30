@@ -598,6 +598,31 @@ footer{background:#32342f;color:#f4f1ea}
         <button class="btn purple fun-btn" onclick="friendBoost()">Send good vibes!</button>
         <div id="boostResult" class="fun-result">💛 Waiting for a boost…</div>
       </div>
+      <div class="fun-card">
+        <span class="fun-icon">🐴</span><h3>Pony Name Maker</h3>
+        <p>Generate a silly secret pony name.</p>
+        <button class="btn blue fun-btn" onclick="ponyName()">Make a name!</button>
+        <div id="nameResult" class="fun-result">✨ Name generator ready…</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">🔮</span><h3>Mystery Answer</h3>
+        <p>Ask the magic club orb a yes-or-no question.</p>
+        <button class="btn accent fun-btn" onclick="magicAnswer()">Ask the orb!</button>
+        <div id="magicResult" class="fun-result">🔮 The orb is sleeping…</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">⚡</span><h3>Tap Sprint</h3>
+        <p>How many taps can you get in 5 seconds?</p>
+        <button class="btn fun-btn" onclick="startTapSprint()">START SPRINT</button>
+        <button class="btn baby fun-btn" id="tapButton" onclick="tapSprint()" disabled>⚡ TAP!</button>
+        <div id="tapResult" class="fun-result">Ready… set… 👀</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">🪄</span><h3>Would You Rather?</h3>
+        <p>Pick one of two ridiculous club choices.</p>
+        <button class="btn purple fun-btn" onclick="ratherGame()">Give me one!</button>
+        <div id="ratherResult" class="fun-result">🐴 This or that?</div>
+      </div>
     </div>
     <div class="star-meter"><span>🏆 Your local club score</span><b id="starMeter">0 ⭐</b></div>
   </div>
@@ -1042,6 +1067,38 @@ const luckyEmojis=["🐴","🎃","⭐","🍡","🎨","💜","🧡","💙","🎉"
 const friendBoosts=["You make the club brighter! 🌟","You’re doing an awesome job! 💛","Thanks for being a kind friend! 💙","Your ideas are super creative! 🎨","You bring great energy to the club! 🎉","Keep being you — you’re brilliant! ⭐"];
 function luckyEmoji(){showResult("emojiResult","🎲 Your lucky emoji: "+luckyEmojis[Math.floor(Math.random()*luckyEmojis.length)]);}
 function friendBoost(){showResult("boostResult","💌 "+friendBoosts[Math.floor(Math.random()*friendBoosts.length)]);}
+const ponyFirst=["Sparkle","Biscuit","Shadow","Mochi","Sunny","Pepper","Twinkle","Cookie","Star","Toffee"];
+const ponyLast=["Moon","Hooves","Sprinkles","Dash","Bean","Storm","Pudding","Comet","Buttons","Breeze"];
+const magicAnswers=["Absolutely! ✨","Definitely! 🐴","Maybe… 👀","The club says YES! 🎉","Ask again later! 🔮","Probably! ⭐","Hmm… secret! 🤫","YES YES YES! 💜"];
+const ratherChoices=[
+  "Would you rather ride through a rainbow 🌈 or race through a cloud ☁️?",
+  "Would you rather have a purple mane 💜 or a blue tail 💙?",
+  "Would you rather eat 100 strawberries 🍓 or 100 blueberries 🫐?",
+  "Would you rather be the club DJ 🎵 or the club game master 🎮?",
+  "Would you rather have unlimited stickers ⭐ or unlimited confetti 🎉?"
+];
+function ponyName(){
+  showResult("nameResult","🐴 "+ponyFirst[Math.floor(Math.random()*ponyFirst.length)]+" "+ponyLast[Math.floor(Math.random()*ponyLast.length)]+"!");
+}
+function magicAnswer(){showResult("magicResult","🔮 "+magicAnswers[Math.floor(Math.random()*magicAnswers.length)]);}
+let tapCount=0,tapTimer=null;
+function startTapSprint(){
+  clearInterval(tapTimer); tapCount=0;
+  const btn=document.getElementById("tapButton");
+  btn.disabled=false;
+  document.getElementById("tapResult").textContent="GO! GO! GO! ⚡";
+  tapTimer=setTimeout(()=>{
+    btn.disabled=true;
+    showResult("tapResult","🏁 Time! You got "+tapCount+" tap"+(tapCount===1?"":"s")+"! 🎉");
+    if(tapCount>=15) celebrate();
+  },5000);
+}
+function tapSprint(){
+  if(!tapTimer)return;
+  tapCount++;
+  document.getElementById("tapResult").textContent="⚡ "+tapCount+" taps!";
+}
+function ratherGame(){showResult("ratherResult","🤔 "+ratherChoices[Math.floor(Math.random()*ratherChoices.length)]);}
 function toggleFunMode(){
   const on=document.body.classList.toggle("fun-mode");
   localStorage.setItem("psc_fun_mode",on?"on":"off");
