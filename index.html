@@ -1054,7 +1054,7 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
     <div class="music-frame">
       <iframe
         title="KATSEYE Hootie Frutti official audio"
-        src="https://www.youtube-nocookie.com/embed/kwH2nYwuFdA?autoplay=1&loop=1&playlist=kwH2nYwuFdA&rel=0&playsinline=1"
+        src="https://www.youtube-nocookie.com/embed/is8UDe2PhKQ?autoplay=1&loop=1&playlist=is8UDe2PhKQ&rel=0&playsinline=1"
         loading="eager"
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen></iframe>
@@ -1356,10 +1356,11 @@ function pickMochi(name){
     panel.classList.toggle("open",open);
     panel.setAttribute("aria-hidden",open?"false":"true");
     toggle.setAttribute("aria-expanded",open?"true":"false");
-    toggle.textContent=open?"🎵 Hootie Frutti • OPEN":"🎵 Hootie Frutti";
+    toggle.textContent=open?"🎵 Hootie Frutti • PLAYING":"🎵 Hootie Frutti • MUSIC";
   }
   toggle.addEventListener("click",()=>setOpen(!panel.classList.contains("open")));
   close.addEventListener("click",()=>setOpen(false));
+  setOpen(true);
 })();
 
 </script>
