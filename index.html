@@ -1054,12 +1054,12 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
     <div class="music-frame">
       <iframe
         title="KATSEYE Hootie Frutti official audio"
-        src="https://www.youtube-nocookie.com/embed/is8UDe2PhKQ?autoplay=1&loop=1&playlist=is8UDe2PhKQ&rel=0&playsinline=1"
+        id="hootiePlayer" src="https://www.youtube-nocookie.com/embed/is8UDe2PhKQ?autoplay=1&mute=1&loop=1&playlist=is8UDe2PhKQ&rel=0&playsinline=1&enablejsapi=1"
         loading="eager"
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen></iframe>
     </div>
-    <div class="music-note">🎧 The official KATSEYE audio is built into the player. Press play once if your browser blocks automatic sound.</div>
+    <div class="music-note">🎧 Auto-start is on. Your browser may allow the music to play only after your first click/tap anywhere on the page.</div>
   </div>
 </div>
 
@@ -1361,6 +1361,18 @@ function pickMochi(name){
   toggle.addEventListener("click",()=>setOpen(!panel.classList.contains("open")));
   close.addEventListener("click",()=>setOpen(false));
   setOpen(true);
+
+  const player=document.getElementById("hootiePlayer");
+  let audioUnlocked=false;
+  function unlockHootie(){
+    if(audioUnlocked||!player)return;
+    audioUnlocked=true;
+    player.src="https://www.youtube-nocookie.com/embed/is8UDe2PhKQ?autoplay=1&mute=0&loop=1&playlist=is8UDe2PhKQ&rel=0&playsinline=1&enablejsapi=1";
+    document.removeEventListener("pointerdown",unlockHootie,true);
+    document.removeEventListener("keydown",unlockHootie,true);
+  }
+  document.addEventListener("pointerdown",unlockHootie,true);
+  document.addEventListener("keydown",unlockHootie,true);
 })();
 
 </script>
