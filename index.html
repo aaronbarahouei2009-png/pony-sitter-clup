@@ -194,6 +194,22 @@ linear-gradient(160deg,#0b2f6b,#3c1f73 52%,#7d3519)}
 .fun-card:hover{transform:translateY(-7px) rotate(-.5deg);box-shadow:0 18px 28px #0002}
 .fun-icon{font-size:48px;display:block;margin-bottom:5px}.fun-card h3{margin:5px 0 7px;font-size:21px}.fun-card p{margin:0;color:#625365;line-height:1.45}
 .fun-btn{margin-top:13px!important;width:100%}
+.fun-mode .fun-card:nth-child(1){animation:funBounce 1.8s ease-in-out infinite}
+.fun-mode .fun-card:nth-child(2){animation:funBounce 1.8s .18s ease-in-out infinite}
+.fun-mode .fun-card:nth-child(3){animation:funBounce 1.8s .36s ease-in-out infinite}
+.fun-mode .fun-card:nth-child(4){animation:funBounce 1.8s .54s ease-in-out infinite}
+.fun-mode .fun-card:nth-child(5){animation:funBounce 1.8s .72s ease-in-out infinite}
+.fun-mode .fun-card:nth-child(6){animation:funBounce 1.8s .9s ease-in-out infinite}
+.fun-mode .hero{animation:funGlow 2.8s ease-in-out infinite}
+.fun-mode .sticker{animation:stickerBoop 1.5s ease-in-out infinite}
+.fun-mode .fun-zone{border-color:#ffb86b;box-shadow:0 22px 55px #ff7a1a22}
+.fun-toggle-on{font-size:17px!important}
+@keyframes funBounce{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(.7deg)}}
+@keyframes funGlow{0%,100%{filter:saturate(1)}50%{filter:saturate(1.18) brightness(1.02)}}
+@keyframes stickerBoop{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(2deg) scale(1.04)}}
+@media(prefers-reduced-motion:reduce){
+  .fun-mode .fun-card,.fun-mode .hero,.fun-mode .sticker{animation:none!important}
+}
 .fun-result{margin-top:12px;padding:11px;border-radius:14px;background:#f2f7ff;font-weight:900;min-height:44px}
 .star-meter{display:flex;justify-content:space-between;align-items:center;gap:10px;background:linear-gradient(90deg,#1557b0,#7b4dcc);color:#fff;border-radius:18px;padding:13px 15px;margin-top:15px;font-weight:1000}
 .star-meter b{font-size:24px}.orbit-dot{position:absolute;font-size:24px;animation:floatAround 7s linear infinite}
@@ -511,7 +527,7 @@ footer{background:#32342f;color:#f4f1ea}
   <h1>Welcome to <span>Pony Sitters Club!</span> 💛</h1>
   <p>We’re a group of Year 4 friends making crafts, running events and raising money for something VERY special.</p>
   <p><b>We’re keeping the reason a secret for now.</b> You’ll have to follow our progress to discover the surprise! 👀</p>
-  <div class="hero-actions"><a class="btn" href="#crafts">🧶 Explore crafts</a><a class="btn purple" href="#halloween">🎃 Halloween zone</a><button class="btn yellow" onclick="celebrate()">🎉 Celebrate!</button></div>
+  <div class="hero-actions"><a class="btn" href="#crafts">🧶 Explore crafts</a><a class="btn purple" href="#halloween">🎃 Halloween zone</a><button class="btn yellow" onclick="celebrate()">🎉 Celebrate!</button><button class="btn baby" onclick="toggleFunMode()">🎉 Fun Mode</button></div>
   <div class="hero-stage">
     <div class="status-panel">
       <div class="status-kicker">✨ CLUB LIVE</div>
@@ -569,6 +585,18 @@ footer{background:#32342f;color:#f4f1ea}
         <p>Pick today's club vibe.</p>
         <button class="btn baby fun-btn" onclick="clubVibe()">Choose a vibe</button>
         <div id="vibeResult" class="fun-result">🌈 Waiting for a vibe…</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">🎲</span><h3>Lucky Emoji</h3>
+        <p>Tap for today's totally random club emoji.</p>
+        <button class="btn accent fun-btn" onclick="luckyEmoji()">Roll it!</button>
+        <div id="emojiResult" class="fun-result">🎲 Ready when you are…</div>
+      </div>
+      <div class="fun-card">
+        <span class="fun-icon">💌</span><h3>Friend Boost</h3>
+        <p>Get a random nice message for someone in the club.</p>
+        <button class="btn purple fun-btn" onclick="friendBoost()">Send good vibes!</button>
+        <div id="boostResult" class="fun-result">💛 Waiting for a boost…</div>
       </div>
     </div>
     <div class="star-meter"><span>🏆 Your local club score</span><b id="starMeter">0 ⭐</b></div>
@@ -1010,6 +1038,20 @@ function dailyChallenge(){showResult("challengeResult","🎯 "+challengeList[Mat
 function luckyPick(){showResult("luckyResult","🎁 Next up: "+luckyList[Math.floor(Math.random()*luckyList.length)]+"!");}
 function collectStar(){clubStars++;localStorage.setItem("psc_club_stars",clubStars);document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐";document.getElementById("starMeter").textContent=clubStars+" ⭐";celebrate();}
 function clubVibe(){showResult("vibeResult",vibeList[Math.floor(Math.random()*vibeList.length)]+"!");}
+const luckyEmojis=["🐴","🎃","⭐","🍡","🎨","💜","🧡","💙","🎉","🌈"];
+const friendBoosts=["You make the club brighter! 🌟","You’re doing an awesome job! 💛","Thanks for being a kind friend! 💙","Your ideas are super creative! 🎨","You bring great energy to the club! 🎉","Keep being you — you’re brilliant! ⭐"];
+function luckyEmoji(){showResult("emojiResult","🎲 Your lucky emoji: "+luckyEmojis[Math.floor(Math.random()*luckyEmojis.length)]);}
+function friendBoost(){showResult("boostResult","💌 "+friendBoosts[Math.floor(Math.random()*friendBoosts.length)]);}
+function toggleFunMode(){
+  const on=document.body.classList.toggle("fun-mode");
+  localStorage.setItem("psc_fun_mode",on?"on":"off");
+  const btn=document.querySelector(".hero-actions button[onclick*='toggleFunMode']");
+  if(btn){btn.textContent=on?"🎉 Fun Mode: ON":"🎉 Fun Mode";btn.classList.toggle("fun-toggle-on",on);}
+  if(on) celebrate();
+}
+if(localStorage.getItem("psc_fun_mode")==="on"){
+  document.body.classList.add("fun-mode");
+}
 document.getElementById("starMeter").textContent=clubStars+" ⭐";
 document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐";
 
