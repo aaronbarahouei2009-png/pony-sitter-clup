@@ -112,6 +112,28 @@ button:active{transform:translateY(1px) scale(.98)}
  .featured>.card:hover,.mini:hover,#appleField:hover,#jumpField:hover{transform:none}
 }
 
+
+/* --- EXTRA WHOLE-PAGE MOTION --- */
+@keyframes rainbowShift2{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes floatGame{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes wiggleGame{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg)}75%{transform:rotate(2deg)}}
+@keyframes titleGlow{0%,100%{text-shadow:0 4px 0 #0002}50%{text-shadow:0 6px 18px #fff6}}
+@keyframes sweepGame{0%{transform:translateX(-140%) skewX(-16deg);opacity:0}20%{opacity:.6}100%{transform:translateX(560%) skewX(-16deg);opacity:0}}
+header h1{animation:titlePop .9s cubic-bezier(.2,1.25,.3,1) both,titleGlow 3.5s 1s ease-in-out infinite}
+header{background-size:180% 180%;animation:rainbowShift2 11s ease-in-out infinite}
+.featured>.card:nth-child(1){animation:floatGame 4s ease-in-out infinite}.featured>.card:nth-child(2){animation:floatGame 4s .2s ease-in-out infinite}.featured>.card:nth-child(3){animation:floatGame 4s .4s ease-in-out infinite}.featured>.card:nth-child(4){animation:floatGame 4s .6s ease-in-out infinite}
+.featured>.card:hover{animation:wiggleGame .5s ease-in-out}
+.tools button{transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}.tools button:hover{transform:translateY(-3px) scale(1.05)}
+.grid .mini:nth-child(4n+1){animation:floatGame 4.8s ease-in-out infinite}.grid .mini:nth-child(4n+2){animation:floatGame 4.8s .2s ease-in-out infinite}.grid .mini:nth-child(4n+3){animation:floatGame 4.8s .4s ease-in-out infinite}.grid .mini:nth-child(4n){animation:floatGame 4.8s .6s ease-in-out infinite}
+.play{background-size:180% 180%;animation:rainbowShift2 8s ease-in-out infinite}
+.modal{animation:modalPop .35s cubic-bezier(.2,1.2,.3,1) both;box-shadow:0 24px 70px #0005}
+.box{transition:transform .2s ease}.box:hover{transform:translateY(-3px) scale(1.02)}
+.notice{animation:floatGame 3.5s ease-in-out infinite}
+.search{transition:box-shadow .2s ease,transform .2s ease}.search:focus{transform:scale(1.01);box-shadow:0 0 0 5px #9edfff40}
+@media(prefers-reduced-motion:reduce){
+ header,.featured>.card,.grid .mini,.play,.notice{animation:none!important}.featured>.card:hover{animation:none}
+}
+
 </style>
 </head>
 <body>
