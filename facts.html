@@ -61,6 +61,24 @@ button:active{transform:translateY(1px) scale(.98)}
  .card:hover{transform:none}
 }
 
+
+/* --- EXTRA WHOLE-PAGE MOTION --- */
+@keyframes rainbowFacts{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes floatFacts{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes wiggleFacts{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
+header{background-size:180% 180%;animation:rainbowFacts 11s ease-in-out infinite}
+header h1{animation:titlePop .9s cubic-bezier(.2,1.25,.3,1) both}
+.toolbar button{transition:transform .2s ease,box-shadow .2s ease}.toolbar button:hover{transform:translateY(-3px) scale(1.05)}
+.toolbar input{transition:transform .2s ease,box-shadow .2s ease}.toolbar input:focus{transform:scale(1.01);box-shadow:0 0 0 5px #9edfff40}
+.grid .card:nth-child(4n+1){animation:floatFacts 4.6s ease-in-out infinite}.grid .card:nth-child(4n+2){animation:floatFacts 4.6s .15s ease-in-out infinite}.grid .card:nth-child(4n+3){animation:floatFacts 4.6s .3s ease-in-out infinite}.grid .card:nth-child(4n){animation:floatFacts 4.6s .45s ease-in-out infinite}
+.num{animation:floatFacts 2.6s ease-in-out infinite}
+.tag{transition:transform .2s ease}.card:hover .tag{transform:scale(1.08) rotate(-2deg)}
+.more{background-size:180% 180%;animation:rainbowFacts 8s ease-in-out infinite}
+.empty{animation:floatFacts 3.5s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+ header,.grid .card,.num,.more,.empty{animation:none!important}
+}
+
 </style>
 </head>
 <body>
