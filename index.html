@@ -634,6 +634,10 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
 @media(max-width:600px){.music-dock{right:10px;bottom:10px}.music-toggle{padding:10px 13px}.music-panel{width:min(340px,calc(100vw - 20px))}}
 @media(prefers-reduced-motion:reduce){.music-toggle,.music-panel{animation:none!important}}
 
+
+.music-toggle{letter-spacing:.2px}
+.music-panel{border:2px solid #7b4dcc;background:linear-gradient(145deg,#fff,#f7f1ff,#fff5eb)}
+.music-frame{box-shadow:inset 0 0 0 2px #0001,0 8px 20px #0002}
 </style></head>
 <body>
 
@@ -1043,19 +1047,19 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
   <span style="color:#f6e9bf">An adult can help manage orders, money and event arrangements.</span>
 </footer>
 
-<div id="musicDock" class="music-dock" aria-label="Hootie Frutti music player">
-  <button id="musicToggle" class="music-toggle" type="button" aria-expanded="false">🎵 Hootie Frutti</button>
+<div id="musicDock" class="music-dock" aria-label="Hootie Frutti background music">
+  <button id="musicToggle" class="music-toggle" type="button" aria-expanded="false">🎵 Hootie Frutti • MUSIC</button>
   <div id="musicPanel" class="music-panel" aria-hidden="true">
-    <div class="music-head"><b>🎵 Hootie Frutti</b><button id="musicClose" type="button" aria-label="Close music player">✕</button></div>
+    <div class="music-head"><b>🎵 Hootie Frutti — BACKGROUND MUSIC</b><button id="musicClose" type="button" aria-label="Close music player">✕</button></div>
     <div class="music-frame">
       <iframe
-        title="KATSEYE Hootie Frutti Official MV"
-        src="https://www.youtube-nocookie.com/embed/is8UDe2PhKQ?rel=0"
-        loading="lazy"
+        title="KATSEYE Hootie Frutti official audio"
+        src="https://www.youtube-nocookie.com/embed/kwH2nYwuFdA?autoplay=1&loop=1&playlist=kwH2nYwuFdA&rel=0&playsinline=1"
+        loading="eager"
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen></iframe>
     </div>
-    <div class="music-note">Press play in the official player to hear the song. Browsers may block automatic audio.</div>
+    <div class="music-note">🎧 The official KATSEYE audio is built into the player. Press play once if your browser blocks automatic sound.</div>
   </div>
 </div>
 
