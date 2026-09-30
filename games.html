@@ -134,7 +134,31 @@ header{background-size:180% 180%;animation:rainbowShift2 11s ease-in-out infinit
  header,.featured>.card,.grid .mini,.play,.notice{animation:none!important}.featured>.card:hover{animation:none}
 }
 
-</style>
+
+/* --- MAX ENERGY ANIMATION LAYER --- */
+@keyframes auroraGames{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes floatGames{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes titlePulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.025)}}
+@keyframes shineGames{0%{transform:translateX(-160%) skewX(-18deg)}100%{transform:translateX(600%) skewX(-18deg)}}
+@keyframes successPop{0%{transform:scale(.92);opacity:.55}65%{transform:scale(1.04);opacity:1}100%{transform:scale(1)}}
+body{background-size:220% 220%;animation:auroraGames 13s ease-in-out infinite alternate}
+header{background-size:240% 240%;animation:auroraGames 10s ease-in-out infinite}
+header h1{animation:titlePop .9s cubic-bezier(.2,1.25,.3,1) both,titlePulse 3.1s 1s ease-in-out infinite}
+.featured>.card{will-change:transform}
+.featured>.card:hover{transform:translateY(-9px) rotate(-.5deg) scale(1.015);box-shadow:0 24px 46px #0002}
+.tools button.active{animation:successPop 2.6s ease-in-out infinite}
+.mini{will-change:transform}
+.mini:hover{transform:translateY(-7px) rotate(.4deg) scale(1.025)}
+.play,.big{position:relative;overflow:hidden}
+.play:after,.big:after{content:"";position:absolute;top:-40%;bottom:-40%;left:-50%;width:25%;background:linear-gradient(100deg,transparent,#fff9,transparent);transform:skewX(-18deg);animation:shineGames 4.5s linear infinite;pointer-events:none}
+.box{animation:floatGames 3.5s ease-in-out infinite}.box:nth-child(2){animation-delay:.2s}
+#appleField,#jumpField{box-shadow:0 0 0 0 #9edfff00;transition:transform .25s,box-shadow .25s}.card:hover #appleField,.card:hover #jumpField{box-shadow:0 0 0 5px #9edfff22,0 16px 34px #0002}
+.overlay.open{backdrop-filter:blur(5px)}
+.overlay.open .modal{animation:modalPop .4s cubic-bezier(.2,1.25,.3,1) both}
+
+
+.featured>.card,.more,.mini,.toolbar{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.seen{opacity:1!important;transform:none!important}</style>
 </head>
 <body>
 <header>
@@ -728,6 +752,14 @@ else if(g.engine==="stable")playStable(g);
   },{passive:true});
 })();
 
+/* --- MAX ENERGY MOTION JS --- */
+(function(){
+  const targets=document.querySelectorAll(".featured>.card,.more,.mini");
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("seen");io.unobserve(e.target);}});
+  },{threshold:.08});
+  targets.forEach((el,i)=>{el.style.transitionDelay=Math.min(i*25,250)+"ms";io.observe(el);});
+})();
 </script>
 </body>
 </html>
