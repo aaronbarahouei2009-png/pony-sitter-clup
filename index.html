@@ -566,6 +566,32 @@ footer:before{content:"";position:absolute;inset:-40% -10%;background:linear-gra
  .section-title h2:after,nav a,.badge,.sticker,.stats .stat,.progress-card,.bar:after,.gallery .tile,.countdown,.time b,.vote-panel,.member-hub,.fun-zone,.fun-icon,.top:hover,footer:before{animation:none!important}
 }
 
+
+/* --- MAX ENERGY ANIMATION LAYER --- */
+@keyframes auroraMove{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes floatBlobA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-24px) scale(1.08)}}
+@keyframes floatBlobB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-24px,30px) scale(.94)}}
+@keyframes edgeGlow{0%,100%{box-shadow:0 0 0 0 #9edfff00}50%{box-shadow:0 0 0 6px #9edfff28,0 18px 42px #0002}}
+@keyframes microBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes rainbowText{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+body:before,body:after{animation:floatBlobA 9s ease-in-out infinite}
+body:after{animation-name:floatBlobB;animation-duration:11s}
+header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
+.announce{background-size:220% 100%;animation:auroraMove 7s linear infinite}
+.hero{background-size:180% 180%;animation:auroraMove 10s ease-in-out infinite}
+.section-title h2{background:linear-gradient(90deg,var(--ink),var(--purple2),var(--orange2),var(--ink));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbowText 6s linear infinite}
+.card,.step,.member-box,.fun-card,.stat,.progress-card,.countdown,.vote-panel,.mystery,.celebrate{animation-name:edgeGlow}
+.card:hover,.step:hover,.member-box:hover,.fun-card:hover,.stat:hover{animation:microBounce .8s ease-in-out infinite}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;top:-30%;bottom:-30%;left:-80%;width:36%;background:linear-gradient(100deg,transparent,#ffffff88,transparent);transform:skewX(-18deg);transition:left .1s}
+.btn:hover:after{left:150%;transition:left .65s ease}
+.hero-stage .status-panel,.hero-stage .pulse-orb{will-change:transform}
+.gallery .tile{will-change:transform}
+.mystery .secret-box.show{animation:revealPop .55s cubic-bezier(.2,1.35,.3,1) both}
+.vote{transition:transform .2s ease,box-shadow .2s ease}.vote:hover{transform:translateX(7px) scale(1.01);box-shadow:0 10px 24px #0002}
+.event .date{animation:microBounce 2.4s ease-in-out infinite}
+.faq button.open{animation:microBounce .9s ease-in-out infinite}
+
 </style></head>
 <body>
 
