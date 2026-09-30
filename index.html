@@ -484,6 +484,18 @@ footer{background:#32342f;color:#f4f1ea}
 .mochi-desc{font-size:12px;color:#77746b;line-height:1.4;min-height:34px}
 .mochi-btn{margin-top:10px!important;width:100%;background:#373936!important;box-shadow:none!important}
 .mochi-result{margin-top:16px;padding:13px;background:#f3f0e9;border:1px solid var(--line);text-align:center;font-weight:900;color:#57554e}
+.chocolate-mochi-card{background:linear-gradient(145deg,#fffaf6,#f2e7df)!important}
+.chocolate-mochi{position:relative!important;background:linear-gradient(145deg,#f3d4b7 0%,#ead0b5 35%,#f4dcc6 100%)!important;overflow:hidden}
+.chocolate-mochi:before{content:"";position:absolute;left:-5%;right:-5%;top:-7px;height:44px;background:linear-gradient(180deg,#5b2b18,#3b1b11);border-radius:48% 48% 32% 32%;box-shadow:0 6px 10px #3b1b1144}
+.mochi-face{position:relative;z-index:2;filter:drop-shadow(0 2px 1px #0003)}
+.choc-drip{position:absolute;z-index:2;top:18px;background:linear-gradient(180deg,#63301b,#3a170e);width:15px;border-radius:0 0 12px 12px;box-shadow:0 2px 5px #2a0f0888}
+.drip-a{left:14px;height:27px}.drip-b{left:33px;height:40px;width:19px}.drip-c{right:27px;height:24px;width:13px}.drip-d{right:10px;height:34px;width:17px}
+.chocolate-mochi-card:hover .chocolate-mochi:before{animation:chocWave .8s ease-in-out infinite}
+.chocolate-mochi-card:hover .choc-drip{animation:dripBounce .7s ease-in-out infinite}
+.chocolate-mochi-card:hover .drip-b{animation-delay:.08s}.chocolate-mochi-card:hover .drip-c{animation-delay:.16s}.chocolate-mochi-card:hover .drip-d{animation-delay:.24s}
+@keyframes chocWave{0%,100%{transform:translateY(0) scaleX(1)}50%{transform:translateY(2px) scaleX(1.04)}}
+@keyframes dripBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
 
 
 /* --- SITE-WIDE FUN ANIMATION PACK --- */
@@ -825,6 +837,7 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
       <article class="mochi-card"><div class="mochi-blob" style="background:#f6d5b8">🍑</div><div class="mochi-name">Peach Mochi</div><div class="mochi-desc">Peachy, fluffy and adorable.</div><button class="btn mochi-btn" onclick="pickMochi('Peach Mochi 🍑')">Squish it!</button></article>
       <article class="mochi-card"><div class="mochi-blob" style="background:#f7e9b8">🍋</div><div class="mochi-name">Lemon Mochi</div><div class="mochi-desc">Sunny yellow and extra cute.</div><button class="btn mochi-btn" onclick="pickMochi('Lemon Mochi 🍋')">Squish it!</button></article>
       <article class="mochi-card"><div class="mochi-blob" style="background:#d7eaf8">🫐</div><div class="mochi-name">Blueberry Mochi</div><div class="mochi-desc">Cool blue with a tiny sparkle.</div><button class="btn mochi-btn" onclick="pickMochi('Blueberry Mochi 🫐')">Squish it!</button></article>
+      <article class="mochi-card chocolate-mochi-card"><div class="mochi-blob chocolate-mochi" aria-label="Chocolate-drenched mochi"><span class="mochi-face">🍡</span><span class="choc-drip drip-a"></span><span class="choc-drip drip-b"></span><span class="choc-drip drip-c"></span><span class="choc-drip drip-d"></span></div><div class="mochi-name">Chocolate-Drenched Mochi 🍫</div><div class="mochi-desc">Soft, squishy and covered in glossy chocolate drips.</div><button class="btn mochi-btn" onclick="pickMochi('Chocolate-Drenched Mochi 🍫')">Drench & Squish!</button></article>
     </div>
     <div id="mochiResult" class="mochi-result">These are themed squishy picks for the website — not food. Choose one to see it pop! 🍡</div>
   </div>
