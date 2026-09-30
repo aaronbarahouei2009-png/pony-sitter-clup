@@ -495,6 +495,19 @@ footer{background:#32342f;color:#f4f1ea}
 .chocolate-mochi-card:hover .drip-b{animation-delay:.08s}.chocolate-mochi-card:hover .drip-c{animation-delay:.16s}.chocolate-mochi-card:hover .drip-d{animation-delay:.24s}
 @keyframes chocWave{0%,100%{transform:translateY(0) scaleX(1)}50%{transform:translateY(2px) scaleX(1.04)}}
 @keyframes dripBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.hootie-card{background:linear-gradient(145deg,#fff8f1,#f5edff,#eefaff)!important}
+.hootie-blob{width:92px;height:78px;margin:0 auto 12px;border-radius:46% 54% 50% 50%;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffd86a,#ff8f9d 45%,#9b72ff);box-shadow:inset 0 -8px 0 #00000008,0 8px 16px #0001;animation:hootieBounce 2.2s ease-in-out infinite;overflow:hidden}
+.hootie-fruit{font-size:36px;position:relative;z-index:3;filter:drop-shadow(0 2px 1px #0002)}
+.hootie-choc{position:absolute;left:-5%;right:-5%;top:8px;height:35px;background:linear-gradient(180deg,#61311e,#3a180e);border-radius:50% 50% 32% 32%;z-index:2}
+.hootie-choc:after{content:"";position:absolute;left:12px;top:22px;width:13px;height:25px;border-radius:0 0 12px 12px;background:#4a2113;box-shadow:23px 6px 0 #4a2113,47px -2px 0 #4a2113}
+.hootie-card:hover .hootie-blob{animation:hootieSpin .7s ease-in-out}
+.hootie-card:hover .hootie-fruit{animation:fruitPop .45s cubic-bezier(.2,1.4,.3,1)}
+.hootie-btn{background:linear-gradient(90deg,#ff7a1a,#7b4dcc,#2f80ed)!important;background-size:220% 100%!important;animation:hootieGradient 4s linear infinite}
+@keyframes hootieBounce{0%,100%{transform:translateY(0) rotate(-2deg) scale(1,1)}50%{transform:translateY(-5px) rotate(2deg) scale(1.04,.96)}}
+@keyframes hootieSpin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(-5deg) scale(1.08)}100%{transform:rotate(5deg) scale(1)}}
+@keyframes fruitPop{0%{transform:scale(.7)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes hootieGradient{0%{background-position:0% 50%}100%{background-position:220% 50%}}
+
 
 
 
@@ -838,6 +851,7 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
       <article class="mochi-card"><div class="mochi-blob" style="background:#f7e9b8">🍋</div><div class="mochi-name">Lemon Mochi</div><div class="mochi-desc">Sunny yellow and extra cute.</div><button class="btn mochi-btn" onclick="pickMochi('Lemon Mochi 🍋')">Squish it!</button></article>
       <article class="mochi-card"><div class="mochi-blob" style="background:#d7eaf8">🫐</div><div class="mochi-name">Blueberry Mochi</div><div class="mochi-desc">Cool blue with a tiny sparkle.</div><button class="btn mochi-btn" onclick="pickMochi('Blueberry Mochi 🫐')">Squish it!</button></article>
       <article class="mochi-card chocolate-mochi-card"><div class="mochi-blob chocolate-mochi" aria-label="Chocolate-drenched mochi"><span class="mochi-face">🍡</span><span class="choc-drip drip-a"></span><span class="choc-drip drip-b"></span><span class="choc-drip drip-c"></span><span class="choc-drip drip-d"></span></div><div class="mochi-name">Chocolate-Drenched Mochi 🍫</div><div class="mochi-desc">Soft, squishy and covered in glossy chocolate drips.</div><button class="btn mochi-btn" onclick="pickMochi('Chocolate-Drenched Mochi 🍫')">Drench & Squish!</button></article>
+      <article class="mochi-card hootie-card"><div class="hootie-blob"><span class="hootie-fruit">🍓🍇🍑</span><span class="hootie-choc"></span></div><div class="mochi-name">Hootie Fruttie 🍓🍫</div><div class="mochi-desc">A bright fruit + chocolate club special with maximum squishy energy.</div><button class="btn mochi-btn hootie-btn" onclick="pickMochi('Hootie Fruttie 🍓🍫')">Hootie Squish!</button></article>
     </div>
     <div id="mochiResult" class="mochi-result">These are themed squishy picks for the website — not food. Choose one to see it pop! 🍡</div>
   </div>
