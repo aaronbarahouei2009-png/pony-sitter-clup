@@ -1059,7 +1059,7 @@ header{background-size:220% 220%;animation:auroraMove 12s ease-in-out infinite}
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen></iframe>
     </div>
-    <div class="music-note">🎧 Auto-start is on. Your browser may allow the music to play only after your first click/tap anywhere on the page.</div>
+    <div class="music-note">🎧 The player loads immediately in the background. Your first click/tap starts the already-loaded song instead of reloading it.</div>
   </div>
 </div>
 
@@ -1364,10 +1364,20 @@ function pickMochi(name){
 
   const player=document.getElementById("hootiePlayer");
   let audioUnlocked=false;
+  function sendYouTube(command,value){
+    if(!player||!player.contentWindow)return;
+    player.contentWindow.postMessage(JSON.stringify({
+      event:"command",
+      func:command,
+      args:value===undefined?[]:[value]
+    }),"*");
+  }
   function unlockHootie(){
     if(audioUnlocked||!player)return;
     audioUnlocked=true;
-    player.src="https://www.youtube-nocookie.com/embed/is8UDe2PhKQ?autoplay=1&mute=0&loop=1&playlist=is8UDe2PhKQ&rel=0&playsinline=1&enablejsapi=1";
+    sendYouTube("playVideo");
+    sendYouTube("unMute");
+    sendYouTube("setVolume",100);
     document.removeEventListener("pointerdown",unlockHootie,true);
     document.removeEventListener("keydown",unlockHootie,true);
   }
