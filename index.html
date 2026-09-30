@@ -522,6 +522,50 @@ footer .stars{display:inline-block;animation:softBob 2.5s ease-in-out infinite}
   .progress-card:after,.countdown:after,.celebrate:after,.mystery:after{display:none}
 }
 
+
+/* --- ULTRA FUN MOTION PASS --- */
+@keyframes rainbowShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes wiggleFun{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg)}75%{transform:rotate(2deg)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes glowPulse{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:0 24px 55px #7b4dcc25,0 0 0 7px #9edfff20}}
+@keyframes underlineSweep{0%{transform:scaleX(0);transform-origin:left}45%{transform:scaleX(1);transform-origin:left}55%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
+@keyframes navFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes badgePop{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes tileFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes progressShimmer{0%{transform:translateX(-120%)}100%{transform:translateX(520%)}}
+.section-title{position:relative}
+.section-title h2{position:relative;display:inline-block}
+.section-title h2:after{content:"";position:absolute;left:0;bottom:-8px;width:100%;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));background-size:200% 100%;animation:rainbowShift 3.8s linear infinite,underlineSweep 2.8s ease-in-out infinite}
+nav a{animation:navFloat 3.8s ease-in-out infinite}
+nav a:nth-child(2n){animation-delay:.25s}nav a:nth-child(3n){animation-delay:.5s}nav a:nth-child(4n){animation-delay:.75s}
+.badge{animation:badgePop 3.2s ease-in-out infinite}
+.hero-actions .btn:hover{animation:wiggleFun .45s ease-in-out}
+.sticker{animation:floatSlow 3.6s ease-in-out infinite}
+.sticker:nth-child(2){animation-delay:.3s}.sticker:nth-child(3){animation-delay:.6s}.sticker:nth-child(4){animation-delay:.9s}
+.stats .stat:nth-child(1){animation:floatSlow 3.2s ease-in-out infinite}.stats .stat:nth-child(2){animation:floatSlow 3.2s .2s ease-in-out infinite}.stats .stat:nth-child(3){animation:floatSlow 3.2s .4s ease-in-out infinite}.stats .stat:nth-child(4){animation:floatSlow 3.2s .6s ease-in-out infinite}
+.progress-card{animation:glowPulse 4.6s ease-in-out infinite}
+.bar{position:relative}
+.bar:after{content:"";position:absolute;top:0;bottom:0;left:0;width:18%;background:linear-gradient(90deg,transparent,#fff9,transparent);animation:progressShimmer 3.8s linear infinite;pointer-events:none}
+.gallery .tile:nth-child(1),.gallery .tile:nth-child(3),.gallery .tile:nth-child(5){animation:tileFloat 4.3s ease-in-out infinite}
+.gallery .tile:nth-child(2){animation:tileFloat 4.3s .35s ease-in-out infinite}.gallery .tile:nth-child(4){animation:tileFloat 4.3s .7s ease-in-out infinite}
+.countdown{animation:glowPulse 5s ease-in-out infinite}
+.time b{animation:badgePop 2.2s ease-in-out infinite}
+.time:nth-child(2) b{animation-delay:.15s}.time:nth-child(3) b{animation-delay:.3s}.time:nth-child(4) b{animation-delay:.45s}
+.vote-panel,.member-hub{animation:glowPulse 6s ease-in-out infinite}
+.vote:hover{transform:translateX(6px);transition:transform .2s ease}
+.faq button:hover{transform:translateX(5px)}
+.faq .answer{animation:sitePageIn .28s ease both}
+.mission.done{animation:badgePop .8s ease-in-out}
+.fun-zone{background-size:200% 200%;animation:rainbowShift 14s ease-in-out infinite}
+.fun-icon{animation:floatSlow 2.8s ease-in-out infinite}
+.fun-card:nth-child(2) .fun-icon{animation-delay:.15s}.fun-card:nth-child(3) .fun-icon{animation-delay:.3s}.fun-card:nth-child(4) .fun-icon{animation-delay:.45s}.fun-card:nth-child(5) .fun-icon{animation-delay:.6s}.fun-card:nth-child(6) .fun-icon{animation-delay:.75s}.fun-card:nth-child(7) .fun-icon{animation-delay:.9s}.fun-card:nth-child(8) .fun-icon{animation-delay:1.05s}.fun-card:nth-child(9) .fun-icon{animation-delay:1.2s}
+.top:hover{animation:wiggleFun .5s ease-in-out}
+footer{position:relative;overflow:hidden}
+footer:before{content:"";position:absolute;inset:-40% -10%;background:linear-gradient(115deg,transparent 35%,#ffffff14 50%,transparent 65%);animation:rainbowShift 7s linear infinite;pointer-events:none}
+@media(prefers-reduced-motion:reduce){
+ .section-title h2:after,nav a,.badge,.sticker,.stats .stat,.progress-card,.bar:after,.gallery .tile,.countdown,.time b,.vote-panel,.member-hub,.fun-zone,.fun-icon,.top:hover,footer:before{animation:none!important}
+}
+
 </style></head>
 <body>
 
