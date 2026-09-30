@@ -456,6 +456,19 @@ footer{background:#32342f;color:#f4f1ea}
 .sight-caption h3{margin:0 0 4px;font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:500;color:#3b3c36}
 .sight-caption p{margin:0;color:#77746b;font-size:12px;line-height:1.4}
 
+
+.mochi-zone{background:#fff;border:1px solid var(--line);padding:28px;box-shadow:0 14px 36px rgba(38,40,35,.07)}
+.mochi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.mochi-card{background:linear-gradient(145deg,#fffaf6,#f7f4ff);border:1px solid #ddd8cf;padding:18px;text-align:center;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.mochi-card:hover{transform:translateY(-6px);box-shadow:0 14px 26px #0001}
+.mochi-blob{width:92px;height:78px;margin:0 auto 12px;border-radius:46% 54% 50% 50%;display:flex;align-items:center;justify-content:center;font-size:46px;box-shadow:inset 0 -8px 0 #00000008,0 8px 16px #0001;animation:mochiSquish 2.4s ease-in-out infinite}
+.mochi-card:nth-child(2) .mochi-blob{animation-delay:.2s}.mochi-card:nth-child(3) .mochi-blob{animation-delay:.4s}.mochi-card:nth-child(4) .mochi-blob{animation-delay:.6s}.mochi-card:nth-child(5) .mochi-blob{animation-delay:.8s}.mochi-card:nth-child(6) .mochi-blob{animation-delay:1s}
+@keyframes mochiSquish{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94)}}
+.mochi-name{font-family:Georgia,"Times New Roman",serif;font-size:19px;color:#3b3c36;margin-bottom:4px}
+.mochi-desc{font-size:12px;color:#77746b;line-height:1.4;min-height:34px}
+.mochi-btn{margin-top:10px!important;width:100%;background:#373936!important;box-shadow:none!important}
+.mochi-result{margin-top:16px;padding:13px;background:#f3f0e9;border:1px solid var(--line);text-align:center;font-weight:900;color:#57554e}
+
 </style></head>
 <body>
 
@@ -488,7 +501,7 @@ footer{background:#32342f;color:#f4f1ea}
 <div class="club-ticker"><div class="ticker-track"><span>🧶 CRAFTS</span><span>🎃 HALLOWEEN</span><span>🎮 GAMES</span><span>🤫 MYSTERY</span><span>⭐ CLUB HQ</span><span>🎉 EVENTS</span><span>🧶 CRAFTS</span><span>🎃 HALLOWEEN</span><span>🎮 GAMES</span><span>🤫 MYSTERY</span></div></div>
 
 <nav>
-<a href="#home">Home</a><a href="#featured">Featured</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="games.html">🎮 Horse Games</a><a href="#fun">🎮 Fun</a><a href="#crafts">Crafts</a><a href="#buckskins">🐴 Buckskin facts</a><a href="#buckskins">🤎 Buckskins</a><a href="facts.html">📚 99 Facts</a><a href="#how">How it works</a>
+<a href="#home">Home</a><a href="#featured">Featured</a><a href="#goal">Progress</a><a href="#gallery">Gallery</a><a href="games.html">🎮 Horse Games</a><a href="#fun">🎮 Fun</a><a href="#crafts">Crafts</a><a href="#mochi">🍡 Mochi</a><a href="#buckskins">🐴 Buckskin facts</a><a href="#buckskins">🤎 Buckskins</a><a href="facts.html">📚 99 Facts</a><a href="#how">How it works</a>
 <a href="#halloween">🎃 Halloween</a><a href="#events">Events</a><a href="#members">Members</a><a href="#about">About</a><a href="#friends">Friends</a><a href="#faq">FAQ</a>
 </nav>
 
@@ -622,6 +635,21 @@ footer{background:#32342f;color:#f4f1ea}
       <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Landscape%20Hawkesbury.JPG?width=900" alt="Landscape in the Hawkesbury area" loading="lazy">
       <figcaption><h3>Hawkesbury Landscape</h3><p>Green hills and river country • Wikimedia Commons</p></figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="mochi">
+  <div class="section-title"><h2>🍡 Squishy Mochi</h2><p>Pick your favourite squishy!</p></div>
+  <div class="mochi-zone">
+    <div class="mochi-grid">
+      <article class="mochi-card"><div class="mochi-blob" style="background:#f7c7d9">🍓</div><div class="mochi-name">Strawberry Mochi</div><div class="mochi-desc">Sweet, pink and super squishy.</div><button class="btn mochi-btn" onclick="pickMochi('Strawberry Mochi 🍓')">Squish it!</button></article>
+      <article class="mochi-card"><div class="mochi-blob" style="background:#d8c7f5">🍇</div><div class="mochi-name">Grape Mochi</div><div class="mochi-desc">Purple, soft and bouncy.</div><button class="btn mochi-btn" onclick="pickMochi('Grape Mochi 🍇')">Squish it!</button></article>
+      <article class="mochi-card"><div class="mochi-blob" style="background:#cfe8c6">🍵</div><div class="mochi-name">Matcha Mochi</div><div class="mochi-desc">Calm green with a cute vibe.</div><button class="btn mochi-btn" onclick="pickMochi('Matcha Mochi 🍵')">Squish it!</button></article>
+      <article class="mochi-card"><div class="mochi-blob" style="background:#f6d5b8">🍑</div><div class="mochi-name">Peach Mochi</div><div class="mochi-desc">Peachy, fluffy and adorable.</div><button class="btn mochi-btn" onclick="pickMochi('Peach Mochi 🍑')">Squish it!</button></article>
+      <article class="mochi-card"><div class="mochi-blob" style="background:#f7e9b8">🍋</div><div class="mochi-name">Lemon Mochi</div><div class="mochi-desc">Sunny yellow and extra cute.</div><button class="btn mochi-btn" onclick="pickMochi('Lemon Mochi 🍋')">Squish it!</button></article>
+      <article class="mochi-card"><div class="mochi-blob" style="background:#d7eaf8">🫐</div><div class="mochi-name">Blueberry Mochi</div><div class="mochi-desc">Cool blue with a tiny sparkle.</div><button class="btn mochi-btn" onclick="pickMochi('Blueberry Mochi 🫐')">Squish it!</button></article>
+    </div>
+    <div id="mochiResult" class="mochi-result">Choose a mochi to see your squishy pick! 🍡</div>
   </div>
 </section>
 
@@ -1019,6 +1047,16 @@ document.getElementById("starResult").textContent="Your stars: "+clubStars+" ⭐
     .then(b64=>{img.src="data:image/jpeg;base64,"+b64.trim();})
     .catch(()=>{img.alt="Featured club picture";});
 })();
+
+
+function pickMochi(name){
+  const el=document.getElementById("mochiResult");
+  if(!el)return;
+  el.textContent="🍡 You picked "+name+" — SQUISH! 💕";
+  el.classList.remove("reveal-pop");
+  void el.offsetWidth;
+  el.classList.add("reveal-pop");
+}
 
 </script>
 </body>
