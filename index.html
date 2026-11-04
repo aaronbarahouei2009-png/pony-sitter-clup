@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#eaf7ff">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
 <meta name="description" content="Pony Sitters Club Lemonade Stand — bright, refreshing lemonade in Bligh Park, NSW.">
 <title>Pony Sitters Club | Lemonade Stand</title>
 <style>
@@ -602,11 +603,17 @@ section:not(.hero){
 }
 
 
+/* Custom Pony Sitters Club logo */
+.brand{display:flex!important;align-items:center;flex:0 0 auto;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
+.brand img{display:block;width:clamp(185px,24vw,265px);height:auto;max-height:64px;object-fit:contain}
+@media(max-width:760px){.brand{justify-content:center;width:100%}.brand img{width:min(245px,75vw);max-height:58px}}
+
+
 </style>
 </head>
 <body>
 <header class="topbar">
-  <a class="brand" href="#home" style="text-decoration:none"><span>🍋</span>PONY SITTERS CLUB</a>
+  <a class="brand" href="#home" aria-label="Pony Sitters Club home"><img src="logo.svg" alt="Pony Sitters Club logo"></a>
   <nav class="nav" aria-label="Main navigation">
     <a href="#about">About</a><a href="#menu">Our lemonade</a><a href="#location">Where we are</a><a href="#contact">Enquiries</a>
   </nav>
