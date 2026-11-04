@@ -16,6 +16,29 @@ section{padding:82px clamp(22px,8vw,120px)}.section-head{text-align:center;max-w
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-13px) rotate(-4deg)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes twinkle{0%,100%{transform:scale(.8) rotate(0);opacity:.65}50%{transform:scale(1.2) rotate(18deg);opacity:1}}
 @media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.nav{gap:14px}.hero{grid-template-columns:1fr;text-align:center;padding-top:55px}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.lemon-art{min-height:300px}.cards{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.about-art{min-height:230px}.menu-card{align-items:flex-start}.hero h1{font-size:clamp(3.3rem,15vw,5.2rem)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Soft, matching baby-blue finish */
+:root{--ink:#29445a;--green:#579bc5;--lime:#d8efff;--yellow:#dff3ff;--pink:#cdeaff;--cream:#f4fbff;--orange:#78b8df}
+body{background-color:#c7e8fa;background-image:linear-gradient(45deg,#dff2fc 25%,transparent 25%,transparent 75%,#dff2fc 75%),linear-gradient(45deg,#dff2fc 25%,transparent 25%,transparent 75%,#dff2fc 75%)}
+.topbar{background:#f3faff}
+.nav a:hover,.hero h1 em{color:#579bc5}
+.hero{background:linear-gradient(135deg,#c9e9fb,#e6f5fd 58%,#d5edfb)}
+.eyebrow,.section-head .eyebrow,.contact .eyebrow{background:#e4f4fd;color:#477fa2}
+.btn{background:#6eafd4;box-shadow:0 5px 0 #4c8fb8}
+.btn.alt{background:#f3faff;color:#477fa2;box-shadow:0 5px 0 #c6e3f4}
+.card,.menu-card,.location-box{background:#f5fbff;border-color:#cce7f7}
+.card p,.menu-card p,.section-head p,.about-copy p,.location-box p{color:#536e80}
+.menu-section,.location{background:#dff1fc}
+.menu-card{border-color:#a9d5ee}
+.note{color:#477fa2!important}
+.about-art{background:linear-gradient(145deg,#c6e7fa,#eaf7ff)}
+.contact{background:#cfeafa;color:#29445a}
+.contact .eyebrow{background:#eaf7ff;color:#477fa2}
+.contact p,.contact .small{color:#496b82}
+.contact .btn{background:#6eafd4;color:#fff;box-shadow:0 5px 0 #4c8fb8}
+.footer{background:#9bcbe7;color:#29445a}
+.footer strong{color:#f4fbff}
+
 </style>
 </head>
 <body>
