@@ -782,6 +782,20 @@ section:nth-of-type(even):not(.hero){
 
 
 
+
+/* Bring the blue-and-yellow checkerboard back across the whole page */
+body{
+  background-color:#9bcfea!important;
+  background-image:
+    linear-gradient(45deg,#fff0a8 25%,transparent 25%,transparent 75%,#fff0a8 75%),
+    linear-gradient(45deg,#fff0a8 25%,transparent 25%,transparent 75%,#fff0a8 75%)!important;
+  background-position:0 0,16px 16px!important;
+  background-size:32px 32px!important;
+  background-attachment:fixed!important;
+}
+.hero,section:not(.hero),.menu-section,.location,.contact,.support-section{
+  background:transparent!important;
+}
 </style>
 </head>
 <body>
