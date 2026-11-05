@@ -780,6 +780,89 @@ section:nth-of-type(even):not(.hero){
   *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 
+
+/* Classic lemonade-stand look: timeless cream, navy and soft lemon */
+:root{--ink:#263b4b;--green:#365f72;--yellow:#f4e5ad;--cream:#fbf7eb}
+body{
+  font-family:Georgia,"Times New Roman",serif!important;
+  color:#263b4b!important;
+  background-color:#f5f0df!important;
+  background-image:
+    linear-gradient(45deg,rgba(215,201,161,.18) 25%,transparent 25%,transparent 75%,rgba(215,201,161,.18) 75%),
+    linear-gradient(45deg,rgba(215,201,161,.18) 25%,transparent 25%,transparent 75%,rgba(215,201,161,.18) 75%)!important;
+  background-size:28px 28px!important;
+  background-position:0 0,14px 14px!important;
+  background-attachment:fixed!important;
+}
+.topbar{background:rgba(251,248,238,.97)!important;border-bottom:1px solid #dfd4b8!important;box-shadow:0 4px 16px #263b4b0c!important}
+.brand img{filter:none!important;animation:none!important}
+.nav a{font-family:Arial,sans-serif!important;background:#f8f2df!important;border:1px solid #e4d7b4!important;color:#36566a!important;box-shadow:none!important}
+.nav a:hover{background:#efe3bd!important}
+.hero{background:linear-gradient(120deg,rgba(246,241,224,.98),rgba(255,253,246,.97) 58%,rgba(238,230,204,.94))!important}
+.hero h1,.section-head h2,.about-copy h2,.location-box h2,.contact h2{
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-weight:600!important;
+  letter-spacing:-.045em!important;
+  color:#263f50!important;
+  background:#fffaf0!important;
+  border:1px solid #e5d8b7!important;
+  border-radius:8px!important;
+  box-shadow:none!important;
+}
+.hero h1 em{color:#a77b2e!important}
+.eyebrow{font-family:Arial,sans-serif!important;text-transform:uppercase;letter-spacing:.13em!important;background:#f5edcf!important;border:1px solid #e6d8ae!important;color:#536b70!important;box-shadow:none!important}
+.hero p,.section-head p,.about-copy p,.menu-card p,.card p,.location-box p,.contact p{
+  font-family:Arial,sans-serif!important;
+  background:#fffdf6!important;
+  border:1px solid #eee5d0!important;
+  border-radius:7px!important;
+  color:#52616a!important;
+  box-shadow:none!important;
+}
+.btn,.btn.alt,.contact .btn{
+  font-family:Arial,sans-serif!important;
+  font-weight:700!important;
+  letter-spacing:.025em;
+  border-radius:5px!important;
+  background:#365f72!important;
+  border:1px solid #294d5e!important;
+  color:#fffdf5!important;
+  box-shadow:0 3px 0 #244655!important;
+}
+.btn:hover{background:#294d5e!important;filter:none!important}
+.btn.alt{background:#fff9e9!important;color:#365f72!important;border-color:#d9c99e!important;box-shadow:0 3px 0 #d9c99e!important}
+section:not(.hero){background:rgba(251,248,238,.94)!important;border-top:1px solid #e5dcc6!important}
+section:nth-of-type(even):not(.hero){background:linear-gradient(135deg,rgba(239,234,216,.97),rgba(251,248,238,.97))!important}
+.about-art{background:linear-gradient(145deg,#e8e0c9,#fbf7eb)!important;border:1px solid #ded2b5!important;border-radius:12px!important;box-shadow:none!important}
+.card,.menu-card,.location-box{
+  background:#fffdf7!important;
+  border:1px solid #e4dac3!important;
+  border-radius:10px!important;
+  box-shadow:0 5px 16px rgba(38,59,75,.06)!important;
+}
+.card:hover{transform:translateY(-3px)!important;box-shadow:0 9px 20px rgba(38,59,75,.09)!important}
+.card:before{display:none!important}
+.card .icon,.menu-lemon,.location-box .pin{
+  background:#f6edcf!important;
+  border:1px solid #e6d8ad!important;
+  border-radius:9px!important;
+  box-shadow:none!important;
+}
+.card h3,.menu-card h3{font-family:Georgia,"Times New Roman",serif!important;color:#36566a!important;background:#f8f2df!important;border:1px solid #e8ddc2!important;border-radius:6px!important}
+.menu-card{background:#fffdf7!important}
+.menu-card:after{border-color:#e5d8b7!important}
+.menu-card .note{color:#786638!important}
+.location-box:before,.location-box:after{border-color:#e5d8b7!important}
+.contact{background:linear-gradient(120deg,#e8e1cd,#f5efdf)!important}
+.contact .small{font-family:Arial,sans-serif!important;color:#68777b!important}
+.support-section{background:linear-gradient(135deg,#f0ead8,#fbf8ee)!important}
+.support-note{font-family:Arial,sans-serif!important;background:#f8f1d9!important;border:1px solid #e5d8b7!important;border-radius:7px!important;color:#596b70!important;box-shadow:none!important;animation:none!important}
+.footer{font-family:Arial,sans-serif!important;background:#e8e0ca!important;border-top:1px solid #d9ceb2!important;color:#465c67!important;box-shadow:none!important}
+.footer strong{color:#294d5e!important}
+.lemon-art{animation:none!important;background:radial-gradient(circle,#fffdf4 0,rgba(232,224,201,.35) 60%,transparent 73%)!important}
+.brand img,.lemon-art .spark,.glass,.lemon{animation:none!important}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
