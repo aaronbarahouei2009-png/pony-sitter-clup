@@ -739,6 +739,47 @@ section:nth-of-type(even):not(.hero){
   .support-note{display:block!important;border-radius:18px!important;line-height:1.7}
 }
 
+
+/* Extra playful motion */
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes sparkle-pop{0%,100%{opacity:.45;transform:scale(.75) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(18deg)}}
+@keyframes drift-in{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes shine-sweep{0%{background-position:-220% 0}100%{background-position:220% 0}}
+@keyframes gentle-wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg)}75%{transform:rotate(2deg)}}
+@keyframes bubble-rise{0%{opacity:0;transform:translateY(24px) scale(.7)}25%{opacity:.65}100%{opacity:0;transform:translateY(-65px) scale(1.15)}}
+.hero .eyebrow{animation:drift-in .8s both}
+.hero h1{animation:drift-in .9s .08s both}
+.hero p{animation:drift-in .9s .18s both}
+.hero .actions{animation:drift-in .9s .28s both}
+.lemon-art{animation:floaty 4.5s ease-in-out infinite}
+.lemon-art .spark{animation:sparkle-pop 2.4s ease-in-out infinite}
+.lemon-art .s2{animation-delay:.7s}
+.lemon-art .s3{animation-delay:1.3s}
+.glass{animation:bob 3.2s ease-in-out infinite}
+.lemon{animation:spin 16s linear infinite}
+.card,.menu-card,.location-box{
+  animation:drift-in .75s both;
+}
+.card .icon{transition:transform .35s ease}
+.card:hover .icon{transform:translateY(-5px) rotate(-8deg) scale(1.08)}
+.card:hover h3{animation:gentle-wiggle .45s ease}
+.btn{position:relative;overflow:hidden}
+.btn:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.38) 48%,transparent 70%);
+  background-size:220% 100%;
+  background-position:-220% 0;
+  transition:background-position .65s ease;
+  pointer-events:none;
+}
+.btn:hover:after{background-position:220% 0}
+.brand img{animation:floaty 5.5s ease-in-out infinite}
+.support-note{animation:gentle-wiggle 5s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
 </style>
 </head>
 <body>
