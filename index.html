@@ -633,6 +633,35 @@ section:not(.hero){
 html{scroll-behavior:auto!important}
 .reveal{transition:opacity .2s ease,transform .2s ease!important}
 section{scroll-margin-top:82px}
+
+/* Restore roomy spacing and prevent cards/text from getting cramped */
+main{width:100%;overflow:visible}
+section{width:100%;padding-left:clamp(24px,7vw,100px)!important;padding-right:clamp(24px,7vw,100px)!important}
+.hero{grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr)!important;gap:clamp(28px,5vw,64px)!important}
+.hero>div,.about-grid>*,.cards>.card,.menu-card>div{min-width:0}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}
+.card{padding:30px!important;min-height:230px}
+.menu-card{width:min(100%,900px);padding:34px!important;gap:28px!important}
+.menu-card>div:last-child{flex:1;min-width:0}
+.section-head{width:min(100%,780px);margin:0 auto 42px!important}
+.section-head p,.about-copy p,.menu-card p,.card p,.location-box p,.contact p{
+  display:block!important;width:fit-content;max-width:100%;margin:12px auto!important
+}
+.about-copy p{text-align:left}
+.card h3,.menu-card h3{max-width:100%;white-space:normal}
+.nav{flex-wrap:wrap;row-gap:10px}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr!important;text-align:center}
+ .hero>div:first-child{margin:auto}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .about-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:600px){
+ .cards{grid-template-columns:1fr!important}
+ .menu-card{align-items:center;flex-direction:column;text-align:center}
+ .menu-card>div:last-child{width:100%}
+ .section-head p{width:100%}
+}
 </style>
 </head>
 <body>
