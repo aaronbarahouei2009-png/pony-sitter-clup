@@ -629,6 +629,26 @@ section:not(.hero){
   box-shadow:0 5px 15px #6c91a50c;
 }
 
+
+/* Tiny envelope animation before opening Gmail */
+.contact .gmail-link{position:relative;overflow:hidden}
+.contact .gmail-link.is-opening{animation:mail-pop .42s ease}
+@keyframes mail-pop{
+  0%{transform:scale(1)}
+  35%{transform:scale(1.08) rotate(-2deg)}
+  70%{transform:scale(.96) rotate(2deg)}
+  100%{transform:scale(1)}
+}
+.contact .gmail-link .mail-spark{display:inline-block;margin-left:5px}
+.contact .gmail-link.is-opening .mail-spark{animation:mail-fly .42s ease}
+@keyframes mail-fly{
+  0%{transform:translate(0,0) scale(1);opacity:1}
+  100%{transform:translate(12px,-13px) scale(1.35);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .contact .gmail-link.is-opening,.contact .gmail-link.is-opening .mail-spark{animation:none!important}
+}
+
 /* Pony Sitters Club membership section */
 .members-section{
   background:linear-gradient(145deg,rgba(255,247,218,.96),rgba(239,249,254,.97))!important;
@@ -765,7 +785,7 @@ section{width:100%;padding-left:clamp(24px,7vw,100px)!important;padding-right:cl
 <section class="contact" id="contact">
   <span class="eyebrow">LET'S TALK LEMONADE</span><h2>Contact us 💌</h2>
   <p>Have a question about our lemonade stand or want to ask about a local event? A parent or guardian manages our email, so please get in touch using the button below.</p>
-  <a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pponysitterclub%40gmail.com" target="_blank" rel="noopener noreferrer">Email us with Gmail</a>
+  <a class="btn gmail-link" id="gmail-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pponysitterclub%40gmail.com" target="_blank" rel="noopener noreferrer">Email us with Gmail <span class="mail-spark" aria-hidden="true">✉️</span></a>
   <p class="small">Or use this email address in your mail app: <strong>pponysitterclub@gmail.com</strong></p>
   <p class="small">For everyone’s privacy, please don’t share personal information on this website.</p>
 </section>
@@ -785,6 +805,20 @@ section{width:100%;padding-left:clamp(24px,7vw,100px)!important;padding-right:cl
 </main>
 <footer class="footer">Made with 🍋 and sunshine by <strong>Pony Sitters Club</strong> · Bligh Park, NSW</footer>
 <script>
+const gmailLink=document.getElementById('gmail-link');
+if(gmailLink){
+  gmailLink.addEventListener('click',event=>{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    event.preventDefault();
+    gmailLink.classList.remove('is-opening');
+    void gmailLink.offsetWidth;
+    gmailLink.classList.add('is-opening');
+    window.setTimeout(()=>{
+      window.open(gmailLink.href,'_blank','noopener');
+      gmailLink.classList.remove('is-opening');
+    },380);
+  });
+}
 const items=document.querySelectorAll('.reveal');
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}})},{threshold:.12});items.forEach(item=>observer.observe(item));}else{items.forEach(item=>item.classList.add('show'));}
 </script>
