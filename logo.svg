@@ -1,26 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" role="img" aria-labelledby="title desc">
-<title id="title">Pony Sitters Club</title><desc id="desc">Blue and yellow checkerboard logo with a pony, horseshoe and stars.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="t d">
+<title id="t">Pony Sitters Club</title><desc id="d">Bold square Pony Sitters Club badge with a brown pony, light blue and bright yellow details.</desc>
 <defs>
- <pattern id="checks" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#fff4c9"/><rect width="12" height="12" fill="#9bcde8"/><rect x="12" y="12" width="12" height="12" fill="#9bcde8"/></pattern>
- <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#6eb6df"/><stop offset="1" stop-color="#2777b5"/></linearGradient>
- <linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff3a7"/><stop offset="1" stop-color="#f5ce48"/></linearGradient>
- <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#426d88" flood-opacity=".22"/></filter>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#bfe8fb"/><stop offset="1" stop-color="#78bce5"/></linearGradient>
+ <linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff18a"/><stop offset="1" stop-color="#f3c52e"/></linearGradient>
+ <linearGradient id="mane" x2="1" y2="1"><stop stop-color="#805033"/><stop offset="1" stop-color="#422a20"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#23445a" flood-opacity=".2"/></filter>
 </defs>
-<rect x="4" y="5" width="612" height="140" rx="32" fill="#fffdf4" stroke="#f0d875" stroke-width="5" filter="url(#shadow)"/>
-<rect x="13" y="14" width="594" height="122" rx="25" fill="url(#checks)" opacity=".72"/>
-<g transform="translate(28 21)">
- <path d="M44 100c-9-15-13-29-9-43 4-14 15-24 30-29l9-16 19 8 13-6 14 17c12 8 17 20 15 34l-5 25-15 13-6 19H83l-7-19-14 2z" fill="#fffdf5" stroke="#72acd0" stroke-width="4" stroke-linejoin="round"/>
- <path d="M48 43 34 17l24 13M105 28l17-21 5 34" fill="#fffdf5" stroke="#72acd0" stroke-width="4" stroke-linejoin="round"/>
- <path d="M48 59c-11 8-16 20-14 34M65 34c-4 13-2 24 6 32" fill="none" stroke="#d5b77c" stroke-width="5" stroke-linecap="round"/>
- <path d="M52 49q12-10 24 0-12 15-24 0" fill="#69aee0" stroke="#2777b5" stroke-width="2"/>
- <circle cx="96" cy="58" r="4" fill="#314b5d"/>
- <path d="M110 78q-9 8-18 1" fill="none" stroke="#a9b5bb" stroke-width="2" stroke-linecap="round"/>
- <path d="M31 110q-18 9-19 23" fill="none" stroke="#d5b77c" stroke-width="5" stroke-linecap="round"/>
+<rect x="14" y="14" width="612" height="612" rx="82" fill="#fff9e4" stroke="#f0ca43" stroke-width="12"/>
+<rect x="34" y="34" width="572" height="572" rx="66" fill="url(#sky)"/>
+<g opacity=".95" fill="url(#gold)">
+ <path d="M70 72h66v66H70zM136 138h66v66h-66zM202 72h66v66h-66zM70 204h66v66H70zM466 72h66v66h-66zM532 138h66v66h-66zM466 204h66v66h-66zM532 270h66v66h-66z"/>
+ <path d="m510 55 12 25 28 4-20 19 5 28-25-13-25 13 5-28-20-19 28-4z"/>
 </g>
-<g filter="url(#shadow)" font-family="Trebuchet MS,Arial,sans-serif" font-weight="900" text-anchor="middle">
- <text x="355" y="70" font-size="43" fill="url(#blue)" stroke="#fff" stroke-width="7" paint-order="stroke">Pony Sitters</text>
- <text x="355" y="116" font-size="43" fill="url(#gold)" stroke="#fff" stroke-width="7" paint-order="stroke">Club</text>
+<circle cx="320" cy="280" r="190" fill="#e9f7ff" stroke="#fff9e4" stroke-width="12" filter="url(#s)"/>
+<g transform="translate(120 90)" stroke="#39271f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M101 315c-30-42-40-93-23-142 15-44 49-72 99-83l31-56 48 39 57-11 42 53c35 25 48 64 38 110l-21 71-47 36-15 57H206l-15-54-53 5z" fill="url(#mane)"/>
+ <path d="m177 112-43-76 87 41m95 6 53-61-2 103" fill="#69432c"/>
+ <path d="M112 169q-50 62-22 136M204 104q-18 50 8 89" fill="none" stroke="#a9784e" stroke-width="19"/>
+ <path d="M264 184q18-18 42 0" fill="none" stroke="#fff1cf" stroke-width="10"/>
+ <circle cx="303" cy="192" r="11" fill="#fff9e4" stroke="none"/>
+ <circle cx="307" cy="192" r="5" fill="#29231f" stroke="none"/>
+ <path d="M328 232q-23 17-46 0" fill="none" stroke="#e8c7a2" stroke-width="7"/>
+ <path d="M160 373q-51 25-64 70" fill="none" stroke="#69432c" stroke-width="18"/>
 </g>
-<path d="m544 29 5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#f5d44f" stroke="#fff" stroke-width="2"/>
-<path d="m573 99 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#68aee0" stroke="#fff" stroke-width="2"/>
+<rect x="76" y="475" width="488" height="104" rx="28" fill="#fff6c9" stroke="#f0c83f" stroke-width="7" filter="url(#s)"/>
+<text x="320" y="520" text-anchor="middle" font-family="Arial,sans-serif" font-size="35" font-weight="900" letter-spacing="2" fill="#29465b">PONY SITTERS</text>
+<text x="320" y="560" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" font-weight="900" letter-spacing="7" fill="#b77b19">CLUB</text>
 </svg>
